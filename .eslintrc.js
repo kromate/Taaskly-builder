@@ -18,15 +18,21 @@ module.exports = {
 	},
 	plugins: [
 		'vue',
-		'@typescript-eslint'
+		'@typescript-eslint',
+		'unused-imports'
 	],
 	rules: {
 		'vue/no-v-html': 'off',
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-tabs': 'off',
+		'vue/max-attributes-per-line': 'off',
+		'vue/first-attribute-linebreak': 'off',
+		'vue/html-closing-bracket-newline': 'off',
+		'vue/no-v-model-argument': 'off',
 		'no-unused-expressions': 'off',
 		'no-unused-vars': 'off',
+		'no-prototype-builtins': 'off',
 		'import/no-mutable-exports': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off',
@@ -36,7 +42,6 @@ module.exports = {
 		'import/no-named-as-default': 'off',
 		'vue/no-template-shadow': 'off',
 		'no-var': 'error',
-		'unused-import': 'off',
 		'space-before-function-paren': 'off',
 		camelcase: 'off',
 		'accessor-pairs': 'off',
@@ -52,7 +57,7 @@ module.exports = {
 		'vue/multi-word-component-names': 'off',
 		curly: 'off',
 		'vue/html-indent': [
-			'warn',
+			'off',
 			'tab',
 			{
 				attribute: 1,
@@ -67,6 +72,7 @@ module.exports = {
 		'require-atomic-updates': 'off',
 		'require-await': 'off'
 	},
+
 	overrides: [
 		{
 			files: [
