@@ -41,6 +41,8 @@
 		"vite-plugin-eslint": "^1.7.0"
 	},
 	"dependencies": {
+		"gsap": "^3.11.5",
+		"monaco-editor": "^0.38.0",
 		"postcss-custom-properties": "^12.1.11"
 	}
 }

@@ -18,8 +18,7 @@ module.exports = {
 	},
 	plugins: [
 		'vue',
-		'@typescript-eslint',
-		'unused-imports'
+		'@typescript-eslint'
 	],
 	rules: {
 		'vue/no-v-html': 'off',

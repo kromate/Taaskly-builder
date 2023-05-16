@@ -1,21 +1,10 @@
 import { fileURLToPath, URL } from 'node:url'
 import eslintPlugin from 'vite-plugin-eslint'
+import app from './app.config'
 
 export default {
 	ssr: false,
 	target: 'static',
-	app: {
-	head: {
-		title: 'Test',
-		htmlAttrs: { lang: 'en' },
-		meta: [
-			{ charset: 'utf-8' },
-			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ name: 'format-detection', content: 'telephone=no' }
-		],
-		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
-	}
-	},
 
 	alias: {
 		'@': './src'
@@ -55,5 +44,6 @@ export default {
 				'@': fileURLToPath(new URL('./src', import.meta.url))
 			}
 		}
-	}
+	},
+	app
 }

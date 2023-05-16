@@ -1,16 +1,39 @@
 <template>
-	<div class="text-8xl font-bold">
-		Hello World
-		<icon name="arrowForward" class="w-20 text-red-800" />
-		<icon name="invoice" class="w-20 text-[#F0A202]" />
-		<icon name="invoice" class="w-20 text-[#D95D39]" />
-	</div>
+	<main class="flex flex-col ">
+	Hello
+	</main>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+
+const buttons = ref([
+	{
+		title: 'Outsource a Task',
+		link: '/main/home',
+		icon: 'post'
+	},
+	{
+		title: 'Find a service',
+		link: '/main/service',
+		icon: 'search'
+	},
+	{
+		title: 'Find a shop',
+		link: '/main/shop',
+		icon: 'biz'
+	}
+])
+
 definePageMeta({
-	layout: 'default'
+	layout: 'landing'
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+        font-size: clamp(40px, 8.8vw, 58px);
+        font-weight: 800;
+		line-height: clamp(40px, 9vw, 75px) ;
+    }
+
+</style>
