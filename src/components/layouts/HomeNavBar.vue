@@ -1,11 +1,11 @@
 <template>
-	<nav class="w-full md:h-20 h-16  center fixed top-0 z-20 inset-x-0 bg-light border-b-[3px] border-dark md:px-[22px]">
+	<nav class="w-full md:h-20 h-[70px]  center fixed top-0 z-20 inset-x-0 bg-light border-b-[3px] border-dark md:px-[22px]">
 		<header class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0 ">
 			<a href="/">
-				<img src="/logo-text.svg" alt="logo" width="116" height="28">
+				<img src="/logo-site.svg" alt="logo" width="116" height="28">
 			</a>
 
-			<div class="pc items-center gap-4">
+			<!-- <div class="pc items-center gap-4">
 				<span v-for="link in links" :key="link.text" class="btn p-[10px] text-[#453131] font-medium">
 					<a v-if="link.external" target="_blank" :href="link.route">
 						{{ link.text }}
@@ -14,7 +14,7 @@
 						{{ link.text }}
 					</nuxt-link>
 				</span>
-			</div>
+			</div> -->
 
 			<div class=" items-center justify-between gap-3 pc">
 				<nuxt-link to="/auth/login" class="btn">
@@ -25,11 +25,11 @@
 				</nuxt-link>
 			</div>
 
-			<component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" />
+			<!-- <component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" /> -->
 		</header>
 
-		<transition v-if="show" name="slide" appear>
-			<div class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden">
+		<!-- <transition v-if="show" name="slide" appear>
+			<div class="flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white mobile">
 				<nuxt-link to="/#features" class="mobile-link">
 					Features
 				</nuxt-link>
@@ -49,7 +49,7 @@
 					Sign up
 				</nuxt-link>
 			</div>
-		</transition>
+		</transition> -->
 	</nav>
 </template>
 
@@ -75,7 +75,7 @@ const links = [
 	@apply pb-4 font-medium
 }
 .btn {
-	@apply text-sm
+	@apply text-sm w-24 h-10
 }
 
 .slide-enter-active,

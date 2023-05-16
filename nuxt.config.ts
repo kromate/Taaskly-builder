@@ -10,7 +10,7 @@ export default {
 		'@': './src'
 	},
 
-	css: ['/src/assets/css/main.css'],
+	css: ['/src/assets/css/main.scss'],
 	components: [
 		'@/components',
 		{ path: '@/components/core', extensions: ['vue'] }
@@ -28,7 +28,7 @@ export default {
 		middleware: './src/middleware'
 	},
 	tailwindcss: {
-		cssPath: '@/assets/css/main.css'
+		cssPath: '@/assets/css/main.scss'
 	},
 	vite: {
 		plugins: [

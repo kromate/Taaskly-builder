@@ -1,0 +1,33 @@
+.tooltip {
+  position: fixed;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+.tooltip.top {
+  transform: translateY(-10%);
+}
+
+.tooltip.right {
+  transform: translateX(100%);
+}
+
+.tooltip.bottom {
+  transform: translateY(100%);
+}
+
+.tooltip.left {
+  transform: translateX(-100%);
+}
+
+/* ... */

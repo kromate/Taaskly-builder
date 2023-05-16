@@ -1,0 +1,11 @@
+@import url('./components.scss');
+@import url('./tooltip.css');
+@import url('./variables.css');
+@import url('./global.css');
+@import url('./transition.css');
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

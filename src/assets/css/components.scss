@@ -1,0 +1,146 @@
+@layer components {
+    .field {
+        @apply flex flex-col w-full items-start;
+    }
+
+    label,
+    .label {
+        @apply font-medium text-base text-dark mb-1 flex gap-2;
+    }
+
+    .input-field {
+        @apply border border-gray-400 w-full h-11 px-4 rounded-md outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+    }
+
+    .input-select {
+        @apply border border-gray-400 w-full h-11 px-4 rounded-md outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+    }
+
+    .input-textarea {
+        @apply border border-gray-400 w-full p-4 rounded-md outline-none hover:border-2 focus:border focus:border-primary transition-all duration-200 ease-in;
+    }
+
+    .main-layout {
+        @apply container flex justify-center items-center min-h-screen py-12 px-2.5;
+    }
+
+    .auth-box {
+        @apply w-[450px] mx-auto relative inset-x-0 top-5 max-w-[100%] bg-light px-9 py-7 flex flex-col items-center gap-2 shadow-md border border-dark rounded-md;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .auth-title {
+        @apply font-bold text-xl text-center flex w-full items-center justify-center relative text-primary;
+    }
+
+    .auth-form {
+        @apply flex flex-col gap-4 overflow-y-auto w-full items-center;
+    }
+
+    .btn {
+        @apply rounded-md px-4 py-2 flex justify-center items-center disabled:bg-gray-500 box-border h-11;
+    }
+
+    .btn-primary {
+        @apply btn bg-primary text-light;
+    }
+
+    .btn-primary-inverse {
+        @apply btn bg-light text-primary;
+    }
+
+    .btn-secondary {
+        @apply btn bg-light text-primary border-2 border-primary;
+    }
+
+    .pc {
+        @apply hidden lg:flex;
+    }
+
+    .mobile {
+        @apply flex lg:hidden;
+    }
+
+    .modal {
+        @apply bg-white flex flex-col items-start gap-4 px-8 p-6 max-h-screen sm:rounded-md sm:w-[470px] max-w-[100%]   overflow-y-auto shadow-md border border-dark transite;
+    }
+
+    .modal-title {
+        @apply font-bold text-2xl text-start w-full text-dark pb-4;
+    }
+
+    .modal-btn {
+        @apply rounded-md px-4 py-3 border-2 border-primary text-primary hover:text-light hover:bg-primary transite w-full flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
+    }
+        .modal-btn-sm {
+        @apply modal-btn h-10 center px-7 
+    }
+
+    .modal-btn-red {
+        @apply rounded-md px-4 py-3 border-2 border-red text-red hover:text-light hover:bg-red transite w-full mt-6 flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
+    }
+
+    .sidebar {
+        @apply fixed inset-y-0 left-0;
+        width: 280px;
+        height: 100vh;
+        z-index: 100;
+        padding: 1.8rem 0.8rem;
+        background: #fff;
+        position: relative;
+        box-shadow: 5px 0 20px 2px rgb(0 0 0 / 20%);
+    }
+
+    .page-title {
+        @apply text-primary font-bold text-2xl pb-2;
+    }
+
+    .tab-body {
+        @apply inline-flex items-center w-full z-10 p-1 top-4 outline-none rounded-md overflow-auto bg-light text-xs text-grey_two;
+    }
+
+    .tab-item {
+        @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-md whitespace-nowrap;
+    }
+
+    .active {
+        @apply opacity-100 text-dark border-2 border-dark shadow;
+    }
+
+    .label-radio {
+        @apply m-0 px-5 py-2 w-full text-center flex-1 items-center justify-center;
+    }
+
+ 
+
+    .card-body {
+        @apply flex p-4 border-dark cursor-pointer transite;
+    }
+
+    .card-body:last-child {
+        @apply border-b;
+    }
+
+    .mx-datepicker {
+        @apply !w-full
+    }
+
+    .menu-btn {
+        @apply flex items-center justify-center font-semibold border-2 border-primary text-primary hover:scale-105 duration-200 w-[190px] h-11 px-6 text-base rounded-md;
+
+        &:hover {
+            @apply bg-primary text-light;
+        }
+    }
+
+     .form-height {
+            @apply  md:h-auto overflow-y-auto;
+        }
+}
+
+input:disabled, textarea:disabled, select:disabled{
+	@apply bg-[#e3e3e352]
+}
