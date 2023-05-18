@@ -2,10 +2,13 @@
 	<main class="main-layout">
 		<div class="auth-box">
 			<h1 class="auth-title">
-				Welcome back
+				Create an account
+			</h1>
+			<h1 v-if="referred" class="auth-title text-sm ">
+				You have been referred by {{ referred }}
 			</h1>
 			<p class="text-sm text-center mb-2">
-				We encourage passwordless login being more secure and safe
+				We encourage passwordless sign up being more secure and safe
 			</p>
 			<form class="auth-form" @submit.prevent="send_email()">
 				<div class="field">
@@ -19,6 +22,7 @@
 						required
 					>
 				</div>
+
 				<button class="btn-primary w-full mt-2" :disabled="passwordlessLoginLoading || disabled" type="submit">
 					<span v-if="!passwordlessLoginLoading"> 	Send link to email</span>
 					<Spinner v-else />
@@ -30,13 +34,13 @@
 				<div class="border-line border-b h-1 flex-1" />
 			</div>
 			<button class="btn-secondary w-full" :disabled="loading" @click="googleSignin()">
-				<span v-if="!loading" class="flex items-center gap-3"> <icon name="google" class="w-4" /> 	Sign in with Google</span>
+				<span v-if="!loading" class="flex items-center gap-3"> <icon name="google" class="w-4" /> 	Sign up with Google</span>
 				<Spinner v-else />
 			</button>
 
 			<p class="text-sm mt-4 text-center">
-				Don't have an Account? <nuxt-link to="/auth/register" class="font-bold italic">
-					Sign up
+				Already have an Account? <nuxt-link to="/auth/login" class="font-bold italic">
+					Sign in
 				</nuxt-link>
 			</p>
 		</div>
@@ -44,10 +48,17 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useSignin, usePasswordlessSignin } from '@/composables/auth'
 const { googleSignin, loading } = useSignin()
 
 const { credentienals, loading: passwordlessLoginLoading, disabled, send_email } = usePasswordlessSignin()
+
+const referred = ref('')
+onMounted(() => {
+	referred.value = useRoute().query.refer as string
+	localStorage.setItem('taaskly_referral', referred.value)
+})
 
 definePageMeta({
 	layout: 'auth',
