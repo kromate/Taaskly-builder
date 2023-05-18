@@ -1,0 +1,31 @@
+{
+  "name": "shops_1",
+  "fields": [
+    {
+      "name": "category.id",
+      "type": "string",
+    "facet": true
+    },
+    {
+      "name": "category.name",
+      "type": "string",
+    "facet": true
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "facet": true
+    },
+    {
+      "desc": "created_at",
+      "type": "string"
+    },
+    {
+      "desc": "name",
+      "type": "string"
+    },
+
+  ],
+  "default_sorting_field": "num_employees",
+  "enable_nested_fields": true
+}

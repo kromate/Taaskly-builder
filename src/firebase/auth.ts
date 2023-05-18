@@ -16,7 +16,6 @@ const { clearUser, setUser } = useUser()
 
 if (process.client) {
 	onAuthStateChanged(auth, async(user) => {
-		console.log(user)
 	if (user) setUser(user)
 	else await clearUser()
 })

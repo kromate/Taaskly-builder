@@ -28,7 +28,6 @@ export const usePasswordlessSignin = () => {
 			useRouter().push(`/auth/sentEmail/?email=${credentienals.email.value}`)
 		} catch (e: any) {
 			useAlert().openAlert({ type: 'ERROR', msg: e.message })
-			console.log(e)
 		}
 		// loading.value = false
     }
