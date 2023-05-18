@@ -1,10 +1,18 @@
 <template>
-	<div>
-		This is the Auth layout
+	<div class="layout-body">
 		<slot />
+		<ModalBase />
+		<PageLoading />
+		<Alert />
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
-<style scoped></style>
+<style scoped>
+.layout-body{
+	  background: var(--light);
+
+}
+</style>

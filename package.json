@@ -41,8 +41,11 @@
 		"vite-plugin-eslint": "^1.7.0"
 	},
 	"dependencies": {
+		"@vueuse/core": "^10.1.2",
+		"firebase": "^9.22.0",
 		"gsap": "^3.11.5",
 		"monaco-editor": "^0.38.0",
-		"postcss-custom-properties": "^12.1.11"
+		"postcss-custom-properties": "^12.1.11",
+		"uuid": "^9.0.0"
 	}
 }
