@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "taaskly",
+    "dev": "taaskly-dev"
+  },
+  "targets": {},
+  "etags": {
+    "taaskly": {
+      "extensionInstances": {}
+    }
+  }
+}
