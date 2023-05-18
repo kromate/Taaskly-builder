@@ -21,7 +21,6 @@ isSupported().then((supported) => {
     analytics = getAnalytics(app)
   }
 })
-
 export const auth = process.client ? getAuth(app) : {} as any
 export const db = process.client ? getFirestore(app) : {} as any
 export const storage = process.client ? getStorage(app) : {} as any
