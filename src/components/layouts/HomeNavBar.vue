@@ -28,28 +28,6 @@
 			<!-- <component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" /> -->
 		</header>
 
-		<!-- <transition v-if="show" name="slide" appear>
-			<div class="flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white mobile">
-				<nuxt-link to="/#features" class="mobile-link">
-					Features
-				</nuxt-link>
-				<nuxt-link to="/business" class="mobile-link">
-					For businesses
-				</nuxt-link>
-				<nuxt-link to="/leaderboard" class="mobile-link">
-					Refferal Leaderboard
-				</nuxt-link>
-				<a href="https://chat.whatsapp.com/DLv42eltnIX2AbRhv8eTZx" class="mobile-link">
-					Join the Community
-				</a>
-				<nuxt-link to="/auth/login" class="btn-secondary mb-4 w-full">
-					Log In
-				</nuxt-link>
-				<nuxt-link to="/auth/register" class="btn-primary w-full">
-					Sign up
-				</nuxt-link>
-			</div>
-		</transition> -->
 	</nav>
 </template>
 
