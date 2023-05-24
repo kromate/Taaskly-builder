@@ -41,7 +41,7 @@ watch(active, (value) => {
 		BORDER_WIDTH.value = 100
 		intervalSequence = setInterval(() => {
 		const substractedValue	= (100 / (ALERT_DURATION / 75)).toFixed(1)
-		BORDER_WIDTH.value -= substractedValue
+		BORDER_WIDTH.value -= Number(substractedValue)
 		}, 75)
 
 		setTimeout(() => { clearInterval(intervalSequence) }, ALERT_DURATION)

@@ -1,5 +1,5 @@
 <template>
-	<div class="layout-body">
+	<div>
 		<slot />
 		<ModalBase />
 		<PageLoading />
@@ -9,10 +9,3 @@
 
 <script setup lang="ts">
 </script>
-
-<style scoped>
-.layout-body{
-	  background: var(--light);
-
-}
-</style>
