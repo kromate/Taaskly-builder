@@ -4,7 +4,7 @@
   >
     <div class="h-full relative py-4">
       <div class="w-full flex justify-start pl-6">
-        <img src="/logo-text.svg" alt="logo" class="w-36" />
+        <img src="/logo-site.svg" alt="logo" class="w-36" />
       </div>
 
       <div class="relative mt-[70px]">
@@ -71,7 +71,6 @@
 import { mainRoutes } from '@/composables/utils/menu'
 import { useAuthModal } from '@/composables/core/modals'
 import signOut from '~~/src/assets/icons/src/signOut.vue'
-
 </script>
 
 <style scoped lang="scss">

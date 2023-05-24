@@ -1,11 +1,11 @@
 <template>
   <div
-    class="flex w-full h-screen bg-light relative md:py-0 lg:px-4 px-0 overflow-y-hidden"
+    class="flex w-full h-screen bg-light relative md:py-0 lg:pl-4 px-0 overflow-y-hidden"
   >
     <SidebarsLeftSidebar />
 
     <div
-      class="relative bg-light page w-full border-l pl-4 border-dark mx h-screen sm:h-auto mt overflow-hidden"
+      class="relative bg-light page w-full border-l  border-dark mx h-screen sm:h-auto mt overflow-hidden"
     >
       <TopbarMainDefaultTopbar />
       <Alert />

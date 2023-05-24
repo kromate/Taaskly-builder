@@ -38,14 +38,14 @@
 					</div>
 				</div>
 
-				<div class="absolute bottom-12 flex flex-col w-full">
+				<!-- <div class="absolute bottom-12 flex flex-col w-full">
 					<button class="btn  border border-primary w-full mt-3 hover:bg-primary hover:text-light transite" @click="hasAShop ? $router.push('/shop') : useCoreModal().openCreateShop()">
 						{{ hasAShop ? 'Go To Shop' : 'Create a Shop' }}
 					</button>
 					<button class="btn  border border-secondary text-secondary w-full mt-3 hover:bg-secondary hover:text-light transite" @click="hasAService ? $router.push('/service') : useCoreModal().openCreateService()">
 						{{ hasAService ? 'Go To Service':'Create a Service' }}
 					</button>
-				</div>
+				</div> -->
 			</div>
 		</aside>
 	</Modal>
@@ -55,9 +55,6 @@
 import Modal from '@/components/core/modal/Modal.vue'
 import { useUser } from '@/composables/auth/user'
 import { mainRoutes } from '@/composables/utils/menu'
-import { hasAShop } from '@/composables/shops/fetch'
-import { hasAService } from '@/composables/services/fetch'
-import { useCoreModal } from '@/composables/core/modals'
 const { user, username } = useUser()
 </script>
 
