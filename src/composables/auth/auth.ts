@@ -39,10 +39,10 @@ export const useSignin = () => {
   const signOut = async () => {
     loading.value = true
     useLoading().openLoading('Signing You out...😗')
+    console.log('hey')
     try {
       await signOutUser()
-      if (location.pathname === '/auth/profile')
-        useRouter().push('/auth/login')
+      await useRouter().push('/auth/login')
       useAuthModal().closeLogout()
       useAlert().openAlert({ type: 'SUCCESS', msg: 'Signed out successfully' })
     } catch {
