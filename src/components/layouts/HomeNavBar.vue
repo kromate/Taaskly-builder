@@ -27,8 +27,7 @@
 
 			<!-- <component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" /> -->
 		</header>
-
-	</nav>
+</nav>
 </template>
 
 <script setup lang="ts">

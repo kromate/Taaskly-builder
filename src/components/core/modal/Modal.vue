@@ -34,10 +34,8 @@
 <script lang="ts" setup>
 import gsap from 'gsap'
 import { PropType } from 'vue'
-import { modal } from '@/composables/core/modals'
-// window.addEventListener('resize', () => {
-// closeModal()
-// })
+import { modal as Modal } from '@/composables/core/modals'
+
 watch(useRoute(), (from, to) => {
 	closeModal()
 })
@@ -84,7 +82,7 @@ const close = (e) => {
 }
 
 const closeModal = () => {
-	modal.close(props.modal)
+	Modal.close(props.modal)
 }
 </script>
 

@@ -6,7 +6,7 @@
       class="w-full container mx-auto shadow-nav md:shadow-none flex items-center justify-between z-20 px-5 md:px-0"
     >
       <a href="/">
-        <img src="/logo-site.svg" alt="logo" width="116" height="28" />
+        <img src="/logo-site.svg" alt="logo" width="116" height="28">
       </a>
 
       <div class="items-center justify-between gap-3 pc">

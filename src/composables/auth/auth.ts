@@ -39,7 +39,6 @@ export const useSignin = () => {
   const signOut = async () => {
     loading.value = true
     useLoading().openLoading('Signing You out...😗')
-    console.log('hey')
     try {
       await signOutUser()
       await useRouter().push('/auth/login')

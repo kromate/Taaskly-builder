@@ -39,7 +39,7 @@
           type="text"
           class="input-field min-w-[250px] focus:border-[#4f1ded]"
           placeholder="Search Sites"
-        />
+        >
       </div>
       <button
         class="modal-btn-sm text-[#4f1ded] border-[#4f1ded] hover:bg-[#4f1ded]"
