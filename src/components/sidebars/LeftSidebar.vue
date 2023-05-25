@@ -4,7 +4,7 @@
   >
     <div class="h-full relative py-4">
       <div class="w-full flex justify-start pl-6">
-        <img src="/logo-site.svg" alt="logo" class="w-36" />
+        <img src="/logo-site.svg" alt="logo" class="w-36">
       </div>
 
       <div class="relative mt-[70px]">
@@ -61,7 +61,9 @@
 
       <button class="menu-btn transite" @click="useAuthModal().openLogout()">
         <signOut class="w-6 mr-4" />
-        <p class="text-base">Logout</p>
+        <p class="text-base">
+Logout
+</p>
       </button>
     </div>
   </aside>
