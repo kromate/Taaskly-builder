@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "taaskly",
+    "default": "taaskly-dev",
     "dev": "taaskly-dev"
   },
   "targets": {},
