@@ -4,10 +4,10 @@
       welcome back, {{ username }}
     </h1>
 
-    <section class="grid grid-cols-3">
+    <section class="grid md:grid-cols-3">
       <article class="border border-primary rounded-md w-full h-[200px] shadow-xl  p-4 flex flex-col justify-between relative">
         <div class="flex flex-col gap-1">
-          <h3 class="font-bold text-xl pr-6">
+          <h3 class="font-bold text-xl md:pr-6 pr-12">
             Let's get started on create your next awesome website
           </h3>
           <span>it's easier than you think</span>
@@ -29,7 +29,7 @@ import Add from '@/assets/icons/src/add.vue'
 import Shine from '@/assets/icons/src/shine.vue'
 definePageMeta({
   layout: 'default',
-  middleware: ['has-no-profile']
+  middleware: ['has-no-profile', 'is-authenticated']
 })
 const { username } = useUser()
 </script>
