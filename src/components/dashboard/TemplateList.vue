@@ -1,6 +1,6 @@
 <template>
       <section class="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
-      <TemplateCard v-for="site in listOfSites" :key="site.id" />
+      <TemplateCard v-for="site in site_list" :key="site.id" :data="site" />
        <article class="border border-primary rounded-md w-full h-[200px] shadow-xl  p-4 flex flex-col justify-between relative">
         <div class="flex flex-col gap-1">
           <h3 class="font-bold text-xl md:pr-6 pr-12">
@@ -23,8 +23,10 @@ import TemplateCard from './TemplateCard.vue'
 import Add from '@/assets/icons/src/add.vue'
 import Shine from '@/assets/icons/src/shine.vue'
 import { useCoreModal } from '@/composables/core/modals'
+import { useFetchUserSites } from '@/composables/sites/fetch'
 
-const listOfSites = ref([] as any)
+const { fetch, loading, site_list } = useFetchUserSites()
+fetch()
 </script>
 
 <style scoped>

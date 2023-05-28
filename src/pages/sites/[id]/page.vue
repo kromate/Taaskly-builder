@@ -1,6 +1,6 @@
 <template>
     <div>
-hello
+This is a page view and should displace a list of pages
     </div>
 </template>
 

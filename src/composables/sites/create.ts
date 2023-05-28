@@ -8,6 +8,7 @@ import { profileData } from '@/composables/auth/profile'
 
 const createSiteForm = {
     name: ref(''),
+    desc: ref(''),
 	created_at: ref(serverTimestamp()),
 	updated_at: ref(serverTimestamp())
 }
@@ -16,6 +17,7 @@ const { id: user_id, username, user } = useUser()
 
 const resetForm = () => {
 	createSiteForm.name.value = ''
+	createSiteForm.desc.value = ''
 	createSiteForm.created_at.value = serverTimestamp()
 	createSiteForm.updated_at.value = serverTimestamp()
 }
@@ -27,6 +29,7 @@ export const useCreateSite = () => {
 		const sentData = {
 			user_id: user_id.value,
 			name: createSiteForm.name.value,
+			desc: createSiteForm.desc.value,
 			created_at: createSiteForm.created_at.value,
 			updated_at: createSiteForm.updated_at.value,
 			user: {

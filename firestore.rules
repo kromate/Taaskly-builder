@@ -104,9 +104,9 @@ service cloud.firestore {
       }
     }
     match /sites/{siteId} {
-      allow read: if request.auth.uid == userId;
-      allow create: if true
-      allow update, delete: if exists(/databases/{database}/documents/users/{userId}) == false;
+      allow read: if request.auth.uid == resource.data.user_id;
+      allow create: if true;
+      allow update, delete: if true;
     }
   }
   
