@@ -10,7 +10,7 @@
       <TopbarMainDefaultTopbar />
       <Alert />
       <div
-        class="w-full h-full relative overflow-x-hidden bg-light mt-[98px] pb-40"
+        class="w-full h-full relative overflow-x-hidden bg-light mt-8  pb-40"
       >
         <section class="flex-col flex items-stretch">
           <slot />

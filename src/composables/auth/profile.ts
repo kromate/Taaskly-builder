@@ -9,6 +9,7 @@ import { callFirebaseFunction } from '@/firebase/functions'
 const profileFormState = {
 	username: ref(''),
 	first_name: ref(''),
+	photo_url: ref(''),
 	last_name: ref(''),
 	email: ref(''),
 	phone: ref(''),
@@ -38,11 +39,11 @@ export const useCreateProfile = () => {
 	})
 	const createProfile = async () => {
 		loading.value = true
-		if (formStep.value === 1) {
-			formStep.value = 2
-			loading.value = false
-			return
-		}
+		// if (formStep.value === 1) {
+		// 	formStep.value = 2
+		// 	loading.value = false
+		// 	return
+		// }
 		const profileUploadData = {
 			id: id.value,
 			username: profileFormState.username.value,
@@ -81,6 +82,7 @@ export const useCreateProfile = () => {
 
 	const initForm = () => {
 		profileFormState.email.value = useUser().user?.email as string
+		profileFormState.photo_url.value = useUser().user?.photoURL as string
 		profileFormState.first_name.value = useUser().user?.displayName?.split(
 			' '
 		)[0] as string
