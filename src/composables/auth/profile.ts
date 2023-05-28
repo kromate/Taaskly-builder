@@ -39,11 +39,11 @@ export const useCreateProfile = () => {
 	})
 	const createProfile = async () => {
 		loading.value = true
-		if (formStep.value === 1) {
-			formStep.value = 2
-			loading.value = false
-			return
-		}
+		// if (formStep.value === 1) {
+		// 	formStep.value = 2
+		// 	loading.value = false
+		// 	return
+		// }
 		const profileUploadData = {
 			id: id.value,
 			username: profileFormState.username.value,

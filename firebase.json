@@ -1,8 +1,8 @@
 {
   "functions": [
     {
-      "source": "functions",
-      "codebase": "default",
+      "source": "sf",
+      "codebase": "sites",
       "ignore": [
         "node_modules",
         ".git",
