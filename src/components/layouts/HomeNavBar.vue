@@ -86,4 +86,5 @@ const links = [
 .slide-leave-to {
 	transform: translateY(-150px);
 }
+
 </style>
