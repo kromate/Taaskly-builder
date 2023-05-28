@@ -1,22 +1,22 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Sign"
+		title="Create a new site"
 		:is-full-height="false"
 	>
 		<form class="auth-form" @submit.prevent="">
 				<div class="field">
-					<label for="email">Email</label>
+					<label for="Site Name">Site Name</label>
 					<input
-						id="email"
-						placeholder="Enter a valid Email address"
-						type="email"
+						id="Site Name"
+						placeholder="My Site"
+						type="text"
 						class="input-field"
 						required
 					>
 				</div>
 				<button class="btn-primary w-full mt-2" type="submit">
-					<span v-if="true"> 	Send link to email</span>
+					<span v-if="true">Create Site</span>
 					<Spinner v-else />
 				</button>
 			</form>

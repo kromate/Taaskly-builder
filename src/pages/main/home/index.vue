@@ -1,13 +1,11 @@
 <template>
-  <section class="px-4">
+  <main class="px-4">
     <h1 class="capitalize mb-6 font-bold text-2xl">
       welcome back, {{ username }}
     </h1>
 
-    <section class="grid md:grid-cols-3">
-      <DashboardTemplateList />
-    </section>
-  </section>
+  <DashboardTemplateList />
+  </main>
 </template>
 
 <script setup>
