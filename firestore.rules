@@ -14,7 +14,7 @@ service cloud.firestore {
       }
   
     match /users/{userId} {
-      allow read: if true;
+      allow read: if request.auth.uid == userId;
       allow create: if true
       allow update, delete: if exists(/databases/{database}/documents/users/{userId}) == false;
         match /on_going_task/{on_going_taskId} {
@@ -28,6 +28,10 @@ service cloud.firestore {
       allow write: if false;
 
       match /transactions/{transactionId} {
+   			allow read: if request.auth.uid != null;
+        allow write: if false;
+      }
+      match /escrows/{escrowId} {
    			allow read: if request.auth.uid != null;
         allow write: if false;
       }
@@ -98,6 +102,11 @@ service cloud.firestore {
         allow read: if true;
         allow create, update, delete: if request.auth.uid == serviceId;
       }
+    }
+    match /sites/{siteId} {
+      allow read: if request.auth.uid == userId;
+      allow create: if true
+      allow update, delete: if exists(/databases/{database}/documents/users/{userId}) == false;
     }
   }
   

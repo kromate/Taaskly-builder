@@ -1,6 +1,6 @@
 import { serverTimestamp } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
-import { setFirestoreSubDocument } from '@/firebase/firestore'
+import { setFirestoreDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useCoreModal, useAuthModal } from '@/composables/core/modals'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
@@ -43,7 +43,7 @@ export const useCreateSite = () => {
         const site_id = uuidv4()
 		try {
 			loading.value = true
-			await setFirestoreSubDocument('users', user_id.value, 'sites', site_id, sentData)
+			await setFirestoreDocument('sites', site_id, sentData)
 			loading.value = false
             useCoreModal().closeCreateSite()
             resetForm()
