@@ -5,6 +5,7 @@
 <script setup lang="ts">
     import * as monaco from 'monaco-editor'
     import { ref, onMounted, onUnmounted } from 'vue'
+    import { useStorage } from '@vueuse/core'
     import { mountHTMLEditor, unMountHTMLEditor } from '@/composables/editor/htmlEditor'
 
     const container = ref<HTMLDivElement|null>(null)

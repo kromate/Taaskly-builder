@@ -4,7 +4,7 @@ import { useStorage, useDebounceFn } from '@vueuse/core'
 import { initialEditorValue } from './initials'
 export let htmlEditor: monaco.editor.IStandaloneCodeEditor
 
-const editorValue = useStorage('editor-value', initialEditorValue)
+const editorValue = useStorage('editor-value', initialEditorValue, localStorage, { mergeDefaults: true })
 
 export const mountHTMLEditor = (container: HTMLDivElement) => {
     htmlEditor = monaco.editor.create(container, {
@@ -13,6 +13,17 @@ export const mountHTMLEditor = (container: HTMLDivElement) => {
         lineHeight: 2
     })
     htmlEditor.setValue(editorValue.value.html)
+    htmlEditor.onDidChangeModelContent(() => {
+        (useDebounceFn(() => {
+            if (editorValue.value.html !== htmlEditor.getValue()!) {
+                editorValue.value.html = htmlEditor.getValue()!
+            }
+        }, 500))()
+    })
+
+    if (editorValue.value.html) {
+        htmlEditor.setValue(editorValue.value.html)
+    }
 }
 
 export const unMountHTMLEditor = () => {
