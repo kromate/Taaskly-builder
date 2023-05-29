@@ -4,11 +4,16 @@
 
 <script setup lang="ts">
     import * as monaco from 'monaco-editor'
-    import { ref, onMounted } from 'vue'
+    import { ref, onMounted, onUnmounted } from 'vue'
+    import { mountHTMLEditor, unMountHTMLEditor } from '@/composables/editor/htmlEditor'
 
     const container = ref<HTMLDivElement|null>(null)
 
     onMounted(() => {
-        const html = monaco.editor.create(container.value!, { language: 'html', theme: 'vs-dark', lineHeight: 2 })
+        mountHTMLEditor(container.value!)
+    })
+
+    onUnmounted(() => {
+        unMountHTMLEditor()
     })
 </script>
