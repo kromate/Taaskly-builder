@@ -23,7 +23,9 @@ import { activeEditor } from '@/composables/editor/htmlEditor'
 definePageMeta({
     layout: 'default'
 })
-const languages = ['html', 'css', 'js']
+
+// js temporarily no available because monaco uses typescript
+const languages = ['html', 'css']
 const iframe = ref<HTMLIFrameElement>()
 
 const changeEditor = (lang) => {

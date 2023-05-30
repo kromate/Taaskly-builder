@@ -12,9 +12,9 @@ export const generateHtml = (payload) => {
         <body>
         ${payload.html}
 
-        <scrip>
+        <script>
             ${payload.js}
-        </scrip>
+        </script>
         </body>
     </html>`
 }

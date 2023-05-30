@@ -9,7 +9,7 @@ export const activeEditor = useStorage('language', 'html')
 
 export const mountHTMLEditor = (container: HTMLDivElement, emit, language) => {
     htmlEditor = monaco.editor.create(container, {
-        language,
+        language: language === 'js' ? 'typescript' : language,
         theme: 'vs-dark',
         lineHeight: 2
     })
