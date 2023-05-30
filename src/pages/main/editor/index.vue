@@ -16,7 +16,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStorage } from '@vueuse/core'
 import HTMLEditor from '@/components/editor/HTMLEditor.vue'
 import { generateHtml } from '@/composables/editor/helpers'
 import { activeEditor } from '@/composables/editor/htmlEditor'
@@ -24,7 +23,6 @@ definePageMeta({
     layout: 'default'
 })
 
-// js temporarily no available because monaco uses typescript
 const languages = ['html', 'css', 'js']
 const iframe = ref<HTMLIFrameElement>()
 

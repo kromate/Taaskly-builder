@@ -1,5 +1,4 @@
 import * as monaco from 'monaco-editor'
-import { watch } from 'vue'
 import { useStorage, useDebounceFn } from '@vueuse/core'
 import { initialEditorValue } from './initials'
 export let htmlEditor: monaco.editor.IStandaloneCodeEditor

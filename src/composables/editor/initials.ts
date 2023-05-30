@@ -1,5 +1,4 @@
-const initialHTMLValue = `
-<!doctype html>
+const initialHTMLValue = `<!doctype html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width" />
@@ -168,10 +167,8 @@ const initialHTMLValue = `
 
 `
 const initialCSSValue = `
-
 `
 const initialJsValue = `
-
 `
 
 export const initialEditorValue = {
