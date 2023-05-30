@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import HTMLEditor from '@/components/editor/HTMLEditor.vue'
+import { generateHtml } from '@/composables/editor/helpers'
 definePageMeta({
     layout: 'default'
 })
@@ -20,6 +21,6 @@ definePageMeta({
 const iframe = ref<HTMLIFrameElement>()
 
 const onChange = (payload) => {
-    iframe.value!.srcdoc = payload.html
+    iframe.value!.srcdoc = generateHtml(payload)
 }
 </script>
