@@ -10,7 +10,11 @@ export const mountHTMLEditor = (container: HTMLDivElement, emit, language) => {
     htmlEditor = monaco.editor.create(container, {
         language: language === 'js' ? 'javascript' : language,
         theme: 'vs-dark',
-        lineHeight: 2
+        lineHeight: 2,
+        minimap: {
+            enabled: false
+        },
+        wordWrap: 'on'
     })
     htmlEditor.setValue(editorValue.value[language])
     htmlEditor.onDidChangeModelContent(() => {

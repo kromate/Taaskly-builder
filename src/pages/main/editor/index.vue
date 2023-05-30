@@ -2,8 +2,8 @@
     <main>
         <div class="grid grid-cols-2 h-screen">
                 <div>
-                    <div>
-                        <button v-for="(lang, index) in languages" :key="index" @click="changeEditor(lang)">
+                    <div class="w-full flex">
+                        <button v-for="(lang, index) in languages" :key="index" :class="['flex-grow text-lg uppercase py-1 border border-black', lang === activeEditor ? 'bg-black text-white' : '']" @click="changeEditor(lang)">
                             {{ lang }}
                         </button>
                     </div>
