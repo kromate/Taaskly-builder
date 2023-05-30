@@ -1,22 +1,23 @@
 import * as monaco from 'monaco-editor'
-import { ref } from 'vue'
+import { watch } from 'vue'
 import { useStorage, useDebounceFn } from '@vueuse/core'
 import { initialEditorValue } from './initials'
 export let htmlEditor: monaco.editor.IStandaloneCodeEditor
 
 const editorValue = useStorage('editor-value', initialEditorValue)
+export const activeEditor = useStorage('language', 'html')
 
-export const mountHTMLEditor = (container: HTMLDivElement, emit) => {
+export const mountHTMLEditor = (container: HTMLDivElement, emit, language) => {
     htmlEditor = monaco.editor.create(container, {
-        language: 'html',
+        language,
         theme: 'vs-dark',
         lineHeight: 2
     })
-    htmlEditor.setValue(editorValue.value.html)
+    htmlEditor.setValue(editorValue.value[language])
     htmlEditor.onDidChangeModelContent(() => {
         (useDebounceFn(() => {
-            if (editorValue.value.html !== htmlEditor.getValue()!) {
-                editorValue.value.html = htmlEditor.getValue()!
+            if (editorValue.value[language] !== htmlEditor.getValue()!) {
+                editorValue.value[language] = htmlEditor.getValue()!
                 emit('change', editorValue.value)
             }
         }, 500))()
@@ -24,8 +25,8 @@ export const mountHTMLEditor = (container: HTMLDivElement, emit) => {
 
     emit('change', editorValue.value)
 
-    if (editorValue.value.html) {
-        htmlEditor.setValue(editorValue.value.html)
+    if (editorValue.value[language]) {
+        htmlEditor.setValue(editorValue.value[language])
     }
 }
 
