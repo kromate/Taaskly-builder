@@ -1,22 +1,8 @@
 {
   "functions": [
     {
-      "source": "sf",
-      "codebase": "sites",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint",
-        "npm --prefix \"$RESOURCE_DIR\" run build"
-      ]
-    },
-    {
-      "source": "sf",
-      "codebase": "functions",
+      "source": "../taaskly/functions",
+      "codebase": "default",
       "ignore": [
         "node_modules",
         ".git",
