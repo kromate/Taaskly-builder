@@ -9,7 +9,7 @@
                     </div>
                     <HTMLEditor :language="activeEditor" @change="onChange" />
                 </div>
-            <div><iframe ref="iframe" class="w-full h-full" sandbox="allow-scripts allow-same-origin" /></div>
+            <div><iframe ref="iframe" class="w-full h-full" sandbox="allow-scripts allow-same-origin allow-modals" /></div>
         </div>
     </main>
 </template>
@@ -25,7 +25,7 @@ definePageMeta({
 })
 
 // js temporarily no available because monaco uses typescript
-const languages = ['html', 'css']
+const languages = ['html', 'css', 'js']
 const iframe = ref<HTMLIFrameElement>()
 
 const changeEditor = (lang) => {
