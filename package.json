@@ -14,7 +14,7 @@
 		"coverage": "vitest run --coverage",
 		"test:ui": "vitest --ui",
 		"cy": "cypress open",
-		"emu": "firebase emulators:start --import=./dummy_data --export-on-exit",
+		"emu": "firebase emulators:start --import=../taaskly/dummy_data --export-on-exit",
 		"kill": "kill -9 <PID>",
 		"find_port": "sudo lsof -i :3000"
 	},
@@ -73,6 +73,7 @@
 		"firebase-functions": "^4.1.0",
 		"floating-vue": "^2.0.0-beta.20",
 		"gsap": "^3.11.3",
+		"monaco-editor": "^0.38.0",
 		"typesense": "^1.5.3",
 		"uuid": "^9.0.0",
 		"vue-chartjs": "^5.2.0",
