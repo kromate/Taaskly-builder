@@ -23,7 +23,7 @@ definePageMeta({
     layout: 'default'
 })
 
-const languages = ['html', 'css', 'js']
+const languages = ['html', 'css', 'js', 'Variables']
 const iframe = ref<HTMLIFrameElement>()
 
 const changeEditor = (lang) => {
