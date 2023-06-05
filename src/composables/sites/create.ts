@@ -26,7 +26,9 @@ export const useCreateSite = () => {
 	const loading = ref(false)
 	const create = async () => {
 		if (!isLoggedIn.value) return useAuthModal().openLoginAlert()
+		  const site_id = uuidv4()
 		const sentData = {
+			id: site_id,
 			user_id: user_id.value,
 			name: createSiteForm.name.value,
 			desc: createSiteForm.desc.value,
@@ -43,7 +45,7 @@ export const useCreateSite = () => {
 			useAlert().openAlert({ type: 'ERROR', msg: 'UserId is missing' })
 			return
         }
-        const site_id = uuidv4()
+
 		try {
 			loading.value = true
 			await setFirestoreDocument('sites', site_id, sentData)

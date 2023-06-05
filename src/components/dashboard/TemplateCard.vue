@@ -7,7 +7,7 @@
             <span>{{ data.desc }}</span>
         </div>
 
-        <button class="modal-btn">
+        <button class="modal-btn" @click="$router.push(`/sites/${data.id}`)">
             Explore
         </button>
     </article>
