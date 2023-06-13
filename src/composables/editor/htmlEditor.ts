@@ -1,7 +1,8 @@
 import * as monaco from 'monaco-editor'
-import { useStorage, useDebounceFn } from '@vueuse/core'
+import { useStorage, useDebounceFn, useResizeObserver } from '@vueuse/core'
 import { initialEditorValue } from './initials'
 export let htmlEditor: monaco.editor.IStandaloneCodeEditor
+let editorObserver : any
 
 const editorValue = useStorage('editor-value', initialEditorValue)
 export const activeEditor = useStorage('language', 'html')
@@ -15,6 +16,9 @@ export const mountHTMLEditor = (container: HTMLDivElement, emit, language) => {
             enabled: false
         },
         wordWrap: 'on'
+    })
+    editorObserver = useResizeObserver(container, () => {
+        htmlEditor.layout()
     })
     htmlEditor.setValue(editorValue.value[language])
     htmlEditor.onDidChangeModelContent(() => {
