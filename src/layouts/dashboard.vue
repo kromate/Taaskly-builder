@@ -12,7 +12,7 @@
       <div
         class="w-full h-full relative overflow-x-hidden bg-light pb-40"
       >
-        <section class="flex-col flex items-stretch">
+        <section class="flex-col flex items-stretch p-5">
           <slot />
         </section>
       </div>

@@ -19,7 +19,7 @@ import { ref } from 'vue'
 import HTMLEditor from '@/components/editor/HTMLEditor.vue'
 import { generateHtml } from '@/composables/editor/helpers'
 import { activeEditor } from '@/composables/editor/htmlEditor'
-import '@/composables/editor/userWorker'
+import '@/composables/editor/useWorker'
 
 definePageMeta({
     layout: 'default'

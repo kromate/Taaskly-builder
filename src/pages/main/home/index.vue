@@ -1,6 +1,6 @@
 <template>
-  <main class="px-4">
-    <h1 class="capitalize mb-6 font-bold text-2xl">
+  <main class="p-4">
+    <h1 class="capitalize mb-6 font-bold text-2xl ">
       welcome back, {{ username }}
     </h1>
 
@@ -12,7 +12,7 @@
 import { useUser } from '@/composables/auth'
 
 definePageMeta({
-  layout: 'default',
+  layout: 'dashboard',
   middleware: ['has-no-profile', 'is-authenticated']
 })
 const { username } = useUser()

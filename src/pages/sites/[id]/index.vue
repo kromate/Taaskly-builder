@@ -27,7 +27,7 @@ onMounted(() => {
 })
 
 definePageMeta({
-	layout: 'default'
+	layout: 'dashboard'
 })
 </script>
 
