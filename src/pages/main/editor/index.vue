@@ -1,5 +1,6 @@
 <template>
     <main>
+        <!-- lorem1000 -->
         <div class="grid grid-cols-2 h-screen">
                 <div>
                     <div class="w-full flex">
