@@ -12,8 +12,8 @@
 			<div class="field">
 				<label for="type">Site Type</label>
 				<select id="type" name="type" class="input-field">
-					<option value="vanilla">
-						Vanilla
+					<option value="vue">
+						Vue
 					</option>
 				</select>
 			</div>
