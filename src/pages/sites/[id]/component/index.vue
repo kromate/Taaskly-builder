@@ -1,9 +1,15 @@
 <template>
-  <div>this is the component view and should display a list of components</div>
+  <div>
+    <main class="p-4">
+      <h1 class="mb-6 text-2xl font-bold capitalize">
+        These are your List of Components
+      </h1>
+
+      <DashboardComponentList />
+    </main>
+  </div>
 </template>
 
-<script setup lang="ts">
-console.log(useRouter().getRoutes())
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

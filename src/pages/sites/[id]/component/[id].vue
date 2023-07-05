@@ -1,9 +1,11 @@
 <template>
-  <div>help me</div>
+  <div>
+    <VueEditor />
+  </div>
 </template>
 
-<script>
-export default {}
+<script setup lang="ts">
+import VueEditor from '@/editors/vue/index.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
