@@ -108,6 +108,11 @@ service cloud.firestore {
       allow create: if true;
       allow update, delete: if true;
     }
+    match /site_components/{componentId} {
+      allow read: if request.auth.uid == resource.data.user_id;
+      allow create: if true;
+      allow update, delete: if true;
+    }
   }
   
 }
