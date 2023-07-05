@@ -1,27 +1,29 @@
-<template>
+<!-- <template>
   <main>
-    <!-- lorem1000 -->
-    <!-- heyyy -->
-    <div class="py-[1em] px-[1.5rem] flex items-center justify-between bg-[#1e1e1e]">
+    <div
+      class="flex items-center justify-between bg-[#1e1e1e] px-[1.5rem] py-[1em]"
+    >
       <div>
-        <h1 class="text-white text-[1.5rem]">Button Component</h1>
+        <h1 class="text-[1.5rem] text-white">
+Button Component
+</h1>
       </div>
       <div>
         <button
-          class="modal-btn-sm text-[#4f1ded] border-[#4f1ded] hover:bg-[#4f1ded]"
+          class="modal-btn-sm border-[#4f1ded] text-[#4f1ded] hover:bg-[#4f1ded]"
         >
           <span>Save Changes</span>
         </button>
       </div>
     </div>
-    <div class="grid grid-cols-2 h-screen">
+    <div class="grid h-screen grid-cols-2">
       <div>
-        <div class="w-full flex">
+        <div class="flex w-full">
           <button
             v-for="(lang, index) in languages"
             :key="index"
             :class="[
-              'flex-grow text-lg uppercase py-1 border border-black',
+              'flex-grow border border-black py-1 text-lg uppercase',
               lang === activeEditor ? 'bg-black text-white' : ''
             ]"
             @click="changeEditor(lang)"
@@ -34,14 +36,14 @@
       <div>
         <iframe
           ref="iframe"
-          class="w-full h-full"
+          class="h-full w-full"
           sandbox="allow-scripts allow-same-origin allow-modals"
         />
       </div>
     </div>
   </main>
-</template>
-
+</template> -->
+<!--
 <script setup lang="ts">
 import { ref } from 'vue'
 import HTMLEditor from '@/components/editor/HTMLEditor.vue'
@@ -63,4 +65,14 @@ const changeEditor = (lang) => {
 const onChange = (payload) => {
   iframe.value!.srcdoc = generateHtml(payload)
 }
+</script> -->
+
+<template>
+  <div>hello</div>
+</template>
+
+<script>
+export default {}
 </script>
+
+<style lang="scss" scoped></style>
