@@ -1,4 +1,5 @@
 import { serverTimestamp } from 'firebase/firestore'
+import { useStorage } from '@vueuse/core'
 import { v4 as uuidv4 } from 'uuid'
 import { setFirestoreDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
@@ -14,6 +15,9 @@ const createComponentForm = {
 }
 
 const { id: user_id, username, user } = useUser()
+const site = localStorage.getItem('site')
+  ? JSON.parse(localStorage.getItem('site')!)
+  : null
 
 const resetForm = () => {
   createComponentForm.name.value = ''
@@ -30,34 +34,36 @@ export const useCreateComponent = () => {
     const sentData = {
       id: component_id,
       user_id: user_id.value,
+      site_id: site.id,
       name: createComponentForm.name.value,
       desc: createComponentForm.desc.value,
       created_at: createComponentForm.created_at.value,
       updated_at: createComponentForm.updated_at.value,
-      user: {
-        id: user_id.value,
-        username: username.value,
-        email: user?.email || profileData.value.email,
-        phone: profileData.value.phone || ''
+      site: {
+        id: site.id,
+        type: site.type,
+        name: site.name,
+        desc: site.desc
       }
     }
     if (!user_id.value) {
       useAlert().openAlert({ type: 'ERROR', msg: 'UserId is missing' })
       return
     }
-
+    console.log(site, sentData)
     try {
       loading.value = true
-      await setFirestoreDocument('components', component_id, sentData)
+      await setFirestoreDocument('site_components', component_id, sentData)
       loading.value = false
-      useCoreModal().closeCreateSite()
+      useCoreModal().closeCreateComponent()
       resetForm()
-      useRouter().push(`/sites/${component_id}`)
+      useRouter().push(`/components/${component_id}/editor`)
       useAlert().openAlert({
         type: 'SUCCESS',
         msg: 'Component created successfully'
       })
     } catch (e: any) {
+      console.log(e, 'error')
       loading.value = false
       useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
     }

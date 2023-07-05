@@ -43,35 +43,32 @@ export const mainTopbarName = {
   'main-home': {
     name: 'Sites',
     can_go_back: false,
-	button_title: 'Create site'
+    button_title: 'Create site'
   },
   'main-themes': {
     name: 'Themes',
     can_go_back: false,
-	button_title: 'Create Theme'
-
+    button_title: 'Create Theme'
   },
   'main-domains': {
     name: 'Domains',
     can_go_back: false,
-	button_title: 'Create Domain'
-
+    button_title: 'Create Domain'
   },
   'main-account': {
     name: 'Accounts',
     can_go_back: false,
-	button_title: 'Create site'
-
+    button_title: 'Create site'
   },
   'main-support': {
     name: 'Support',
     can_go_back: false,
-	button_title: 'Create site'
-
+    button_title: 'Create site'
   }
 }
 
 export const mainTopbarNameFunction = (name: string) => {
+  // console.log
   if (name in mainTopbarName) {
     if (mainTopbarName[name].custom_name) {
       mainTopbarName[name].name = formatName(useRoute().params.id as string)
