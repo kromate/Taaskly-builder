@@ -1,12 +1,12 @@
 <template>
-  <header class="py-[1em] px-[1.5rem] flex items-center justify-between bg-[#1e1e1e]">
+  <header class="py-[1em] px-[1.5rem] flex items-center justify-between bg-dark">
     <div>
       <h1 class="text-white text-[1.5rem]">
         Button Component
       </h1>
     </div>
     <div>
-      <button class="modal-btn-sm text-[#4f1ded] border-[#4f1ded] hover:bg-[#4f1ded]">
+      <button class="modal-btn-sm text-light border-light">
         <span>Save Changes</span>
       </button>
     </div>

@@ -6,8 +6,8 @@
     import * as monaco from 'monaco-editor'
     import { ref, onMounted, onUnmounted, watch } from 'vue'
     import { useStorage } from '@vueuse/core'
-    import { mountHTMLEditor, unMountHTMLEditor, activeEditor } from '@/composables/editor/htmlEditor'
-    import { initialEditorValue } from '@/composables/editor/initials'
+    import { mountHTMLEditor, unMountHTMLEditor, activeEditor } from '@/editors/vue/editor/htmlEditor'
+    import { initialEditorValue } from '@/editors/vue/editor/initials'
 
     const props = defineProps({
         language: {
