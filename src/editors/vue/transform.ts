@@ -270,7 +270,6 @@ async function doCompileTemplate(
   ssr: boolean,
   isTS: boolean
 ) {
-  // eslint-disable-next-line prefer-const
   let { code, errors } = store.compiler.compileTemplate({
     isProd: false,
     ...store.options?.template,

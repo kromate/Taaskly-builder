@@ -1,15 +1,13 @@
 import { watchEffect } from 'vue'
 import * as monaco from 'monaco-editor-core'
-// eslint-disable-next-line import/default
-import editorWorker from 'monaco-editor-core/esm/vs/editor/editor.worker?worker'
+import EditorWorker from 'monaco-editor-core/esm/vs/editor/editor.worker?worker'
 import * as onigasm from 'onigasm'
 import onigasmWasm from 'onigasm/lib/onigasm.wasm?url'
 import { editor, languages, Uri } from 'monaco-editor-core'
 import * as volar from '@volar/monaco'
 import { createJsDelivrDtsHost } from 'volar-service-typescript'
 import { Store } from '../store'
-// eslint-disable-next-line import/default
-import vueWorker from './vue.worker?worker'
+import VueWorker from './vue.worker?worker'
 import { getOrCreateModel } from './utils'
 
 let initted = false
@@ -130,11 +128,9 @@ export function loadMonacoEnv(store: Store) {
   (self as any).MonacoEnvironment = {
     async getWorker(_: any, label: string) {
       if (label === 'vue') {
-        // eslint-disable-next-line new-cap
-        return new vueWorker()
+        return new VueWorker()
       }
-      // eslint-disable-next-line new-cap
-      return new editorWorker()
+      return new EditorWorker()
     }
   }
   languages.register({ id: 'vue', extensions: ['.vue'] })

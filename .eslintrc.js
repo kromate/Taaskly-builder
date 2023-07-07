@@ -47,6 +47,8 @@ module.exports = {
 		'vue/no-setup-props-destructure': 'off',
 		camelcase: 'off',
 		'accessor-pairs': 'off',
+		'import/default': 'off',
+		'func-call-spacing': 'off',
 		'no-use-before-define': 'off',
 		'@typescript-eslint/no-empty-function': 'off',
 		'vue/no-dupe-keys': 'off',

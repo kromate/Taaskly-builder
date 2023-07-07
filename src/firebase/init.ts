@@ -34,4 +34,4 @@ export const functions = process.client ? getFunctions(getApp(), 'us-central1') 
 //   connectStorageEmulator(storage, 'localhost', 9199)
 // }
 
-enableIndexedDbPersistence(db)
+// enableIndexedDbPersistence(db)

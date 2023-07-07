@@ -1,6 +1,6 @@
-import { fileURLToPath, URL } from 'node:url'
-import eslintPlugin from 'vite-plugin-eslint'
+
 import app from './app.config'
+import vite from './vite_nuxt.config'
 
 export default {
 	ssr: false,
@@ -15,7 +15,7 @@ export default {
 		'@/components',
 		{ path: '@/components/core', extensions: ['vue'] }
 	],
-	modules: ['@nuxtjs/tailwindcss'],
+	modules: ['@nuxtjs/tailwindcss', 'nuxt-monaco-editor'],
 
 	build: {
 		postcss: {
@@ -30,20 +30,7 @@ export default {
 	tailwindcss: {
 		cssPath: '@/assets/css/main.scss'
 	},
-	vite: {
-		plugins: [
-			eslintPlugin({ useEslintrc: true })
-		],
-		server: {
-			watch: {
-				usePolling: true
-			}
-		},
-		resolve: {
-			alias: {
-				'@': fileURLToPath(new URL('./src', import.meta.url))
-			}
-		}
-	},
+
+	vite,
 	app
 }

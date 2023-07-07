@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/require-v-for-key -->
 <script setup lang="ts">
 import { computed, inject, ref, VNode, Ref } from 'vue'
 import { Store, importMapFile, tsconfigFile, stripSrcPrefix } from '../store'
@@ -114,11 +113,10 @@ function horizontalScroll(e: WheelEvent) {
     @wheel="horizontalScroll"
     ref="fileSel"
   >
-    2
     <template v-for="(file, i) in files">
       <div
-        :key="i"
         v-if="pending !== file"
+        :key="i"
         class="file"
         :class="{ active: store.state.activeFile.filename === file }"
         @click="store.setActive(file)"
@@ -133,8 +131,8 @@ function horizontalScroll(e: WheelEvent) {
         </span>
       </div>
       <div
-        :key="i"
         v-if="(pending === true && i === files.length - 1) || pending === file"
+            :key="i"
         class="file pending"
       >
         <input

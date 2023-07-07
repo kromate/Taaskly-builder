@@ -53,7 +53,7 @@ function dragEnd() {
     :class="{
       dragging: state.dragging,
       'show-output': showOutput,
-      vertical: isVertical
+      vertical: isVertical,
     }"
     @mousemove="dragMove"
     @mouseup="dragEnd"

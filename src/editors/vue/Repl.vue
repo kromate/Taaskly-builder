@@ -100,7 +100,7 @@ defineExpose({ reload })
   </div>
 </template>
 
-<style>
+<style scoped>
 .vue-repl {
   --bg: #fff;
   --bg-soft: #f8f8f8;
