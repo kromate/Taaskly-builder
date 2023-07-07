@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 import { useTabs } from '@/composables/utils/tabs'
-import page from '@/pages/sites/[id]/page.vue'
-import component from '@/pages/sites/[id]/component.vue'
+import page from '@/pages/sites/[id]/page/index.vue'
+import component from '@/pages/sites/[id]/component/index.vue'
 
 const { initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
 initTabs(

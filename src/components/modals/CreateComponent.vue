@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-import { useCreateComponent } from '@/composables/components/create'
+import { useCreateComponent } from '@/composables/sites/components/create'
 
 const { create, createComponentForm, loading } = useCreateComponent()
 
