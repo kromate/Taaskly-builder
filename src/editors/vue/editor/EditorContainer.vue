@@ -2,10 +2,11 @@
   <FileSelector />
   <div class="editor-container">
     <Monaco
-    @change="onChange"
     :filename="store.state.activeFile.filename"
     :value="store.state.activeFile.code"
+    @change="onChange"
   />
+
     <Message v-show="showMessage" :err="store.state.errors[0]" />
     <MessageToggle v-model="showMessage" />
   </div>

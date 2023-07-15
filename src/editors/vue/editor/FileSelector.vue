@@ -108,15 +108,14 @@ function horizontalScroll(e: WheelEvent) {
 
 <template>
   <div
+    ref="fileSel"
     class="file-selector"
     :class="{ 'has-import-map': showImportMap }"
     @wheel="horizontalScroll"
-    ref="fileSel"
   >
     <template v-for="(file, i) in files">
       <div
         v-if="pending !== file"
-        :key="i"
         class="file"
         :class="{ active: store.state.activeFile.filename === file }"
         @click="store.setActive(file)"
@@ -132,7 +131,6 @@ function horizontalScroll(e: WheelEvent) {
       </div>
       <div
         v-if="(pending === true && i === files.length - 1) || pending === file"
-            :key="i"
         class="file pending"
       >
         <input

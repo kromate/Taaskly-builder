@@ -24,7 +24,7 @@ const msg = ref('Hello World!')
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="p-4 bg-green-700 m-4  text-white rounded">{{ msg }}</h1>
   <input v-model="msg">
 </template>
 `.trim()

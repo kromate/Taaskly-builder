@@ -11,17 +11,15 @@
     </div>
 
     <button class="modal-btn" @click="exploreComponent(data)">
-      Explore Component
+      View Component
     </button>
   </article>
 </template>
 
 <script setup lang='ts'>
 const exploreComponent = (component) => {
-  const site = localStorage.getItem('site')
-    ? JSON.parse(localStorage.getItem('site')!)
-    : null
-  useRouter().push(`/sites/${site.id}/components/${component.id}/editor`)
+  const site = useRoute().params.id as string
+  useRouter().push(`/sites/${site}/component/${component.id}`)
 }
 defineProps({
   data: {

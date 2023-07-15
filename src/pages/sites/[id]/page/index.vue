@@ -1,7 +1,13 @@
 <template>
-  <div>This is a page view and should displace a list of pages</div>
+    <div>
+This is a page view and should displace a list of pages
+    </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
 
-<style scoped></style>
+</script>
+
+<style scoped>
+
+</style>

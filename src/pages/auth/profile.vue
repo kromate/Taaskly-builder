@@ -1,4 +1,3 @@
-
 <template>
 	<main class="main-layout">
 		<div class="auth-box">

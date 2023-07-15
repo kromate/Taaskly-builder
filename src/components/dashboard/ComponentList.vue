@@ -1,5 +1,5 @@
 <template>
-  <section class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+  <section class="grid lg:grid-cols-3 md:grid-cols-22">
     <DashboardComponentCard
       v-for="component in component_list"
       :key="component.id"
@@ -27,10 +27,11 @@
 <script setup lang="ts">
 import Add from '@/assets/icons/src/add.vue'
 import { useCoreModal } from '@/composables/core/modals'
-import { useFetchUserComponents } from '@/composables/components/fetch'
+import { useFetchSiteComponents } from '@/composables/sites/components/fetch'
 
-const { fetch, loading, component_list } = useFetchUserComponents()
-fetch()
+const { fetch, loading, component_list } = useFetchSiteComponents()
+const site = useRoute().params.id as string
+fetch(site)
 </script>
 
 <style scoped>

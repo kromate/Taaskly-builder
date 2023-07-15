@@ -2,16 +2,7 @@
 import { ref, watch } from 'vue'
 import { CompilerError } from 'vue/compiler-sfc'
 
-const props = defineProps({
-  err: {
-    type: [String, Error],
-    default: null
-  },
-  warn: {
-    type: [String, Error],
-    default: null
-  }
-})
+const props = defineProps(['err', 'warn'])
 
 const dismissed = ref(false)
 

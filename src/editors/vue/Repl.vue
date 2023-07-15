@@ -1,3 +1,20 @@
+<template>
+  <div class="vue-repl">
+    <SplitPane :layout="layout">
+      <template #left>
+        <EditorContainer />
+      </template>
+      <template #right>
+        <Output
+          ref="outputRef"
+          :show-compile-output="props.showCompileOutput"
+          :ssr="!!props.ssr"
+        />
+      </template>
+    </SplitPane>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { provide, ref, toRef } from 'vue'
 import SplitPane from './SplitPane.vue'
@@ -73,32 +90,13 @@ provide('tsconfig', toRef(props, 'showTsConfig'))
 provide('clear-console', toRef(props, 'clearConsole'))
 provide('preview-options', props.previewOptions)
 provide('theme', toRef(props, 'theme'))
-/**
- * Reload the preview iframe
- */
+
 function reload() {
   outputRef.value?.reload()
 }
 
 defineExpose({ reload })
 </script>
-
-<template>
-  <div class="vue-repl">
-    <SplitPane :layout="layout">
-      <template #left>
-        <EditorContainer />
-      </template>
-      <template #right>
-        <Output
-          ref="outputRef"
-          :show-compile-output="props.showCompileOutput"
-          :ssr="!!props.ssr"
-        />
-      </template>
-    </SplitPane>
-  </div>
-</template>
 
 <style scoped>
 .vue-repl {
