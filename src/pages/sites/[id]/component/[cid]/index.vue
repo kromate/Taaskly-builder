@@ -11,7 +11,7 @@
       </button>
     </div>
   </header>
-  <Repl />
+  <Repl style="height:100vh" />
 </template>
 
 <script setup lang="ts">
