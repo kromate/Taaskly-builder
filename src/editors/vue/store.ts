@@ -399,6 +399,7 @@ export class ReplStore implements Store {
     const imports = importMap.imports || (importMap.imports = {})
     imports.vue = runtimeUrl
     imports['vue/server-renderer'] = ssrUrl
+    imports['@headlessui/vue'] = 'https://cdn.jsdelivr.net/npm/@headlessui/vue@1.7.14/dist/index.min.js'
     this.setImportMap(importMap)
     this.forceSandboxReset()
     console.info(`[@vue/repl] Now using Vue version: ${version}`)
