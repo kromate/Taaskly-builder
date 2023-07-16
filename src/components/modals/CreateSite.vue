@@ -2,12 +2,20 @@
 	<Modal modal="$atts.modal" title="Create a new site" :is-full-height="false">
 		<form class="auth-form" @submit.prevent="create">
 			<div class="field">
-				<label for="Site Name">Site Name</label>
-				<input id="Site Name" v-model="createSiteForm.name.value" placeholder="My Site" type="text" class="input-field" required minlength="3">
+				<label for="name">Site Name</label>
+				<input id="name" v-model="createSiteForm.name.value" placeholder="My Site" type="text" class="input-field" required minlength="3">
 			</div>
 			<div class="field">
-				<label for="Site Name">Site Description</label>
-				<textarea id="Site Name" v-model="createSiteForm.desc.value" placeholder="This is My site" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />
+				<label for="desc">Site Description</label>
+				<textarea id="desc" v-model="createSiteForm.desc.value" placeholder="This is My site" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />
+			</div>
+			<div class="field">
+				<label for="type">Site Type</label>
+				<select id="type" name="type" class="input-field">
+					<option value="vue">
+						Vue
+					</option>
+				</select>
 			</div>
 			<button class="btn-primary w-full mt-2" type="submit">
 				<span v-if="!loading">Create Site</span>
