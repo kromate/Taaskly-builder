@@ -7,7 +7,7 @@
 		"build": "nuxt build",
 		"deploy": "firebase deploy --only functions",
 		"dev": "nuxt dev",
-		"generate": "nuxt generate",
+		"generate": "export NODE_OPTIONS='--max-old-space-size=8192' && nuxt generate",
 		"preview": "nuxt preview",
 		"lint": "eslint . --ext .ts,.vue",
 		"test:run": "vitest run",
