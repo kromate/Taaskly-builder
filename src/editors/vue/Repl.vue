@@ -45,7 +45,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  theme: 'light',
+  theme: 'dark',
   store: () => new ReplStore(),
   autoResize: true,
   showCompileOutput: true,

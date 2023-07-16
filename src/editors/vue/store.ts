@@ -340,7 +340,8 @@ export class ReplStore implements Store {
           {
             imports: {
               vue: this.defaultVueRuntimeURL,
-              'vue/server-renderer': this.defaultVueServerRendererURL
+              'vue/server-renderer': this.defaultVueServerRendererURL,
+              '@headlessui/vue': 'https://cdn.jsdelivr.net/npm/@headlessui/vue@1.7.14/dist/index.min.js'
             }
           },
           null,
