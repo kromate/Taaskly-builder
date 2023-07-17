@@ -6142,7 +6142,14 @@ electron-to-chromium@^1.4.431:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.461.tgz#6b14af66042732bf883ab63a4d82cac8f35eb252"
   integrity sha512-1JkvV2sgEGTDXjdsaQCeSwYYuhLRphRpc+g6EHTFELJXEiznLt3/0pZ9JuAOQ5p2rI3YxKTbivtvajirIfhrEQ==
 
-emmet@^2.4.3:
+emmet-monaco-es@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/emmet-monaco-es/-/emmet-monaco-es-5.3.0.tgz#0553527b538d1276de733cfca1ce02d9b966d8a1"
+  integrity sha512-+Somf9sB9Smzfl2FV9E19/DA5osHq488dv8KaGavozkv2fo69Y2rY0EoL4vWQk5FpMBc0YfdtiRsuw48Sdxs5g==
+  dependencies:
+    emmet "^2.4.1"
+
+emmet@^2.4.1, emmet@^2.4.3:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/emmet/-/emmet-2.4.5.tgz#abe996c86c05e6adb7cef31e7eb8dfd9170e0744"
   integrity sha512-xOiVNINJFh0dMik+KzXSEYbAnFLTnadEzanxj7+F15uIf6avQwu3uPa1wI/8AFtOWKZ8lHg7TjC83wXcPhgOPw==
@@ -14265,6 +14272,7 @@ workbox-window@6.6.1, workbox-window@^6.5.4:
     workbox-core "6.6.1"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

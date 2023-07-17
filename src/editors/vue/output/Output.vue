@@ -40,7 +40,7 @@ defineExpose({ reload })
 
 <style scoped>
 .output-container {
-  height: calc(100% - var(--header-height));
+  height: 100%;
   overflow: hidden;
   position: relative;
 }

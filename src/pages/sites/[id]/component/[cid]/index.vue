@@ -11,7 +11,7 @@
       </button>
     </div>
   </header>
-  <Repl style="height:100vh" />
+  <Repl style="height:calc(100vh - 72px)" />
 </template>
 
 <script setup lang="ts">

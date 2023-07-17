@@ -1,7 +1,8 @@
 import { watchEffect } from 'vue'
 import * as monaco from 'monaco-editor-core'
 import editorWorker from 'monaco-editor-core/esm/vs/editor/editor.worker?worker'
-import { configureMonacoTailwindcss, tailwindcssData } from 'monaco-tailwindcss'
+// import { configureMonacoTailwindcss, tailwindcssData } from 'monaco-tailwindcss'
+// import { emmetHTML } from 'emmet-monaco-es'
 import TailwindcssWorker from 'monaco-tailwindcss/tailwindcss.worker.js?worker'
 import * as onigasm from 'onigasm'
 import onigasmWasm from 'onigasm/lib/onigasm.wasm?url'
@@ -57,6 +58,8 @@ export function initMonaco(store: Store) {
       return false
     }
   })
+// TODO: add support emment for vue, clone source
+  // emmetHTML(monaco, ['html'])
 
   initted = true
 }
