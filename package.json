@@ -13,7 +13,6 @@
 		"test:run": "vitest run",
 		"coverage": "vitest run --coverage",
 		"test:ui": "vitest --ui",
-		"cy": "cypress open",
 		"emu": "firebase emulators:start --import=../taaskly/dummy_data --export-on-exit",
 		"kill": "kill -9 <PID>",
 		"find_port": "sudo lsof -i :3000"
@@ -45,7 +44,6 @@
 		"@vue/language-service": "1.8.2",
 		"autoprefixer": "^10.4.8",
 		"bumpp": "^9.1.1",
-		"cypress": "^10.11.0",
 		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-nuxt": "^3.2.0",

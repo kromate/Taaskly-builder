@@ -10,7 +10,7 @@ import { profileData } from '@/composables/auth/profile'
 const createSiteForm = {
   name: ref(''),
   desc: ref(''),
-  type: ref('vanilla'),
+  framework: ref('vue'),
   created_at: ref(serverTimestamp()),
   updated_at: ref(serverTimestamp())
 }
@@ -31,7 +31,7 @@ export const useCreateSite = () => {
     const site_id = uuidv4()
     const sentData = {
       id: site_id,
-      type: createSiteForm.type.value,
+      type: createSiteForm.framework.value,
       user_id: user_id.value,
       name: createSiteForm.name.value,
       desc: createSiteForm.desc.value,
