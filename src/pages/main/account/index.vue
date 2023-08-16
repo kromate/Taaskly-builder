@@ -2,12 +2,12 @@
   <div>Account</div>
 </template>
 
-<script>
+<script setup>
 definePageMeta({
   layout: 'default',
   middleware: ['has-no-profile']
 })
-export default {}
+
 </script>
 
 <style lang="scss" scoped>

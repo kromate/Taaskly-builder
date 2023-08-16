@@ -1,5 +1,5 @@
 <template>
-  <section class="grid lg:grid-cols-3 md:grid-cols-22">
+  <section class="grid lg:grid-cols-3 md:grid-cols-22" v-if="!loading">
     <DashboardComponentCard
       v-for="component in component_list"
       :key="component.id"
@@ -22,6 +22,9 @@
       </button>
     </article>
   </section>
+      <section class="grid lg:grid-cols-3 md:grid-cols-2 gap-4" v-else>
+        <Skeleton height="200px" radius="0.375rem" v-for="n in 3" :key="n" />
+      </section>
 </template>
 
 <script setup lang="ts">

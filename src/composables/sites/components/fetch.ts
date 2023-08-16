@@ -1,4 +1,4 @@
-import { getFirestoreCollectionWithWhereQuery } from '@/firebase/firestore'
+import { getFirestoreSubCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
 
@@ -10,11 +10,7 @@ export const useFetchSiteComponents = () => {
     if (component_list.value.length > 0) return
     loading.value = true
     try {
-      await getFirestoreCollectionWithWhereQuery(
-        'site_components',
-        component_list,
-        { name: 'site_id', operator: '==', value: id }
-      )
+      await getFirestoreSubCollection('sites', component_list)
       loading.value = false
     } catch (e: any) {
       loading.value = false

@@ -9,18 +9,14 @@
       <span>{{ data.desc }}</span>
     </div>
 
-    <button class="modal-btn" @click="openSite(data)">
+    <nuxt-link :to="`/sites/${data.id}`" class="modal-btn">
       Explore
-    </button>
+    </nuxt-link>
   </article>
 </template>
 
 <script setup lang='ts'>
-  const openSite = (site) => {
-    localStorage.removeItem('site')
-    localStorage.setItem('site', JSON.stringify(site))
-    useRouter().push(`/sites/${site.id}`)
-  }
+
 defineProps({
   data: {
     type: Object,
