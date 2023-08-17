@@ -10,7 +10,7 @@ export const useFetchSiteComponents = () => {
     if (component_list.value.length > 0) return
     loading.value = true
     try {
-      await getFirestoreSubCollection('sites', component_list)
+      await getFirestoreSubCollection('sites', id, 'components', component_list)
       loading.value = false
     } catch (e: any) {
       loading.value = false

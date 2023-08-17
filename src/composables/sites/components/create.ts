@@ -49,7 +49,7 @@ export const useCreateComponent = () => {
       loading.value = false
       useCoreModal().closeCreateComponent()
       resetForm()
-      useRouter().push(`sites/${siteId}/components/${component_id}`)
+      useRouter().push(`/sites/${siteId}/components/${component_id}`)
       useAlert().openAlert({
         type: 'SUCCESS',
         msg: 'Component created successfully'
