@@ -2,12 +2,12 @@
   <div>Themes</div>
 </template>
 
-<script>
+<script setup lang='ts'>
 definePageMeta({
   layout: 'default',
   middleware: ['has-no-profile']
 })
-export default {}
+
 </script>
 
 <style lang="scss" scoped>

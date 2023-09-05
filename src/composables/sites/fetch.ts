@@ -13,7 +13,6 @@ export const useFetchUserSites = () => {
 		loading.value = true
 		try {
             await getFirestoreCollectionWithWhereQuery('sites', site_list, { name: 'user_id', operator: '==', value: user_id.value })
-            console.log(site_list.value)
 			loading.value = false
 		} catch (e: any) {
 			loading.value = false

@@ -12,12 +12,12 @@
 
 <script setup lang="ts">
 import { useTabs } from '@/composables/utils/tabs'
-import page from '@/pages/sites/[id]/page/index.vue'
-import component from '@/pages/sites/[id]/component/index.vue'
+import pages from '@/pages/sites/[id]/pages/index.vue'
+import components from '@/pages/sites/[id]/components/index.vue'
 
 const { initTabs, selected, tabViews, updateTab, tabs, onTabMounted } =
   useTabs()
-initTabs('page', ['page', 'component'], markRaw({ page, component }))
+initTabs('pages', ['pages', 'components'], markRaw({ pages, components }))
 
 onMounted(() => {
   onTabMounted()

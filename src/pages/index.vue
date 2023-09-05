@@ -8,8 +8,8 @@
 		</p>
 		<div class="flex flex-col items-center mt-12 text-center w-full max-w-md mx-auto">
 			<span class="relative flex w-full  gap-4">
-				<nuxt-link to="#" class="btn-primary w-full"> Get Started </nuxt-link>
-				<nuxt-link to="#" class="btn-secondary w-full"> Templates </nuxt-link>
+				<nuxt-link to="/main/home" class="btn-primary w-full"> Get Started </nuxt-link>
+				<nuxt-link to="#" class="btn-secondary w-full"> Templates <span class="text-xs ml-2">(coming soon)</span>  </nuxt-link>
 
 			</span>
 		</div>

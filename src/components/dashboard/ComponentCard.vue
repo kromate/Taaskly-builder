@@ -1,6 +1,6 @@
 <template>
   <article
-    class="border border-primary rounded-md w-[300px] h-[450px] shadow-xl p-4 flex flex-col justify-between relative"
+    class="border border-primary rounded-md w-w-full h-[450px] shadow-xl p-4 flex flex-col justify-between relative"
   >
     <div class="h-[250px] border-2 rounded-lg mb-5" />
     <div class="flex flex-col gap-1 mb-5">
@@ -10,17 +10,15 @@
       <span>{{ data.desc }}</span>
     </div>
 
-    <button class="modal-btn" @click="exploreComponent(data)">
+    <nuxt-link :to="`/sites/${site_id}/components/${data.id}`" class="modal-btn">
       View Component
-    </button>
+    </nuxt-link>
   </article>
 </template>
 
 <script setup lang='ts'>
-const exploreComponent = (component) => {
-  const site = useRoute().params.id as string
-  useRouter().push(`/sites/${site}/component/${component.id}`)
-}
+const site_id = useRoute().params.id as string
+
 defineProps({
   data: {
     type: Object,

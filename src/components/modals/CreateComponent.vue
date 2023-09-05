@@ -1,6 +1,6 @@
 <template>
 	<Modal modal="$atts.modal" title="Create a new Component" :is-full-height="false">
-		<form class="auth-form" @submit.prevent="create">
+		<form class="auth-form" @submit.prevent="create(id)">
 			<div class="field">
 				<label for="name">Component Name</label>
 				<input id="name" v-model="createComponentForm.name.value" placeholder="My Component" type="text" class="input-field" required minlength="3">
@@ -20,6 +20,8 @@
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useCreateComponent } from '@/composables/sites/components/create'
+
+const id = useRoute().params.id as string
 
 const { create, createComponentForm, loading } = useCreateComponent()
 

@@ -68,7 +68,6 @@ export const mainTopbarName = {
 }
 
 export const mainTopbarNameFunction = (name: string) => {
-  // console.log
   if (name in mainTopbarName) {
     if (mainTopbarName[name].custom_name) {
       mainTopbarName[name].name = formatName(useRoute().params.id as string)

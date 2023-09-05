@@ -10,7 +10,7 @@
 				<textarea id="desc" v-model="createSiteForm.desc.value" placeholder="This is My site" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />
 			</div>
 			<div class="field">
-				<label for="type">Site Type</label>
+				<label for="type">Site Framework</label>
 				<select id="type" name="type" class="input-field" v-model="createSiteForm.framework.value">
 					<option value="vue">
 						Vue
