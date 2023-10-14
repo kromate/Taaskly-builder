@@ -3,17 +3,18 @@ const visible = defineModel<boolean>()
 </script>
 
 <template>
-  <div class="wrapper" @click="visible = !visible">
+  <div class="wrapper gap-2" @click="visible = !visible" :class="[{ active: modelValue }]">
     <span>Show Error</span>
-    <div class="toggle" :class="[{ active: modelValue }]">
+    <div class="toggle">
       <div class="indicator" />
     </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang='scss'>
 .wrapper {
   position: absolute;
+  font-weight: 500;
   bottom: 8px;
   right: 15px;
   z-index: 11;
@@ -29,10 +30,11 @@ const visible = defineModel<boolean>()
 .toggle {
   display: inline-block;
   margin-left: 4px;
-  width: 32px;
-  height: 18px;
+  width: 36px;
+  height: 20px;
   border-radius: 12px;
   position: relative;
+  border: 1.5px solid black;
   background-color: var(--border);
 }
 
@@ -45,14 +47,17 @@ const visible = defineModel<boolean>()
   transition: transform ease-in-out 0.2s;
   position: absolute;
   left: 2px;
-  top: 2px;
+  top: 1.5px;
   color: var(--bg);
   text-align: center;
 }
 
-.active .indicator {
-  background-color: var(--color-branding);
-  transform: translateX(14px);
-  color: white;
+.active{
+  color: var(--secondary);
+ .indicator {
+  background-color: var(--secondary);
+  transform: translateX(15px);
 }
+}
+
 </style>

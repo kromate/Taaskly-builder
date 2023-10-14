@@ -10,10 +10,15 @@ import {
   computed,
   type Ref
 } from 'vue'
+import * as prettier from 'prettier'
+import htmlPlugin from 'prettier/plugins/html'
+import babelPlugin from 'prettier/plugins/babel'
+import estreePlugin from 'prettier/plugins/estree'
 import * as monaco from 'monaco-editor-core'
 import { loadGrammars, loadTheme } from 'monaco-volar'
-import { Store } from '../store'
 import type { PreviewMode } from '../editor/types'
+import { Store } from '../store'
+
 import { getOrCreateModel } from './utils'
 import { initMonaco } from './env'
 
@@ -127,9 +132,24 @@ onMounted(async () => {
 
   await loadGrammars(monaco, editorInstance)
 
-  editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
-    // ignore save event
-  })
+  // editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, async () => {
+  //   const value = editorInstance.getValue()
+  //   const formattedValue = await prettier.format(value, {
+  //     parser: 'html',
+  //     plugins: [htmlPlugin, babelPlugin, estreePlugin],
+  //     tabWidth: 4,
+  //     singleQuote: false,
+  //     bracketSpacing: true,
+  //     proseWrap: 'never',
+  //     htmlWhitespaceSensitivity: 'strict',
+  //     vueIndentScriptAndStyle: true
+  //   })
+  //   const { lineNumber, column } = editorInstance.getPosition() as any
+  //   editorInstance.setValue(formattedValue)
+  //   editorInstance.focus()
+  //   editorInstance.setPosition({ lineNumber, column })
+  //   editorInstance.focus()
+  // })
 
   editorInstance.onDidChangeModelContent(() => {
     emit('change', editorInstance.getValue())

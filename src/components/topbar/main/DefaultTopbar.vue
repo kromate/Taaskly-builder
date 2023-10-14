@@ -32,22 +32,7 @@
         {{ mainTopbarNameFunction($route.name as string).name }}
       </h1>
     </div>
-
-    <div class="flex items-center gap-4">
-      <div class="w-full md:w-fit h-fit relative">
-        <input
-          type="text"
-          class="input-field min-w-[250px] focus:border-[#4f1ded]"
-          placeholder="Search Sites"
-        >
-      </div>
-      <button
-        class="modal-btn-sm text-[#4f1ded] border-[#4f1ded] hover:bg-[#4f1ded]"
-      >
-        <span> {{ mainTopbarNameFunction($route.name as string).button_title }} </span>
-      </button>
-    </div>
-  </nav>
+</nav>
 </template>
 
 <script setup lang="ts">

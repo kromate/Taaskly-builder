@@ -31,7 +31,7 @@ export const useCreateSite = () => {
     const site_id = uuidv4()
     const sentData = {
       id: site_id,
-      type: createSiteForm.framework.value,
+      framework: createSiteForm.framework.value,
       user_id: user_id.value,
       name: createSiteForm.name.value,
       desc: createSiteForm.desc.value,

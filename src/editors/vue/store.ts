@@ -17,16 +17,18 @@ export const importMapFile = 'import-map.json'
 export const tsconfigFile = 'tsconfig.json'
 
 const welcomeCode = `
+<template>
+  <h1 class="p-4  bg-[#4f1ded] m-4  text-white rounded">{{ msg }}</h1>
+  <input v-model="msg">
+</template>
+
 <script setup>
 import { ref } from 'vue'
 
 const msg = ref('Hello World!')
 </script>
 
-<template>
-  <h1 class="p-4  bg-[#4f1ded] m-4  text-white rounded">{{ msg }}</h1>
-  <input v-model="msg">
-</template>
+
 `.trim()
 
 const tsconfig = {
@@ -135,8 +137,8 @@ export class ReplStore implements Store {
 
   constructor({
     serializedState = '',
-    defaultVueRuntimeURL = `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
-    defaultVueServerRendererURL = `https://cdn.jsdelivr.net/npm/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`,
+    defaultVueRuntimeURL = `${location.origin}/vue-dev-proxy.js`,
+    defaultVueServerRendererURL = `${location.origin}/vue-server-renderer-dev-proxy.js`,
     showOutput = false,
     outputMode = 'preview'
   }: StoreOptions = {}) {
@@ -388,9 +390,10 @@ export class ReplStore implements Store {
 
   async setVueVersion(version: string) {
     this.vueVersion = version
-    const compilerUrl = `https://cdn.jsdelivr.net/npm/@vue/compiler-sfc@${version}/dist/compiler-sfc.esm-browser.js`
-    const runtimeUrl = `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`
-    const ssrUrl = `https://cdn.jsdelivr.net/npm/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`
+
+    const compilerUrl = `${location.origin}/vue-compiler-sfc.js`
+    const runtimeUrl = `${location.origin}/vue-dev-proxy.js`
+    const ssrUrl = `${location.origin}/vue-server-renderer-dev-proxy.js`
     this.pendingCompiler = import(/* @vite-ignore */ compilerUrl)
     this.compiler = await this.pendingCompiler
     this.pendingCompiler = null

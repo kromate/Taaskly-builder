@@ -88,7 +88,7 @@ export default {
 			target: 'esnext'
 		},
 		plugins: [
-			eslintPlugin({ useEslintrc: true, exclude: ['**/node_modules/**', 'external_packages/**'] })
+			eslintPlugin({ useEslintrc: true, exclude: ['**/node_modules/**', 'external_packages/**', 'src/editors/vue/monaco/prettier-html.js'] })
 		],
 		optimizeDeps: {
 			include: [

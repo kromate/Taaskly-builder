@@ -75,8 +75,8 @@
     .modal-btn {
         @apply rounded-md px-4 py-3 border-2 border-primary text-primary hover:text-light hover:bg-primary transite w-full flex justify-center disabled:bg-gray-500 cursor-pointer disabled:cursor-not-allowed;
     }
-        .modal-btn-sm {
-        @apply modal-btn h-10 center px-7 
+    .modal-btn-sm {
+        @apply modal-btn h-10 center px-7;
     }
 
     .modal-btn-red {
@@ -106,15 +106,9 @@
         @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-md whitespace-nowrap;
     }
 
-    .active {
-        @apply opacity-100 text-dark border-2 border-dark shadow;
-    }
-
     .label-radio {
         @apply m-0 px-5 py-2 w-full text-center flex-1 items-center justify-center;
     }
-
- 
 
     .card-body {
         @apply flex p-4 border-dark cursor-pointer transite;
@@ -125,7 +119,7 @@
     }
 
     .mx-datepicker {
-        @apply !w-full
+        @apply !w-full;
     }
 
     .menu-btn {
@@ -136,11 +130,13 @@
         }
     }
 
-     .form-height {
-            @apply  md:h-auto overflow-y-auto;
-        }
+    .form-height {
+        @apply md:h-auto overflow-y-auto;
+    }
 }
 
-input:disabled, textarea:disabled, select:disabled{
-	@apply bg-[#e3e3e352]
+input:disabled,
+textarea:disabled,
+select:disabled {
+    @apply bg-[#e3e3e352];
 }

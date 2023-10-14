@@ -4,7 +4,7 @@ import {
   CompilerOptions
 } from 'vue/compiler-sfc'
 import { transform } from 'sucrase'
-// @ts-ignore
+
 import hashId from 'hash-sum'
 import { Store, File } from './store'
 
