@@ -205,7 +205,7 @@ export async function compileFile(
   if (css) {
     compiled.css = css.trim()
   } else {
-    compiled.css = '/* No <style> tags present */'
+    compiled.css = ''
   }
 
   return []
@@ -238,7 +238,7 @@ async function doCompileScript(
     })
     let code = ''
     if (compiledScript.bindings) {
-      code += `\n/* Analyzed bindings: ${JSON.stringify(
+      code += `\n/*${JSON.stringify(
         compiledScript.bindings,
         null,
         2
@@ -251,7 +251,8 @@ async function doCompileScript(
         COMP_IDENTIFIER,
         expressionPlugins
       )
-
+    // compiledScript
+    // store.compiler.
     if ((descriptor.script || descriptor.scriptSetup)!.lang === 'ts') {
       code = await transformTS(code)
     }

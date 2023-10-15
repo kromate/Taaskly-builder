@@ -28,7 +28,6 @@ const showMessage = ref(getItem())
 
 const onChange = debounce((code: string) => {
   store.state.activeFile.code = code
-  console.log(store.state.activeFile)
 }, 250)
 
 function setItem() {

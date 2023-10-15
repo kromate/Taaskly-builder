@@ -32,7 +32,7 @@ export const useCreateComponent = () => {
       id: component_id,
       user_id: user_id.value,
       site_id: siteId,
-      name: createComponentForm.name.value,
+      name: `${createComponentForm.name.value}.vue`,
       desc: createComponentForm.desc.value,
       created_at: createComponentForm.created_at.value,
       updated_at: createComponentForm.updated_at.value
@@ -46,10 +46,11 @@ export const useCreateComponent = () => {
     try {
       loading.value = true
       await setFirestoreSubDocument('sites', siteId, 'components', component_id, sentData)
+      useRouter().push(`/sites/${siteId}/components/${component_id}`)
       loading.value = false
       useCoreModal().closeCreateComponent()
       resetForm()
-      useRouter().push(`/sites/${siteId}/components/${component_id}`)
+
       useAlert().openAlert({
         type: 'SUCCESS',
         msg: 'Component created successfully'

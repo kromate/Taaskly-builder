@@ -7,12 +7,13 @@
       </h1>
     </div>
     <div>
-      <button class="modal-btn-sm text-light border-light">
-        <span>Save Changes</span>
+      <button class="modal-btn-sm text-light border-light" @click="saveComponent" :disabled="updateCompLoading">
+        <span v-if="!updateCompLoading">Save Changes</span>
+        <Spinner v-else />
       </button>
     </div>
   </header>
-  <Repl style="height:calc(100vh - 72px)" />
+  <Repl style="height:calc(100vh - 72px)" :store="store" />
   </main>
   <section class="grid grid-cols-2 gap-2 p-2" v-else>
   <Skeleton height="98vh" class="border border-dark" />
@@ -24,11 +25,26 @@
 import Repl from '@/editors/vue/Repl.vue'
 import { useFetchCompnentById } from '@/composables/sites/components/id'
 
+import { useUpdateComponent, getPropsFromString } from '@/composables/sites/components/update'
+
 const siteId = useRoute().params.id as string
 const compId = useRoute().params.cid as string
 
-const { componentData, fetchComponentById, loading } = useFetchCompnentById()
+const { componentData, fetchComponentById, loading, store } = useFetchCompnentById()
+const { updateCompLoading, updateComponent } = useUpdateComponent()
 fetchComponentById(siteId, compId)
+
+const saveComponent = () => {
+  console.log(store.value.state.activeFile)
+  updateComponent(siteId, compId, {
+    code: store.value.state.activeFile.code,
+    serializedState: store.value.serialize(),
+    props: getPropsFromString(store.value.state.activeFile.compiled.js),
+    compiled_css: store.value.state.activeFile.compiled.css,
+    compiled_js: store.value.state.activeFile.compiled.js
+  })
+}
+
 </script>
 
 <style scoped></style>

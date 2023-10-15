@@ -2,6 +2,10 @@
   <div class="w-full h-full">
      <slot />
   </div>
+
+	<ModalBase />
+		<PageLoading />
+		<Alert />
 </template>
 
 <script setup lang="ts">

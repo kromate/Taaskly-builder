@@ -1,9 +1,10 @@
 <template>
 	<Modal modal="$atts.modal" title="Create a new Component" :is-full-height="false">
 		<form class="auth-form" @submit.prevent="create(id)">
-			<div class="field">
+			<div class="field relative">
 				<label for="name">Component Name</label>
-				<input id="name" v-model="createComponentForm.name.value" placeholder="My Component" type="text" class="input-field" required minlength="3">
+				<input id="name" v-model="createComponentForm.name.value" @input="createComponentForm.name.value = createComponentForm.name.value.trim()" placeholder="My Component" type="text" class="input-field" required minlength="3">
+				<span class="border border-dark absolute right-2 top-[34px] px-3.5 py-[3px] bg-grey rounded">.vue</span>
 			</div>
 			<div class="field">
 				<label for="desc">Component Description</label>
