@@ -131,7 +131,7 @@ onMounted(async () => {
   }
 
   await loadGrammars(monaco, editorInstance)
-
+  editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, async () => { })
   // editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, async () => {
   //   const value = editorInstance.getValue()
   //   const formattedValue = await prettier.format(value, {

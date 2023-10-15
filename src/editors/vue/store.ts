@@ -19,13 +19,13 @@ export const tsconfigFile = 'tsconfig.json'
 const welcomeCode = `
 <template>
   <h1 class="p-4  bg-[#4f1ded] m-4  text-white rounded">{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" class="m-4 border w-80 px-4 py-2">
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const msg = ref('Hello World!')
+const msg = ref('Starting Point, build something great...')
 </script>
 
 

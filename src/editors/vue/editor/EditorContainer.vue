@@ -1,5 +1,5 @@
 <template>
-  <FileSelector />
+  <!-- <FileSelector /> -->
   <div class="editor-container">
     <Monaco
     :filename="store.state.activeFile.filename"
@@ -18,7 +18,7 @@ import Monaco from '../monaco/Monaco.vue'
 import Message from '../Message.vue'
 import { debounce } from '../utils'
 import { Store } from '../store'
-import FileSelector from './FileSelector.vue'
+// import FileSelector from './FileSelector.vue'
 import MessageToggle from './MessageToggle.vue'
 
 const SHOW_ERROR_KEY = 'repl_show_error'
@@ -28,6 +28,7 @@ const showMessage = ref(getItem())
 
 const onChange = debounce((code: string) => {
   store.state.activeFile.code = code
+  console.log(store.state.activeFile)
 }, 250)
 
 function setItem() {
@@ -46,7 +47,8 @@ watch(showMessage, () => {
 
 <style scoped>
 .editor-container {
-  height: calc(100% - var(--header-height));
+  /* height: calc(100% - var(--header-height)); */
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
