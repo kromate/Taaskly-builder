@@ -5,6 +5,7 @@
       <h1 class="text-white text-[1.5rem]">
         {{ componentData.name }}
       </h1>
+      <span class="text-sm text-light italic">any props created must be an object will 'type' and 'default' key only</span>
     </div>
     <div>
       <button class="modal-btn-sm text-light border-light" @click="saveComponent" :disabled="updateCompLoading">
