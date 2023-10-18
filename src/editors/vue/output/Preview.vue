@@ -256,6 +256,7 @@ async function updatePreview() {
     }
 
     // eval code in sandbox
+
     await proxy.eval(codeToEval)
   } catch (e: any) {
     console.error(e)

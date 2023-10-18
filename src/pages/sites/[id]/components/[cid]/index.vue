@@ -35,14 +35,15 @@ const { updateCompLoading, updateComponent } = useUpdateComponent()
 fetchComponentById(siteId, compId)
 
 const saveComponent = () => {
-  console.log(store.value.state.activeFile)
-  updateComponent(siteId, compId, {
+  if (getPropsFromString(store.value.state.activeFile.compiled.js)) {
+      updateComponent(siteId, compId, {
     code: store.value.state.activeFile.code,
     serializedState: store.value.serialize(),
     props: getPropsFromString(store.value.state.activeFile.compiled.js),
     compiled_css: store.value.state.activeFile.compiled.css,
     compiled_js: store.value.state.activeFile.compiled.js
   })
+  }
 }
 
 </script>
