@@ -11,6 +11,7 @@ type TComponentData = {
 
 const parsePropsString = (propsString: string): { [key: string]: { type: string; default: string } } => {
   // Remove unnecessary spaces and newlines
+
   propsString = propsString.replace(/\s/g, '')
 
   // Create a regular expression to match property definitions
