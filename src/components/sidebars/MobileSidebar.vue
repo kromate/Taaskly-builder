@@ -38,14 +38,6 @@
 					</div>
 				</div>
 
-				<!-- <div class="absolute bottom-12 flex flex-col w-full">
-					<button class="btn  border border-primary w-full mt-3 hover:bg-primary hover:text-light transite" @click="hasAShop ? $router.push('/shop') : useCoreModal().openCreateShop()">
-						{{ hasAShop ? 'Go To Shop' : 'Create a Shop' }}
-					</button>
-					<button class="btn  border border-secondary text-secondary w-full mt-3 hover:bg-secondary hover:text-light transite" @click="hasAService ? $router.push('/service') : useCoreModal().openCreateService()">
-						{{ hasAService ? 'Go To Service':'Create a Service' }}
-					</button>
-				</div> -->
 			</div>
 		</aside>
 	</Modal>

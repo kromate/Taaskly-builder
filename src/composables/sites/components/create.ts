@@ -3,7 +3,7 @@ import { useStorage } from '@vueuse/core'
 import { v4 as uuidv4 } from 'uuid'
 import { setFirestoreSubDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/useNotification'
-import { useCoreModal, useAuthModal } from '@/composables/core/modals'
+import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
 import { profileData } from '@/composables/auth/profile'
 
@@ -48,7 +48,7 @@ export const useCreateComponent = () => {
       await setFirestoreSubDocument('sites', siteId, 'components', component_id, sentData)
       useRouter().push(`/sites/${siteId}/components/${component_id}`)
       loading.value = false
-      useCoreModal().closeCreateComponent()
+      useBuilderModal().closeCreateComponent()
       resetForm()
 
       useAlert().openAlert({

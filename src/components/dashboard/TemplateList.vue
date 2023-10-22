@@ -10,7 +10,7 @@
           <shine class="absolute right-4 top-10 text-primary opacity-75" />
         </div>
 
-        <button class="modal-btn" @click="useCoreModal().openCreateSite()">
+        <button class="modal-btn" @click="useBuilderModal().openCreateSite()">
           Create Site
           <Add />
         </button>
@@ -25,7 +25,7 @@
 import TemplateCard from './TemplateCard.vue'
 import Add from '@/assets/icons/src/add.vue'
 import Shine from '@/assets/icons/src/shine.vue'
-import { useCoreModal } from '@/composables/core/modals'
+import { useBuilderModal } from '@/composables/core/modals'
 import { useFetchUserSites } from '@/composables/sites/fetch'
 
 const { fetch, loading, site_list } = useFetchUserSites()

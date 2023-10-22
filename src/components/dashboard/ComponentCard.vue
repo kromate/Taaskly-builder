@@ -9,11 +9,15 @@
       </h3>
       <span>{{ data.desc }}</span>
     </div>
-
+    <div class="flex gap-3">
     <nuxt-link :to="`/sites/${site_id}/components/${data.id}`" class="modal-btn">
       View Component
     </nuxt-link>
-  </article>
+    <button class="modal-btn w-auto hover:bg-red hover:border-red">
+      <Icon name="delete" class="w-5" />
+    </button>
+    </div>
+</article>
 </template>
 
 <script setup lang='ts'>

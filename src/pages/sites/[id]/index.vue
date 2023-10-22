@@ -15,8 +15,7 @@ import { useTabs } from '@/composables/utils/tabs'
 import pages from '@/pages/sites/[id]/pages/index.vue'
 import components from '@/pages/sites/[id]/components/index.vue'
 
-const { initTabs, selected, tabViews, updateTab, tabs, onTabMounted } =
-  useTabs()
+const { initTabs, selected, tabViews, updateTab, tabs, onTabMounted } = useTabs()
 initTabs('pages', ['pages', 'components'], markRaw({ pages, components }))
 
 onMounted(() => {

@@ -16,7 +16,7 @@
         <span>it's easier than you think</span>
       </div>
 
-      <button class="modal-btn" @click="useCoreModal().openCreateComponent()">
+      <button class="modal-btn" @click="useBuilderModal().openCreateComponent()">
         Create Component
         <Add />
       </button>
@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import Add from '@/assets/icons/src/add.vue'
-import { useCoreModal } from '@/composables/core/modals'
+import { useBuilderModal } from '@/composables/core/modals'
 import { useFetchSiteComponents } from '@/composables/sites/components/fetch'
 
 const { fetch, loading, component_list } = useFetchSiteComponents()

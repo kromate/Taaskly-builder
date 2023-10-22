@@ -105,6 +105,9 @@
     .tab-item {
         @apply text-grey_two cursor-pointer flex-1 justify-center text-center font-semibold bg-transparent transition-opacity duration-500 ease-linear uppercase opacity-60 py-[7px] px-5 rounded-md whitespace-nowrap;
     }
+    .tab-item.active {
+        @apply opacity-100 text-dark border-2 border-dark shadow;
+    }
 
     .label-radio {
         @apply m-0 px-5 py-2 w-full text-center flex-1 items-center justify-center;
