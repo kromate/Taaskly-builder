@@ -12,8 +12,8 @@
 			<div class="field">
 				<label for="type">Site Framework</label>
 				<select id="type" name="type" class="input-field" v-model="createSiteForm.framework.value">
-					<option value="vue">
-						Vue
+					<option value="vanilla">
+						Vanilla
 					</option>
 				</select>
 			</div>

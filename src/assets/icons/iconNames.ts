@@ -19,6 +19,7 @@ export enum IconNames {
   'down' = 'down',
   'edit' = 'edit',
   'email' = 'email',
+  'error' = 'error',
   'exit' = 'exit',
   'eye' = 'eye',
   'flag' = 'flag',
