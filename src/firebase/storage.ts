@@ -1,6 +1,6 @@
 import { ref as fireRef, getDownloadURL, uploadBytesResumable, deleteObject } from 'firebase/storage'
 import { storage } from './init'
-import { useAlert } from '@/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 
 export const uploadFirebasetorage = () => {
     const percentage = ref(0)

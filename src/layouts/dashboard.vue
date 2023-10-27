@@ -1,24 +1,19 @@
 <template>
-  <div
-    class="flex w-full h-screen bg-light relative md:py-0 lg:pl-4 px-0 overflow-y-hidden"
-  >
+  <div class="flex w-full h-screen bg-light relative md:py-0 lg:pl-4 px-0 overflow-y-hidden">
     <SidebarsLeftSidebar />
 
-    <div
-      class="relative bg-light page w-full border-l  border-dark mx h-screen sm:h-auto mt overflow-hidden"
-    >
+    <div class="relative bg-light page w-full border-l  border-dark mx h-screen sm:h-auto mt overflow-hidden">
       <TopbarMainDefaultTopbar />
-      <Alert />
-      <div
-        class="w-full h-full relative overflow-x-hidden bg-light pb-40"
-      >
+
+      <div class="w-full h-full relative overflow-x-hidden bg-light pb-40">
         <section class="flex-col flex items-stretch p-5">
           <slot />
         </section>
       </div>
-      <LazyModalBase />
     </div>
   </div>
+  <ModalBase />
+  <Alert />
 </template>
 
 <script setup lang="ts">
@@ -44,8 +39,10 @@ onMounted(() => {
     box-shadow: none;
   }
 }
+
 .mx {
   margin-left: min(20%, 14rem);
+
   @media (max-width: 1024px) {
     margin-left: 0;
     margin-right: 0;

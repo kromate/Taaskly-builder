@@ -4,7 +4,7 @@
 			<div class="field relative">
 				<label for="name">Component Name</label>
 				<input id="name" v-model="createComponentForm.name.value" @input="createComponentForm.name.value = createComponentForm.name.value.trim()" placeholder="My Component" type="text" class="input-field" required minlength="3">
-</div>
+			</div>
 			<div class="field">
 				<label for="desc">Component Description</label>
 				<textarea id="desc" v-model="createComponentForm.desc.value" placeholder="This is My Component" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />

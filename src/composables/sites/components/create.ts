@@ -1,8 +1,7 @@
 import { serverTimestamp } from 'firebase/firestore'
-import { useStorage } from '@vueuse/core'
 import { v4 as uuidv4 } from 'uuid'
 import { setFirestoreSubDocument } from '@/firebase/firestore'
-import { useAlert } from '@/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
 import { profileData } from '@/composables/auth/profile'
@@ -32,7 +31,7 @@ export const useCreateComponent = () => {
       id: component_id,
       user_id: user_id.value,
       site_id: siteId,
-      name: `${createComponentForm.name.value}.vue`,
+      name: createComponentForm.name.value,
       desc: createComponentForm.desc.value,
       created_at: createComponentForm.created_at.value,
       updated_at: createComponentForm.updated_at.value

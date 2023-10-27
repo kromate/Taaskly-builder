@@ -7,7 +7,8 @@ import {
 } from 'firebase/auth'
 import { auth } from './init'
 // eslint-disable-next-line import/named
-import { useAlert, useLoading } from '~~/src/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
+import { useLoading } from '@/composables/core/useNotification'
 import { useUser } from '@/composables/auth/user'
 
 const { openAlert } = useAlert()

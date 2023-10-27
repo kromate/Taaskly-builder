@@ -1,5 +1,5 @@
 import { getFirestoreCollectionWithWhereQuery } from '@/firebase/firestore'
-import { useAlert } from '@/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
 
 const site_list = ref([] as any)

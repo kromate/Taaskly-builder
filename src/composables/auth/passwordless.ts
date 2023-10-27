@@ -3,7 +3,7 @@ import { useAuthModal } from '../core/modals'
 import { useProfile } from './profile'
 import { useUser } from '@/composables/auth/user'
 import { authRef } from '~~/src/firebase/auth'
-import { useAlert } from '~~/src/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 
 export const usePasswordlessSignin = () => {
 	const actionCodeSettings = {

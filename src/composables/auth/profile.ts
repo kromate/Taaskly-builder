@@ -1,7 +1,7 @@
 import { watchDebounced } from '@vueuse/core'
 import { Ref } from 'vue'
-import { useAlert } from '../core/useNotification'
 import { ProfileType } from './types/profile'
+import { useAlert } from '@/composables/core/notification'
 import { setFirestoreDocument, getSingleFirestoreDocument } from '@/firebase/firestore'
 import { useUser } from '@/composables/auth/user'
 import { callFirebaseFunction } from '@/firebase/functions'

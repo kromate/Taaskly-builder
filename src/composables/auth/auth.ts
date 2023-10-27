@@ -4,7 +4,8 @@ import { useAuthModal } from '../core/modals'
 import { useProfile } from './profile'
 import { useUser } from '@/composables/auth/user'
 import { googleAuth, signOutUser, authRef } from '~~/src/firebase/auth'
-import { useLoading, useAlert } from '~~/src/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
+import { useLoading } from '~~/src/composables/core/useNotification'
 
 export const useSignin = () => {
   const loading = ref(false)

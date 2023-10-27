@@ -2,7 +2,7 @@ import { profileData } from './profile'
 import { useUser } from '@/composables/auth/user'
 import { setFirestoreDocument } from '@/firebase/firestore'
 import { useAuthModal } from '@/composables/core/modals'
-import { useAlert } from '@/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 import { uploadFirebasetorage } from '@/firebase/storage'
 import { callFirebaseFunction } from '@/firebase/functions'
 

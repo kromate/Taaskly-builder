@@ -7,15 +7,16 @@ import LoginAlert from '@/components/modals/loginAlert.vue'
 import DefaultVerification from '@/components/modals/verification/default.vue'
 import MobileSidebar from '@/components/sidebars/MobileSidebar.vue'
 import Confirmation from '@/components/modals/core/Confirmation.vue'
+import SocialShare from '@/components/modals/core/SocialShare.vue'
 
 type AuthTypes = 'Logout' | 'DefaultVerification' | 'LoginAlert'
 type SidebarTypes = 'MobileSidebar'
 type BuilderTypes = 'CreateSite' | 'CreateComponent'
-type CoreTypes = 'Confirmation'
+type CoreTypes = 'Confirmation' | 'SocialShare'
 
 const AuthModals = { Logout, DefaultVerification, LoginAlert } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
-const CoreModals = { Confirmation } as Record<CoreTypes, any>
+const CoreModals = { Confirmation, SocialShare } as Record<CoreTypes, any>
 const BuilderModals = { CreateSite, CreateComponent } as Record<BuilderTypes, any>
 
 export const modal = useModal(ref([] as any))

@@ -2,7 +2,7 @@ import { serverTimestamp } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 import { useStorage } from '@vueuse/core'
 import { setFirestoreDocument } from '@/firebase/firestore'
-import { useAlert } from '@/composables/core/useNotification'
+import { useAlert } from '@/composables/core/notification'
 import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
 import { profileData } from '@/composables/auth/profile'
@@ -10,7 +10,7 @@ import { profileData } from '@/composables/auth/profile'
 const createSiteForm = {
   name: ref(''),
   desc: ref(''),
-  framework: ref('vue'),
+  framework: ref('vanilla'),
   created_at: ref(serverTimestamp()),
   updated_at: ref(serverTimestamp())
 }
