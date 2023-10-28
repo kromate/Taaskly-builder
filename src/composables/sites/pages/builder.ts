@@ -7,45 +7,60 @@ const iframe_srcdoc = ref('')
 export const iframe_content = useStorage('iframe_content', '')
 
 export const useMountComponent = () => {
-    const mountComponent = (component: any) => {
-        const clone_comp = JSON.parse(JSON.stringify(component))
-        delete clone_comp.img_obj
-        clone_comp.comp_pos = mountedComponent.value.length
-        mountedComponent.value.push(clone_comp)
-        iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
-    }
+  const mountComponent = (component: any) => {
+    const clone_comp = JSON.parse(JSON.stringify(component))
+    delete clone_comp.img_obj
+    clone_comp.comp_pos = mountedComponent.value.length
+    mountedComponent.value.push(clone_comp)
+    iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
+    setTimeout(() => {
+        preview(false)
+    }, 1000)
+  }
 
-    return { mountedComponent, mountComponent, iframe_srcdoc }
+  const loadCompArray = (compArray: any) => {
+    mountedComponent.value = compArray
+    iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
+  }
+
+  return { mountedComponent, mountComponent, iframe_srcdoc, preview, loadCompArray }
 }
 
 const generateIframeSrcdoc = (array) => {
-  // Sort the array based on the comp_pos key
   array.sort((a, b) => a.comp_pos - b.comp_pos)
 
-  // Initialize the srcdoc string with a doctype
-    let srcdoc = `<!DOCTYPE html><html><head>
+  let srcdoc = `<!DOCTYPE html><html><head>
    <script  src="https://cdn.tailwindcss.com"></script>
              <script  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     `
 
-  // Add each CSS to the srcdoc
-  array.forEach((item) => {
-    srcdoc += `<style>${item.hashed_code.css}</style>`
-  })
+  array.forEach((item) => { srcdoc += `<style>${item.hashed_code.css}</style>` })
 
   srcdoc += '</head><body>'
 
-  // Add each HTML to the srcdoc
-  array.forEach((item) => {
-    srcdoc += item.hashed_code.html
-  })
-
-  // Add each JavaScript to the srcdoc
-  array.forEach((item) => {
-    srcdoc += `<script>${item.hashed_code.javascript}</script>`
-  })
+  array.forEach((item) => { srcdoc += item.hashed_code.html })
+  array.forEach((item) => { srcdoc += `<script>${item.hashed_code.javascript}</script>` })
 
   srcdoc += '</body></html>'
 
   return srcdoc
+}
+
+const preview = (openTab = true) => {
+  const iframe = document.querySelector('iframe')
+  const iframeDocument = iframe?.contentDocument || iframe?.contentWindow?.document
+
+  if (!iframeDocument || !iframeDocument.documentElement) {
+    console.error('Could not access iframe content')
+    return
+  }
+
+  const iframeHTML = iframeDocument.documentElement.outerHTML
+
+  iframe_content.value = iframeHTML
+
+  if (openTab) {
+      const fullPath = useRoute().fullPath
+  window.open(`${fullPath}/preview`, '_blank')
+  }
 }

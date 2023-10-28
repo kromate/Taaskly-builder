@@ -1,58 +1,39 @@
 import html2canvas from 'html2canvas'
 import { useElementSize } from '@vueuse/core'
-import { createStyle } from 'tailwind-to-css'
-import { editorValue } from './editor'
+import { iframe_content, useMountComponent } from './builder'
 import { updateFirestoreSubDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
-import { generateHash, hashedHTML_CSS_JS } from '@/composables/utils/index'
 
-type TComponentData = {
-    props: Record<string, any>,
-    serializedState: string,
-    code: string,
-    compiled_js: string,
-    compiled_css: string,
-}
+const { mountedComponent } = useMountComponent()
 
-export const useUpdateComponent = () => {
-    const updateCompLoading = ref(false)
-    const updateComponent = async (siteId: string, compId: string) => {
-        updateCompLoading.value = true
+export const useUpdatePage = () => {
+    const updatePageLoading = ref(false)
+    const updatePage = async (siteId: string, pageId: string) => {
+        updatePageLoading.value = true
 
-        const outputSection: HTMLIFrameElement = (document.querySelector('#taaskly_iframe') as any)?.contentWindow.document.body
-         const { width, height } = useElementSize(outputSection)
-        const canvas = await html2canvas(outputSection)
+        // const outputSection: HTMLIFrameElement = (document.querySelector('#taaskly_iframe') as any)?.contentWindow.document.body
+        //  const { width, height } = useElementSize(outputSection)
+        // const canvas = await html2canvas(outputSection)
         // canvas.width = width.value
         // canvas.height = height.value
 
         // console.log(canvas, height, width)
-        const dataURL = canvas.toDataURL('image/png')
-        const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
-
-        const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.javascript, generateHash())
+        // const dataURL = canvas.toDataURL('image/png')
+        // const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
 
         const data = {
-            img_obj: {
-                url,
-                width: width.value,
-                height: height.value
-            },
-            hashed_code: {
-                html: hashedCode.newHtml,
-                css: hashedCode.newCss,
-                javascript: hashedCode.newJs
-            },
-            code: editorValue.value
+            PageCompArray: mountedComponent.value,
+            iframe_content: iframe_content.value
         }
         try {
-            await updateFirestoreSubDocument('sites', siteId, 'components', compId, data)
+            await updateFirestoreSubDocument('sites', siteId, 'pages', pageId, data)
             useAlert().openAlert({ type: 'Alert', msg: 'saved' })
-            updateCompLoading.value = false
+            updatePageLoading.value = false
         } catch (e: any) {
-            updateCompLoading.value = false
+            updatePageLoading.value = false
             useAlert().openAlert({ type: 'ERROR', msg: `Error: ${e.message}` })
         }
     }
 
-    return { updateComponent, updateCompLoading }
+    return { updatePage, updatePageLoading }
 }
