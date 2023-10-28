@@ -46,12 +46,6 @@ export default {
                 { name: 'format-detection', content: 'telephone=no' }
             ],
             script: [
-
-            {
-                src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
-                defer: true,
-                async: true
-            },
             {
                 hid: 'google-tag-manager',
                 children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -104,6 +104,7 @@
 		"monaco-editor": "^0.38.0",
 		"monaco-tailwindcss": "^0.6.0",
 		"split.js": "^1.6.5",
+		"tailwind-to-css": "^0.0.6",
 		"typesense": "^1.5.3",
 		"uuid": "^9.0.0",
 		"vue-chartjs": "^5.2.0",

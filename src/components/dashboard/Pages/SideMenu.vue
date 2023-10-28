@@ -35,7 +35,6 @@ const { fetch, loading, component_list } = useFetchSiteComponents()
 const site_id = useRoute().params.id as string
 fetch(site_id)
 
-console.log(component_list)
 </script>
 
 <style scoped></style>

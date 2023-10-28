@@ -180,9 +180,7 @@ async function updatePreview() {
     // if SSR, generate the SSR bundle and eval it to render the HTML
     if (isSSR && mainFile.endsWith('.vue')) {
       const ssrModules = compileModulesForPreview(store, true)
-      console.log(
-        `[@vue/repl] successfully compiled ${ssrModules.length} modules for SSR.`
-      )
+
       await proxy.eval([
         'const __modules__ = {};',
         ...ssrModules,
@@ -208,11 +206,6 @@ async function updatePreview() {
 
     // compile code to simulated module system
     const modules = compileModulesForPreview(store)
-    console.log(
-      `[@vue/repl] successfully compiled ${modules.length} module${
-        modules.length > 1 ? 's' : ''
-      }.`
-    )
 
     const codeToEval = [
       'window.__modules__ = {};window.__css__ = [];' +

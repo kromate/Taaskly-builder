@@ -2,9 +2,9 @@
   <article
     class="border border-primary rounded-md w-w-full h-[450px] shadow-xl p-4 flex flex-col justify-between relative"
   >
-    <div class="h-[250px] border-2 rounded-lg mb-5" v-if="!data.img_obj.url" />
+    <div class="h-[250px] border-2 rounded-lg mb-5" v-if="!data?.img_obj?.url" />
     <!-- <img :src="data.img_url" alt="img preview" class="h-[250px] border-2 rounded-lg mb-5"> -->
-    <img :src="data.img_obj.url" alt="img preview" class="h-[250px] border-2 rounded-lg mb-5 object-fill p-2">
+    <img :src="data?.img_obj?.url" alt="img preview" class="h-[250px] border-2 rounded-lg mb-5 object-fill p-2">
     <div class="flex flex-col gap-1 mb-5">
       <h3 class="font-bold text-xl md:pr-6 pr-12">
         {{ data.name }}
