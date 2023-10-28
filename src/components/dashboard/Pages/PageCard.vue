@@ -10,10 +10,10 @@
       <span>{{ data.desc }}</span>
     </div>
     <div class="flex gap-3">
-    <nuxt-link :to="`/sites/${site_id}/components/${data.id}`" class="modal-btn">
-      View Component
+    <nuxt-link :to="`/sites/${site_id}/pages/${data.id}`" class="modal-btn">
+      View Page
     </nuxt-link>
-    <button class="modal-btn w-auto hover:bg-red hover:border-red" @click="setDeleteComponentId({siteId:site_id, CompId:data.id})">
+    <button class="modal-btn w-auto hover:bg-red hover:border-red" @click="setDeletePageId({siteId:site_id, CompId:data.id})">
       <Icon name="delete" class="w-5" />
     </button>
     </div>
@@ -21,11 +21,11 @@
 </template>
 
 <script setup lang='ts'>
-import { useDeleteComponent } from '@/composables/sites/components/delete'
+import { useDeletePage } from '@/composables/sites/pages/delete'
 
 const site_id = useRoute().params.id as string
 
-const { setDeleteComponentId } = useDeleteComponent()
+const { setDeletePageId } = useDeletePage()
 
 defineProps({
   data: {

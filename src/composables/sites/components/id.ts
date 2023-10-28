@@ -13,7 +13,9 @@ export const useFetchCompnentById = () => {
             const component = await getSingleFirestoreSubDocument('sites', siteId, 'components', compId)
             if (!component) throw new Error('component not found')
             componentData.value = component
-            editorValue.value = component.code
+            if (component.code) {
+                    editorValue.value = component.code
+            }
 
             loading.value = false
         } catch (e: any) {

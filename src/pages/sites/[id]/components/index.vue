@@ -5,7 +5,7 @@
         These are your List of Components
       </h1>
 
-      <DashboardComponentList />
+      <DashboardComponentsComponentList />
     </main>
   </div>
 </template>

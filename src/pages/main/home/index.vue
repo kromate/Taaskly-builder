@@ -4,7 +4,7 @@
       welcome back, {{ username }}
     </h1>
 
-  <DashboardTemplateList />
+    <DashboardTemplatesTemplateList />
   </main>
 </template>
 

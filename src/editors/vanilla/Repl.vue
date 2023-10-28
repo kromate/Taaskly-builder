@@ -44,9 +44,10 @@ onMounted(() => {
         <MonacoEditor :active-tab="currentTab" @change="onChange" />
       </div>
       <iframe
+        id="taaskly_iframe"
         ref="iframe"
         class="h-full w-full"
-        sandbox="allow-scripts"
+        sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms allow-top-navigation-by-user-activation allow-pointer-lock allow-downloads"
         frameBorder="0"
       />
     </div>

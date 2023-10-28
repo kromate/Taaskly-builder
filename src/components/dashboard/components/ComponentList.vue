@@ -1,13 +1,7 @@
 <template>
   <section class="grid lg:grid-cols-3 md:grid-cols-2 gap-4" v-if="!loading">
-    <DashboardComponentCard
-      v-for="component in component_list"
-      :key="component.id"
-      :data="component"
-    />
-    <article
-      class="border border-primary rounded-md w-full h-[450px] shadow-xl p-4 flex flex-col justify-between relative"
-    >
+    <DashboardComponentsComponentCard v-for="component in component_list" :key="component.id" :data="component" />
+    <article class="border border-primary rounded-md w-full h-[450px] shadow-xl p-4 flex flex-col justify-between relative">
       <div class="h-[250px] border-2 rounded-lg mb-5" />
       <div class="flex flex-col gap-1 mb-5">
         <h3 class="font-bold text-xl md:pr-6 pr-12">
@@ -22,9 +16,9 @@
       </button>
     </article>
   </section>
-      <section class="grid lg:grid-cols-3 md:grid-cols-2 gap-4" v-else>
-        <Skeleton height="450px" radius="0.375rem" v-for="n in 3" :key="n" />
-      </section>
+  <section class="grid lg:grid-cols-3 md:grid-cols-2 gap-4" v-else>
+    <Skeleton height="450px" radius="0.375rem" v-for="n in 3" :key="n" />
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -37,5 +31,4 @@ const site_id = useRoute().params.id as string
 fetch(site_id)
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

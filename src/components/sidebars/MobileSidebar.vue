@@ -37,8 +37,7 @@
 						</span>
 					</div>
 				</div>
-
-			</div>
+</div>
 		</aside>
 	</Modal>
 </template>

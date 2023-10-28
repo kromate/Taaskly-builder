@@ -6,4 +6,5 @@ export const editorState = useStorage<Record<string, any>>(
   StorageName.EDITOR_STATE,
   {}
 )
+
 export const editorValue = ref(initialEditorValue)
