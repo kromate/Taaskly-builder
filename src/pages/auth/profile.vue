@@ -11,7 +11,7 @@
 				{{ formStep == 1 ? 'Basic details to get you started on your Journey with taaskly' : 'What is your main reason for using Taaskly? (You can select multiple options)' }}
 			</p>
 			<form class="auth-form " @submit.prevent="createProfile">
-				<div v-if="formStep == 1" id="step 1" class="auth-form">
+				<div id="step 1" class="auth-form">
 					<div class="field relative">
 						<label for="username">Username
 							<icon v-tooltip="{ text: 'You can only set this once' }" name="info" class="w-4 text-dark cursor-pointer" />
@@ -46,16 +46,6 @@
 						<label for="phone">Referral Code (Optional)</label>
 						<input id="referrer" v-model="profileFormState.referrer.value" type="text" class="input-field">
 					</div>
-				</div>
-
-				<div v-else id="step 2" class="auth-form pt-5">
-					<label v-for="item in [
-						{ text: 'To Find Products and Services', id: 1 },
-						{ text: 'To Create a Shop or Service', id: 1 },
-						{ text: 'To Post and Accept Task', id: 3 }]" :key="item.id" class="border border-dark p-2 py-3 w-full rounded cursor-pointer pl-4">
-						<input v-model="profileFormState.reason.value" type="checkbox" :value="item" class="">
-						<span>{{ item.text }}</span>
-					</label>
 				</div>
 
 				<button class="btn-primary w-full mt-4" :disabled="loading || !isUsernameAvailable || usernameLoading || phoneNumError">

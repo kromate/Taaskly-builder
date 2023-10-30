@@ -9,7 +9,7 @@
         </h3>
 
         <section class="flex flex-col px-5 gap-3" v-if="!loading && component_list.length > 0">
-            <div class="flex items-center gap-3 bg-gray-100 p-2 rounded cursor-grab" v-for="component in component_list" :key="component.id" @click="mountComponent(component)">
+            <div class="flex items-center gap-3 bg-gray-100 p-2 rounded " v-for="component in component_list" :key="component.id" @click="mountComponent(component)">
                 <Avatar :name="component.name" :radius="24" :size="24" />
                 <span class="font-semibold">{{ component.name }}</span>
             </div>

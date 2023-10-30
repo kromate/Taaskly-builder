@@ -1,4 +1,4 @@
-import { watchDebounced } from '@vueuse/core'
+import { watchDebounced, useStorage } from '@vueuse/core'
 import { Ref } from 'vue'
 import { ProfileType } from '@/composables/auth/types/profile'
 import { useAlert } from '@/composables/core/notification'
@@ -23,7 +23,7 @@ const profileFormState = {
 	referrer: ref(''),
 	reason: ref([])
 }
-export const profileData = ref({}) as Ref<ProfileType>
+export const profileData = useStorage('profileData', {}) as Ref<ProfileType>
 
 const { id } = useUser()
 const formStep = ref(1)
@@ -39,11 +39,7 @@ export const useCreateProfile = () => {
 	})
 	const createProfile = async () => {
 		loading.value = true
-		if (formStep.value === 1) {
-			formStep.value = 2
-			loading.value = false
-			return
-		}
+
 		const profileUploadData = {
 			id: id.value,
 			username: profileFormState.username.value,
@@ -58,7 +54,8 @@ export const useCreateProfile = () => {
 			created_at: profileFormState.created_at.value,
 			updated_at: profileFormState.updated_at.value,
 			referrer: profileFormState.referrer.value,
-			reason: profileFormState.reason.value
+			reason: profileFormState.reason.value,
+			origin: 'site_builder'
 		}
 
 		try {
