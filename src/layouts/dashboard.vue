@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProfile } from '@/composables/auth/profile'
+import { useProfile } from '@/composables/auth/profile/create'
 
 const { getProfile } = useProfile()
 onMounted(() => {

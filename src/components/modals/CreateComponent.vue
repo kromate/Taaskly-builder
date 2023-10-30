@@ -3,7 +3,7 @@
 		<form class="auth-form" @submit.prevent="create(id)">
 			<div class="field relative">
 				<label for="name">Component Name</label>
-				<input id="name" v-model="createComponentForm.name.value" @input="createComponentForm.name.value = createComponentForm.name.value.trim()" placeholder="My Component" type="text" class="input-field" required minlength="3">
+				<input id="name" v-model="createComponentForm.name.value" placeholder="My Component" type="text" class="input-field" required minlength="3">
 			</div>
 			<div class="field">
 				<label for="desc">Component Description</label>

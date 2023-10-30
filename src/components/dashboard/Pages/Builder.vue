@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col h-full" v-if="!loading">
         <header class="flex gap-4 justify-between mb-6">
-            <button class="btn-primary" @click="preview">
+            <button class="btn-primary" @click="preview()">
                 Preview
             </button>
             <button class="btn-primary" @click="updatePage(siteId, pageId)" :disabled="updatePageLoading">

@@ -4,7 +4,6 @@ import { setFirestoreSubDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
 import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
 import { useUser, isLoggedIn } from '@/composables/auth/user'
-import { profileData } from '@/composables/auth/profile'
 
 const createPageForm = {
   name: ref(''),

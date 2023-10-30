@@ -31,6 +31,8 @@ export const useUpdateComponent = () => {
 
         const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.javascript, generateHash())
 
+        console.log(hashedCode)
+
         const data = {
             img_obj: {
                 url,

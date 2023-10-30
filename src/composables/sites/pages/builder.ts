@@ -8,7 +8,8 @@ export const iframe_content = useStorage('iframe_content', '')
 
 export const useMountComponent = () => {
   const mountComponent = (component: any) => {
-    const clone_comp = JSON.parse(JSON.stringify(component))
+    console.log(component)
+  const clone_comp = JSON.parse(JSON.stringify(component))
     delete clone_comp.img_obj
     clone_comp.comp_pos = mountedComponent.value.length
     mountedComponent.value.push(clone_comp)

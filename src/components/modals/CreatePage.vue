@@ -3,7 +3,7 @@
 		<form class="auth-form" @submit.prevent="create(id)">
 			<div class="field relative">
 				<label for="name">Page Name</label>
-				<input id="name" v-model="createPageForm.name.value" @input="createPageForm.name.value = createPageForm.name.value.trim()" placeholder="My Page" type="text" class="input-field" required minlength="3">
+				<input id="name" v-model="createPageForm.name.value" placeholder="My Page" type="text" class="input-field" required minlength="3">
 			</div>
 			<div class="field">
 				<label for="desc">Page Description</label>

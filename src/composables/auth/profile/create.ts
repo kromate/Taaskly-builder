@@ -1,23 +1,23 @@
 import { watchDebounced } from '@vueuse/core'
 import { Ref } from 'vue'
-import { ProfileType } from './types/profile'
+import { ProfileType } from '@/composables/auth/types/profile'
 import { useAlert } from '@/composables/core/notification'
-import { setFirestoreDocument, getSingleFirestoreDocument } from '@/firebase/firestore'
+import { setFirestoreDocument } from '@/firebase/firestore/create'
+import { getSingleFirestoreDocument } from '@/firebase/firestore/fetch'
 import { useUser } from '@/composables/auth/user'
-import { callFirebaseFunction } from '@/firebase/functions'
 
 const profileFormState = {
 	username: ref(''),
 	first_name: ref(''),
-	photo_url: ref(''),
 	last_name: ref(''),
+	photo_url: ref(''),
 	email: ref(''),
 	phone: ref(''),
 	verified_level: ref(0),
 	wallet_balance: ref(0),
 	profile_level: ref(0),
-	tasker_rating: ref(false),
-	runner_rating: ref(false),
+	tasker_rating: ref(0),
+	runner_rating: ref(0),
 	created_at: ref(new Date().toISOString()),
 	updated_at: ref(new Date().toISOString()),
 	referrer: ref(''),
@@ -39,11 +39,11 @@ export const useCreateProfile = () => {
 	})
 	const createProfile = async () => {
 		loading.value = true
-		// if (formStep.value === 1) {
-		// 	formStep.value = 2
-		// 	loading.value = false
-		// 	return
-		// }
+		if (formStep.value === 1) {
+			formStep.value = 2
+			loading.value = false
+			return
+		}
 		const profileUploadData = {
 			id: id.value,
 			username: profileFormState.username.value,
@@ -89,7 +89,9 @@ export const useCreateProfile = () => {
 		profileFormState.last_name.value = useUser().user?.displayName?.split(
 			' '
 		)[1] as string
-		profileFormState.referrer.value = process.client ? localStorage.getItem('taaskly_referral') as string : ''
+		if (process.client && localStorage.getItem('taaskly_referral') && localStorage.getItem('taaskly_referral') !== 'null' && localStorage.getItem('taaskly_referral') !== 'undefined') {
+			profileFormState.referrer.value = localStorage.getItem('taaskly_referral') as string
+		}
 
 		watch(profileFormState.referrer, () => {
 			profileFormState.referrer.value =

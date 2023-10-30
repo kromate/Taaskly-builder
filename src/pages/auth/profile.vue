@@ -5,16 +5,16 @@
 				<icon class="w-7 cursor-pointer absolute left-0" name="back" @click="formStep == 1 ? useAuthModal().openLogout() : formStep--" />
 				{{ formStep == 1 ? 'Create a profile ' : 'Almost done' }}
 			</h1>
-			<p v-if="profileFormState.referrer.value" class="text-sm text-center mb-2 max-w-xs"
+			<p v-if="profileFormState.referrer.value" class="text-sm text-center mb-2 max-w-xs text-dark"
 				v-html="formStep == 1 ? `Basic details to get you started on your Journey with <b class='text-lg '> ${profileFormState.referrer.value}</b>  on Taaskly` : 'What is your main reason for using Taaskly? (You can select multiple options)'" />
-			<p v-else class="text-sm text-center mb-2 max-w-xs">
+			<p v-else class="text-sm text-center  mb-2 max-w-xs text-dark">
 				{{ formStep == 1 ? 'Basic details to get you started on your Journey with taaskly' : 'What is your main reason for using Taaskly? (You can select multiple options)' }}
 			</p>
 			<form class="auth-form " @submit.prevent="createProfile">
 				<div v-if="formStep == 1" id="step 1" class="auth-form">
 					<div class="field relative">
 						<label for="username">Username
-							<icon v-tooltip="{ text: 'You can only set this once' }" name="info" class="w-4 text-black cursor-pointer" />
+							<icon v-tooltip="{ text: 'You can only set this once' }" name="info" class="w-4 text-dark cursor-pointer" />
 						</label>
 						<input id="username" v-model="profileFormState.username.value" type="text" class="input-field" :class="[isUsernameAvailable ? '' : '!border-rose-500']" required>
 						<Spinner v-if="usernameLoading" class="!border-t-dark !border-[#0c030366] absolute right-4 top-9" />
@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCreateProfile, useUsername } from '@/composables/auth/profile'
+import { useCreateProfile, useUsername } from '@/composables/auth/profile/create'
 import { useAuthModal } from '@/composables/core/modals'
 const { loading, profileFormState, formStep, createProfile, initForm, phoneNumError } = useCreateProfile()
 const { isUsernameAvailable, loading: usernameLoading } = useUsername()
@@ -88,12 +88,12 @@ input:checked {
 }
 
 label:has(input:checked) {
-	@apply bg-grey_two text-white rounded-md relative;
+	@apply bg-grey_two text-light rounded-md relative;
 
 	&::after {
 		@apply absolute top-0 right-0 bottom-0 left-0 rounded-md;
 		content: '';
-		background: url('../../assets/icons/source/check.svg') transparent no-repeat 90% center;
+		background: url('@/assets/icons/source/check.svg') transparent no-repeat 90% center;
 	}
 }
 </style>
