@@ -1,68 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,900;1,1000&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,900;1,1000&display=swap');
 
 * {
-    font-family: 'Nunito', sans-serif;
-    /* font-family: 'BR Firma', sans-serif; */
+  font-family: 'DM Sans', sans-serif;
+  /* font-family: 'BR Firma', sans-serif; */
 }
-
 
 html,
 body {
-    @apply overflow-x-hidden;
-    scroll-behavior: smooth;
-    scroll-padding: 12rem;
+  @apply overflow-x-hidden;
+  scroll-behavior: smooth;
+  scroll-padding: 12rem;
 }
 
 select,
 input[type='number'],
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
 }
 
 select {
-    overflow: hidden;
-    overflow: -moz-hidden-unscrollable;
-    background: url('../../assets/icons/source/down.svg') white;
-    background-repeat: no-repeat;
-    background-attachment: relative;
-    background-position: 97% 50%;
-    z-index: 100;
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+  background: url('../../assets/icons/source/down.svg') white;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-position: 97% 50%;
+  z-index: 100;
 }
 
 .title {
-    text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+  text-shadow:
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .slideUp-enter-from,
 .slideUp-leave-to {
-    opacity: 0;
-    transform: translateY(500px);
+  opacity: 0;
+  transform: translateY(500px);
 }
 
 .slideUp-enter-active,
 .slideUp-leave-active {
-    transition: all 0.75s ease;
+  transition: all 0.75s ease;
 }
-.wc-datepicker{
-    @apply z-[1000]
+.wc-datepicker {
+  @apply z-[1000];
 }
 
 @layer utilities {
-    .center {
-        @apply flex justify-center items-center;
-    }
-    .center-col {
-        @apply flex flex-col justify-center items-center;
-    }
-    .transite {
-        @apply transition-all duration-75 md:duration-150 ease-linear;
-    }
+  .center {
+    @apply flex justify-center items-center;
+  }
+  .center-col {
+    @apply flex flex-col justify-center items-center;
+  }
+  .transite {
+    @apply transition-all duration-75 md:duration-150 ease-linear;
+  }
 }
-
 
 * {
   scrollbar-color: #8885 var(--light_primary);
@@ -89,8 +90,8 @@ select {
 ::-webkit-scrollbar-thumb:hover {
   background: #8886;
 }
-@media (max-width:640px){
-::-webkit-scrollbar {
-  width: 3px;
-}
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
 }

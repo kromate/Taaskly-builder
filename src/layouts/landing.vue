@@ -14,7 +14,8 @@
 
 <style scoped>
 .dots_bg {
-	background-image: radial-gradient(#4d1dedb3 .5px, #e5e5f79c 0.5px);
-	background-size: 10px 10px;
+
+background-color: rgba(91, 55, 209, 0.965);
+background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23ffffff' fill-opacity='0.27'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 </style>
