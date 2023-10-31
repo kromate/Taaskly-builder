@@ -26,6 +26,22 @@ onMounted(async () => {
             newScript.appendChild(document.createTextNode(oldScript.innerHTML))
             oldScript?.parentNode?.replaceChild(newScript, oldScript)
         })
+
+         const badge = document.createElement('div')
+        badge.textContent = 'made in Taaskly'
+        badge.classList.add(
+            'fixed',
+            'bottom-0',
+            'right-0',
+            'mb-4',
+            'mr-4',
+            'py-2', 'px-4',
+            'text-sm',
+            'text-white',
+            'bg-black',
+            'rounded'
+        )
+        htmlElement.appendChild(badge)
     } else {
         console.error('Could not find html element')
     }
