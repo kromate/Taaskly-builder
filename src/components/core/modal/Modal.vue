@@ -32,7 +32,6 @@
 </template>
 
 <script lang="ts" setup>
-import gsap from 'gsap'
 import { PropType } from 'vue'
 import { modal as Modal } from '@/composables/core/modals'
 

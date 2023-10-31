@@ -67,7 +67,7 @@ const preview = (openTab = true) => {
   iframe_content.value = iframeHTML
 
   if (openTab) {
-      const fullPath = useRoute().fullPath
+    const fullPath = useRoute().fullPath.split('?')[0]
   window.open(`${fullPath}/preview`, '_blank')
   }
 }
