@@ -22,8 +22,6 @@
 					type="text"
 					rows="4"
 					class="input-field h-24 pt-3"
-					required
-					minlength="3"
 				/>
 			</div>
 			<button class="btn-primary w-full mt-2" type="submit">

@@ -16,6 +16,7 @@ onMounted(async () => {
     const htmlElement = document.querySelector('html')
 
     if (htmlElement) {
+        console.log(iframe_content)
             htmlElement.innerHTML = iframe_content.value
 
              const scripts = htmlElement.querySelectorAll('script')

@@ -1,7 +1,7 @@
 <template>
 	<section v-if="!loading" class="flex flex-col h-full">
 		<header class="flex gap-4 justify-between mb-6">
-			<button class="btn-primary" @click="preview()">
+			<button class="btn-primary" @click="previewClick()">
 				Preview
 			</button>
 			<button class="btn-primary" :disabled="updatePageLoading" @click="updatePage(siteId, pageId)">
@@ -28,6 +28,15 @@ const { fetchPageById, loading } = useFetchPagenentById()
 
 const { updatePage, updatePageLoading } = useUpdatePage()
 const { iframe_srcdoc, preview } = useMountComponent()
+
+const previewLoading = ref(false)
+
+const previewClick = async () => {
+	previewLoading.value = true
+	await updatePage(siteId, pageId)
+	preview()
+	previewLoading.value = false
+}
 
 const siteId = useRoute().params.id as string
 const pageId = useRoute().params.pid as string

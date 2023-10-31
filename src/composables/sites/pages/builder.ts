@@ -63,7 +63,6 @@ const preview = (openTab = true) => {
   }
 
   const iframeHTML = iframeDocument.documentElement.outerHTML
-
   iframe_content.value = iframeHTML
 
   if (openTab) {
