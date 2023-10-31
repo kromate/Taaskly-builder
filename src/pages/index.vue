@@ -1,5 +1,5 @@
 <template>
-	<main class="flex flex-col items-center justify-center text-white h-screen container px-4">
+	<main class="flex flex-col md:items-center justify-center text-white h-screen container px-4">
 		<!-- <h1 class="font-bold text-3xl md:text-6xl max-w-[800px] md:text-center mx-auto !leading-[1.25] tracking-[0.1px] mt-12">
 			Create the website your
 			business needs
@@ -33,7 +33,7 @@
 				business needs
 			</div>
 		</h1>
-		<p class="mx-auto mt-5 md:mt-12 md:max-w-[700px] md:text-center md:text-lg font-medium">
+		<p class=" mt-5 md:mt-12 md:max-w-[700px] md:text-center md:text-lg font-medium">
 			What do you want to build?
 		</p>
 		<div class="flex flex-col items-center mt-12 text-center w-full max-w-md mx-auto">
