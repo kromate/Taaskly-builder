@@ -80,7 +80,7 @@ export const hashedHTML_CSS_JS = (html, css, js, hash) => {
     // Hash the JavaScript code
     const jsVarFuncRegex = /(var|const|let)\s+([a-zA-Z_$][0-9a-zA-Z_$]*)/g
 
-    let names = [] as string[]
+    const names = [] as string[]
     let newJs = code.javascript
 
         newJs = newJs.replace(/#([^,{}]+)/g, (match, id) => `#${replaceID(id)}`)
@@ -92,14 +92,14 @@ export const hashedHTML_CSS_JS = (html, css, js, hash) => {
       names.push(name)
     })
 
-    for (let name of names) {
-      let regex = new RegExp(`\\b${name}\\b`, 'g')
+    for (const name of names) {
+      const regex = new RegExp(`\\b${name}\\b`, 'g')
       if (!name.includes(hash)) {
         newJs = newJs.replace(regex, `${name}_${hash}`)
       }
     }
 
-      let dotVarHashRegex = new RegExp(`(\\.[a-zA-Z_$][0-9a-zA-Z_$]*)_${hash}`, 'g')
+      const dotVarHashRegex = new RegExp(`(\\.[a-zA-Z_$][0-9a-zA-Z_$]*)_${hash}`, 'g')
 
   newJs = newJs.replace(dotVarHashRegex, (match, nameWithDot) => {
     return nameWithDot // remove the _hash part from instances like  "element.style.transform" that get

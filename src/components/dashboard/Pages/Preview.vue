@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div v-html="html" />
+	<div>
+		<div v-html="html" />
 
-    <!-- {{ js }} <br> <br>
+		<!-- {{ js }} <br> <br>
     {{ css }} <br> <br>
     {{ html }} -->
-</div>
+	</div>
 </template>
 
 <script setup>

@@ -1,22 +1,22 @@
 <template>
-<section class="flex flex-col px-5 gap-3" v-if="!loading && component_list.length > 0">
-            <div class="flex items-center gap-3 bg-gray-100 p-2 rounded " v-for="component in component_list" :key="component.id" @click="mountComponent(component)">
-                <Avatar :name="component.name" :radius="24" :size="24" />
-                <span class="font-semibold">{{ component.name }}</span>
+	<section v-if="!loading && component_list.length > 0" class="flex flex-col px-5 gap-3">
+		<div v-for="component in component_list" :key="component.id" class="flex items-center gap-3 bg-gray-100 p-2 rounded " @click="mountComponent(component)">
+			<Avatar :name="component.name" :radius="24" :size="24" />
+			<span class="font-semibold">{{ component.name }}</span>
 
-                <div class="flex ml-auto">
-                    <Icon name="righty" class="w-6 cursor-pointer" />
-                </div>
-            </div>
-        </section>
+			<div class="flex ml-auto">
+				<Icon name="righty" class="w-6 cursor-pointer" />
+			</div>
+		</div>
+	</section>
 
-        <section class="flex flex-col px-5 gap-3" v-else-if="loading">
-            <Skeleton height="40px" radius="4px" v-for="n in 3" :key="n" />
-        </section>
+	<section v-else-if="loading" class="flex flex-col px-5 gap-3">
+		<Skeleton v-for="n in 3" :key="n" height="40px" radius="4px" />
+	</section>
 
-        <section class="flex flex-col px-5 gap-3" v-else>
-            You have no components yet
-        </section>
+	<section v-else class="flex flex-col px-5 gap-3">
+		You have no components yet
+	</section>
 </template>
 
 <script setup lang="ts">

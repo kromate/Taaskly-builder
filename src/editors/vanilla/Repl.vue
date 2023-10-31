@@ -37,21 +37,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="border-t border-gray-200 dark:border-gray-700">
-    <div class="flex flex-row h-full">
-      <div id="split-0" class="w-full">
-        <Tabs v-model="currentTab" :items="items" />
-        <MonacoEditor :active-tab="currentTab" @change="onChange" />
-      </div>
-      <iframe
-        id="taaskly_iframe"
-        ref="iframe"
-        class="h-full w-full"
-        sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms allow-top-navigation-by-user-activation allow-pointer-lock allow-downloads"
-        frameBorder="0"
-      />
-    </div>
-  </main>
+	<main class="border-t border-gray-200 dark:border-gray-700">
+		<div class="flex flex-row h-full">
+			<div id="split-0" class="w-full">
+				<Tabs v-model="currentTab" :items="items" />
+				<MonacoEditor :active-tab="currentTab" @change="onChange" />
+			</div>
+			<iframe
+				id="taaskly_iframe"
+				ref="iframe"
+				class="h-full w-full"
+				sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms allow-top-navigation-by-user-activation allow-pointer-lock allow-downloads"
+				frameBorder="0"
+			/>
+		</div>
+	</main>
 </template>
 
 <style>

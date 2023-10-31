@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full h-full">
-     <slot />
-  </div>
+	<div class="w-full h-full">
+		<slot />
+	</div>
 
 	<ModalBase />
-		<PageLoading />
-		<Alert />
+	<PageLoading />
+	<Alert />
 </template>
 
 <script setup lang="ts">

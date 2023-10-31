@@ -28,18 +28,18 @@ function formatMessage(err: string | Error): string {
 </script>
 
 <template>
-  <Transition name="fade">
-    <div
-      v-if="!dismissed && (err || warn)"
-      class="msg"
-      :class="err ? 'err' : 'warn'"
-    >
-      <pre>{{ formatMessage(err || warn) }}</pre>
-      <button class="dismiss" @click="dismissed = true">
-✕
-</button>
-    </div>
-  </Transition>
+	<Transition name="fade">
+		<div
+			v-if="!dismissed && (err || warn)"
+			class="msg"
+			:class="err ? 'err' : 'warn'"
+		>
+			<pre>{{ formatMessage(err || warn) }}</pre>
+			<button class="dismiss" @click="dismissed = true">
+				✕
+			</button>
+		</div>
+	</Transition>
 </template>
 
 <style scoped>

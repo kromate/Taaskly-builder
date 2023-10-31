@@ -3,11 +3,28 @@
 		<form class="auth-form" @submit.prevent="create(id)">
 			<div class="field relative">
 				<label for="name">Page Name</label>
-				<input id="name" v-model="createPageForm.name.value" placeholder="My Page" type="text" class="input-field" required minlength="3">
+				<input
+					id="name"
+					v-model="createPageForm.name.value"
+					placeholder="My Page"
+					type="text"
+					class="input-field"
+					required
+					minlength="3"
+				>
 			</div>
 			<div class="field">
 				<label for="desc">Page Description</label>
-				<textarea id="desc" v-model="createPageForm.desc.value" placeholder="This is My Page" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />
+				<textarea
+					id="desc"
+					v-model="createPageForm.desc.value"
+					placeholder="This is My Page"
+					type="text"
+					rows="4"
+					class="input-field h-24 pt-3"
+					required
+					minlength="3"
+				/>
 			</div>
 			<button class="btn-primary w-full mt-2" type="submit">
 				<span v-if="!loading">Create Page</span>

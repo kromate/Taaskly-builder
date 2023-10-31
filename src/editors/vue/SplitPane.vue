@@ -47,36 +47,36 @@ function dragEnd() {
 </script>
 
 <template>
-  <div
-    ref="container"
-    class="split-pane"
-    :class="{
-      dragging: state.dragging,
-      'show-output': showOutput,
-      vertical: isVertical,
-    }"
-    @mousemove="dragMove"
-    @mouseup="dragEnd"
-    @mouseleave="dragEnd"
-  >
-    <div
-      class="left"
-      :style="{ [isVertical ? 'height' : 'width']: boundSplit + '%' }"
-    >
-      <slot name="left" />
-      <div class="dragger" @mousedown.prevent="dragStart" />
-    </div>
-    <div
-      class="right"
-      :style="{ [isVertical ? 'height' : 'width']: 100 - boundSplit + '%' }"
-    >
-      <slot name="right" />
-    </div>
+	<div
+		ref="container"
+		class="split-pane"
+		:class="{
+			dragging: state.dragging,
+			'show-output': showOutput,
+			vertical: isVertical,
+		}"
+		@mousemove="dragMove"
+		@mouseup="dragEnd"
+		@mouseleave="dragEnd"
+	>
+		<div
+			class="left"
+			:style="{ [isVertical ? 'height' : 'width']: boundSplit + '%' }"
+		>
+			<slot name="left" />
+			<div class="dragger" @mousedown.prevent="dragStart" />
+		</div>
+		<div
+			class="right"
+			:style="{ [isVertical ? 'height' : 'width']: 100 - boundSplit + '%' }"
+		>
+			<slot name="right" />
+		</div>
 
-    <button class="toggler" @click="showOutput = !showOutput">
-      {{ showOutput ? '< Code' : 'Output >' }}
-    </button>
-  </div>
+		<button class="toggler" @click="showOutput = !showOutput">
+			{{ showOutput ? '< Code' : 'Output >' }}
+		</button>
+	</div>
 </template>
 
 <style scoped>

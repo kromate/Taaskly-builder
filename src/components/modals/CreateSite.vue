@@ -3,15 +3,32 @@
 		<form class="auth-form" @submit.prevent="create">
 			<div class="field">
 				<label for="name">Site Name</label>
-				<input id="name" v-model="createSiteForm.name.value" placeholder="My Site" type="text" class="input-field" required minlength="3">
+				<input
+					id="name"
+					v-model="createSiteForm.name.value"
+					placeholder="My Site"
+					type="text"
+					class="input-field"
+					required
+					minlength="3"
+				>
 			</div>
 			<div class="field">
 				<label for="desc">Site Description</label>
-				<textarea id="desc" v-model="createSiteForm.desc.value" placeholder="This is My site" type="text" rows="4" class="input-field h-24 pt-3" required minlength="3" />
+				<textarea
+					id="desc"
+					v-model="createSiteForm.desc.value"
+					placeholder="This is My site"
+					type="text"
+					rows="4"
+					class="input-field h-24 pt-3"
+					required
+					minlength="3"
+				/>
 			</div>
 			<div class="field">
 				<label for="type">Site Framework</label>
-				<select id="type" name="type" class="input-field" v-model="createSiteForm.framework.value">
+				<select id="type" v-model="createSiteForm.framework.value" name="type" class="input-field">
 					<option value="vanilla">
 						Vanilla
 					</option>

@@ -5,7 +5,15 @@
 		class="fixed bottom-4 right-4 z-[900000000000000] w-auto flex flex-col-reverse gap-4 !transition-all !duration-300"
 		name="list"
 	>
-		<AlertCard v-for="(alert, index) in openAlertArray" :id="alert.id" :key="alert.id" :data-index="index+1" :message="alert.msg" :type="alert.type" @closeAlert="closeAlert($event)" />
+		<AlertCard
+			v-for="(alert, index) in openAlertArray"
+			:id="alert.id"
+			:key="alert.id"
+			:data-index="index+1"
+			:message="alert.msg"
+			:type="alert.type"
+			@closeAlert="closeAlert($event)"
+		/>
 	</transition-group>
 </template>
 

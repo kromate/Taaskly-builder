@@ -16,7 +16,7 @@
 				</span>
 			</div> -->
 
-			<div class=" items-center justify-between gap-3 pc" v-if="!isLoggedIn">
+			<div v-if="!isLoggedIn" class=" items-center justify-between gap-3 pc">
 				<nuxt-link to="/auth/login" class="btn">
 					Log In
 				</nuxt-link>
@@ -24,7 +24,7 @@
 					Sign up
 				</nuxt-link>
 			</div>
-			<div class=" items-center justify-between gap-3 pc" v-else>
+			<div v-else class=" items-center justify-between gap-3 pc">
 				<nuxt-link to="/main/home" class="btn-secondary">
 					Dashboard
 				</nuxt-link>
@@ -32,8 +32,8 @@
 
 			<component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" />
 		</header>
-			<transition v-if="show" name="slide" appear>
-			<div class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden" v-if="!isLoggedIn">
+		<transition v-if="show" name="slide" appear>
+			<div v-if="!isLoggedIn" class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden">
 				<nuxt-link to="/auth/login" class="btn-secondary mb-4 w-full">
 					Log In
 				</nuxt-link>
@@ -41,13 +41,13 @@
 					Sign up
 				</nuxt-link>
 			</div>
-			<div class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden" v-else>
+			<div v-else class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden">
 				<nuxt-link to="/main/home" class="btn-secondary">
 					Dashboard
 				</nuxt-link>
 			</div>
 		</transition>
-</nav>
+	</nav>
 </template>
 
 <script setup lang="ts">

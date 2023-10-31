@@ -1,6 +1,13 @@
 <template>
 	<div ref="target" class="relative w-full">
-		<input type="text" class="input-field" :placeholder="loading ? 'Loading..' : placeholder" :disabled="loading || disabled" @input="handleInput" @focus="showSuggestions">
+		<input
+			type="text"
+			class="input-field"
+			:placeholder="loading ? 'Loading..' : placeholder"
+			:disabled="loading || disabled"
+			@input="handleInput"
+			@focus="showSuggestions"
+		>
 		<div class="flex  gap-3 mt-3  items-center">
 			<span v-for="(tag, i) in tags" :key="i" class="flex gap-2 bg-grey_two px-3 py-1 rounded-md text-sm text-white">
 				{{ tag.name }}

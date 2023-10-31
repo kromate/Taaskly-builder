@@ -1,5 +1,5 @@
 <template>
-  <div>Account</div>
+	<div>Account</div>
 </template>
 
 <script setup>

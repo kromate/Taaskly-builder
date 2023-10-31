@@ -2,7 +2,6 @@
 	<Modal
 		modal="$atts.modal"
 		:title="title"
-
 	>
 		<p class="text-primary text-lg tracking-[0.1rem] text-center">
 			{{ description }}

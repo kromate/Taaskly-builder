@@ -1,63 +1,63 @@
 <template>
-  <div
-    ref="fileSel"
-    class="file-selector"
-    :class="{ 'has-import-map': showImportMap }"
-    @wheel="horizontalScroll"
-  >
-    <template v-for="(file, i) in files">
-      <div
-        v-if="pending !== file"
-        class="file !outline-none !border-none"
-        :class="{ active: store.state.activeFile.filename === file }"
-        @click="store.setActive(file)"
-        @dblclick="i > 0 && editFileName(file)"
-      >
-        <span class="label">{{ stripSrcPrefix(file) }}</span>
-        <span v-if="i > 0" class="remove" @click.stop="store.deleteFile(file)">
-          <svg class="icon" width="12" height="12" viewBox="0 0 24 24">
-            <line stroke="#999" x1="18" y1="6" x2="6" y2="18" />
-            <line stroke="#999" x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </span>
-      </div>
-      <div
-        v-if="(pending === true && i === files.length - 1) || pending === file"
-        class="file pending"
-      >
-        <input
-          v-model="pendingFilename"
-          spellcheck="false"
-          @blur="doneNameFile"
-          @keyup.enter="doneNameFile"
-          @keyup.esc="cancelNameFile"
-          @vue:mounted="focus"
-        >
-      </div>
-    </template>
-    <!-- <button class="add" @click="startAddFile">
+	<div
+		ref="fileSel"
+		class="file-selector"
+		:class="{ 'has-import-map': showImportMap }"
+		@wheel="horizontalScroll"
+	>
+		<template v-for="(file, i) in files">
+			<div
+				v-if="pending !== file"
+				class="file !outline-none !border-none"
+				:class="{ active: store.state.activeFile.filename === file }"
+				@click="store.setActive(file)"
+				@dblclick="i > 0 && editFileName(file)"
+			>
+				<span class="label">{{ stripSrcPrefix(file) }}</span>
+				<span v-if="i > 0" class="remove" @click.stop="store.deleteFile(file)">
+					<svg class="icon" width="12" height="12" viewBox="0 0 24 24">
+						<line stroke="#999" x1="18" y1="6" x2="6" y2="18" />
+						<line stroke="#999" x1="6" y1="6" x2="18" y2="18" />
+					</svg>
+				</span>
+			</div>
+			<div
+				v-if="(pending === true && i === files.length - 1) || pending === file"
+				class="file pending"
+			>
+				<input
+					v-model="pendingFilename"
+					spellcheck="false"
+					@blur="doneNameFile"
+					@keyup.enter="doneNameFile"
+					@keyup.esc="cancelNameFile"
+					@vue:mounted="focus"
+				>
+			</div>
+		</template>
+		<!-- <button class="add" @click="startAddFile">
 +
 </button> -->
 
-    <div class="import-map-wrapper">
-      <div
-        v-if="showTsConfig"
-        class="file"
-        :class="{ active: store.state.activeFile.filename === tsconfigFile }"
-        @click="store.setActive(tsconfigFile)"
-      >
-        <span class="label">tsconfig.json</span>
-      </div>
-      <div
-        v-if="showImportMap"
-        class="file"
-        :class="{ active: store.state.activeFile.filename === importMapFile }"
-        @click="store.setActive(importMapFile)"
-      >
-        <span class="label">Import Map</span>
-      </div>
-    </div>
-  </div>
+		<div class="import-map-wrapper">
+			<div
+				v-if="showTsConfig"
+				class="file"
+				:class="{ active: store.state.activeFile.filename === tsconfigFile }"
+				@click="store.setActive(tsconfigFile)"
+			>
+				<span class="label">tsconfig.json</span>
+			</div>
+			<div
+				v-if="showImportMap"
+				class="file"
+				:class="{ active: store.state.activeFile.filename === importMapFile }"
+				@click="store.setActive(importMapFile)"
+			>
+				<span class="label">Import Map</span>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup lang="ts">

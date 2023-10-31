@@ -1,18 +1,18 @@
 <template>
-  <div class="vue-repl">
-    <SplitPane :layout="layout">
-      <template #left>
-        <EditorContainer />
-      </template>
-      <template #right>
-        <Output
-          ref="outputRef"
-          :show-compile-output="props.showCompileOutput"
-          :ssr="!!props.ssr"
-        />
-      </template>
-    </SplitPane>
-  </div>
+	<div class="vue-repl">
+		<SplitPane :layout="layout">
+			<template #left>
+				<EditorContainer />
+			</template>
+			<template #right>
+				<Output
+					ref="outputRef"
+					:show-compile-output="props.showCompileOutput"
+					:ssr="!!props.ssr"
+				/>
+			</template>
+		</SplitPane>
+	</div>
 </template>
 
 <script setup lang="ts">

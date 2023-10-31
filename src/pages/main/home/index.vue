@@ -1,11 +1,11 @@
 <template>
-  <main class="p-4">
-    <h1 class="capitalize mb-6 font-bold text-2xl ">
-      welcome back, {{ username }}
-    </h1>
+	<main class="p-4">
+		<h1 class="capitalize mb-6 font-bold text-2xl ">
+			welcome back, {{ username }}
+		</h1>
 
-    <DashboardTemplatesTemplateList />
-  </main>
+		<DashboardTemplatesTemplateList />
+	</main>
 </template>
 
 <script setup>

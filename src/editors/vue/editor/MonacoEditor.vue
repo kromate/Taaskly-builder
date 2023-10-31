@@ -15,11 +15,11 @@ const onChange = (code: string) => {
 </script>
 
 <template>
-  <Monaco
-    :filename="filename"
-    :value="value"
-    :readonly="readonly"
-    :mode="mode"
-    @change="onChange"
-  />
+	<Monaco
+		:filename="filename"
+		:value="value"
+		:readonly="readonly"
+		:mode="mode"
+		@change="onChange"
+	/>
 </template>

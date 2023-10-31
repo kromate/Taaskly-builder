@@ -1,5 +1,5 @@
 <template>
-  <div>Domains</div>
+	<div>Domains</div>
 </template>
 
 <script setup>

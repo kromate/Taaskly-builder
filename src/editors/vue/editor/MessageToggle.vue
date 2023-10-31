@@ -3,12 +3,12 @@ const visible = defineModel<boolean>()
 </script>
 
 <template>
-  <div class="wrapper gap-2" @click="visible = !visible" :class="[{ active: modelValue }]">
-    <span>Show Error</span>
-    <div class="toggle">
-      <div class="indicator" />
-    </div>
-  </div>
+	<div class="wrapper gap-2" :class="[{ active: modelValue }]" @click="visible = !visible">
+		<span>Show Error</span>
+		<div class="toggle">
+			<div class="indicator" />
+		</div>
+	</div>
 </template>
 
 <style scoped lang='scss'>

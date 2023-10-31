@@ -1,22 +1,22 @@
 <template>
-    <section class="flex flex-col h-full" v-if="!loading">
-        <header class="flex gap-4 justify-between mb-6">
-            <button class="btn-primary" @click="preview()">
-                Preview
-            </button>
-            <button class="btn-primary" @click="updatePage(siteId, pageId)" :disabled="updatePageLoading">
-                <span v-if="!updatePageLoading">Save Changes</span>
-                <Spinner v-else />
-            </button>
-        </header>
+	<section v-if="!loading" class="flex flex-col h-full">
+		<header class="flex gap-4 justify-between mb-6">
+			<button class="btn-primary" @click="preview()">
+				Preview
+			</button>
+			<button class="btn-primary" :disabled="updatePageLoading" @click="updatePage(siteId, pageId)">
+				<span v-if="!updatePageLoading">Save Changes</span>
+				<Spinner v-else />
+			</button>
+		</header>
 
-        <main class=" border-2 w-full h-full flex flex-col">
-            <!-- <DashboardPagesPreview :html="comp.hashed_code.html" :css="comp.hashed_code.css" :js="comp.hashed_code.javascript" v-for="comp in mountedComponent" :key="comp.id" /> -->
-            <iframe :srcdoc="iframe_srcdoc" />
-        </main>
-    </section>
+		<main class=" border-2 w-full h-full flex flex-col">
+			<!-- <DashboardPagesPreview :html="comp.hashed_code.html" :css="comp.hashed_code.css" :js="comp.hashed_code.javascript" v-for="comp in mountedComponent" :key="comp.id" /> -->
+			<iframe :srcdoc="iframe_srcdoc" />
+		</main>
+	</section>
 
-    <Skeleton v-else height="100%" />
+	<Skeleton v-else height="100%" />
 </template>
 
 <script setup lang="ts">

@@ -33,9 +33,9 @@ defineExpose({ reload })
 </script>
 
 <template>
-  <div class="output-container">
-    <Preview ref="previewRef" :show="mode === 'preview'" :ssr="ssr" />
-  </div>
+	<div class="output-container">
+		<Preview ref="previewRef" :show="mode === 'preview'" :ssr="ssr" />
+	</div>
 </template>
 
 <style scoped>

@@ -12,19 +12,19 @@ const emit = defineEmits<(e: 'update:modelValue', tab: string) => void>()
 </script>
 
 <template>
-  <div
-    class="bg-dark"
-  >
-    <a
-      v-for="item in items"
-      :key="item.value"
-      :class="props.modelValue === item.value ? 'code_tab-item-active' : 'code_tab-item'"
-      href="#"
-      @click.prevent="emit('update:modelValue', item.value)"
-    >
-      {{ item.text }}
-    </a>
-  </div>
+	<div
+		class="bg-dark"
+	>
+		<a
+			v-for="item in items"
+			:key="item.value"
+			:class="props.modelValue === item.value ? 'code_tab-item-active' : 'code_tab-item'"
+			href="#"
+			@click.prevent="emit('update:modelValue', item.value)"
+		>
+			{{ item.text }}
+		</a>
+	</div>
 </template>
 
 <style>

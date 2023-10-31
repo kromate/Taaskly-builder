@@ -177,7 +177,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="editor" />
+	<div ref="containerRef" class="editor" />
 </template>
 
 <style>

@@ -1,13 +1,13 @@
 <template>
-  <div class="flex w-full justify-start px-3">
-    <Tabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
-  </div>
+	<div class="flex w-full justify-start px-3">
+		<Tabs :selected="selected" :tabs="tabViews" @changed="updateTab($event)" />
+	</div>
 
-  <div class="mb-12">
-    <keep-alive>
-      <component :is="tabs[selected]" @changed="updateTab($event)" />
-    </keep-alive>
-  </div>
+	<div class="mb-12">
+		<keep-alive>
+			<component :is="tabs[selected]" @changed="updateTab($event)" />
+		</keep-alive>
+	</div>
 </template>
 
 <script setup lang="ts">
