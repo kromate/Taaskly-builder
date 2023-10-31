@@ -1,17 +1,12 @@
 <template>
-    <aside class="flex flex-col py-4 gap-5 border shadow min-w-[250px]">
-        <header class="px-4">
-            <img src="/logo-text.svg" alt="logo" class="h-8">
-        </header>
-
-        <h3 class="font-bold text-gray-500  text-sm   p-1.5 pl-5 ">
-            Your Components
-        </h3>
-
-        <section class="flex flex-col px-5 gap-3" v-if="!loading && component_list.length > 0">
+<section class="flex flex-col px-5 gap-3" v-if="!loading && component_list.length > 0">
             <div class="flex items-center gap-3 bg-gray-100 p-2 rounded " v-for="component in component_list" :key="component.id" @click="mountComponent(component)">
                 <Avatar :name="component.name" :radius="24" :size="24" />
                 <span class="font-semibold">{{ component.name }}</span>
+
+                <div class="flex ml-auto">
+                    <Icon name="righty" class="w-6 cursor-pointer" />
+                </div>
             </div>
         </section>
 
@@ -22,7 +17,6 @@
         <section class="flex flex-col px-5 gap-3" v-else>
             You have no components yet
         </section>
-    </aside>
 </template>
 
 <script setup lang="ts">

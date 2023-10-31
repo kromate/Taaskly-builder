@@ -1,4 +1,5 @@
 import { useStorage } from '@vueuse/core'
+import { useAlert } from '@/composables/core/notification'
 
 // const mountedComponent = useStorage('mountedComponent', [])
 const mountedComponent = ref([] as Record<string, any>)
@@ -8,12 +9,12 @@ export const iframe_content = useStorage('iframe_content', '')
 
 export const useMountComponent = () => {
   const mountComponent = (component: any) => {
-    console.log(component)
   const clone_comp = JSON.parse(JSON.stringify(component))
     delete clone_comp.img_obj
     clone_comp.comp_pos = mountedComponent.value.length
     mountedComponent.value.push(clone_comp)
     iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
+    useAlert().openAlert({ type: 'SUCCESS', msg: 'Component added to Board' })
     setTimeout(() => {
         preview(false)
     }, 1000)
@@ -24,7 +25,12 @@ export const useMountComponent = () => {
     iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
   }
 
-  return { mountedComponent, mountComponent, iframe_srcdoc, preview, loadCompArray }
+  const unMountComponent = (comp_pos: number) => {
+    mountedComponent.value.splice(comp_pos, 1)
+    iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
+  }
+
+  return { mountedComponent, mountComponent, iframe_srcdoc, preview, loadCompArray, unMountComponent }
 }
 
 const generateIframeSrcdoc = (array) => {

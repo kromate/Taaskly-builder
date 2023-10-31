@@ -1,4 +1,4 @@
-import { profileData } from 'src/composables/auth'
+import { profileData } from '@/composables/auth'
 import { useUser } from '@/composables/auth/user'
 
 export default function hasNoProfile(route: any) {

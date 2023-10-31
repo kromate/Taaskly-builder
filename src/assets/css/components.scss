@@ -57,11 +57,11 @@
     }
 
     .pc {
-        @apply hidden lg:flex;
+        @apply hidden md:flex;
     }
 
     .mobile {
-        @apply flex lg:hidden;
+        @apply flex md:hidden;
     }
 
     .modal {
