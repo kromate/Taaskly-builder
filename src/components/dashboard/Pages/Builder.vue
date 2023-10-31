@@ -2,7 +2,8 @@
 	<section v-if="!loading" class="flex flex-col h-full">
 		<header class="flex gap-4 justify-between mb-6">
 			<button class="btn-primary" @click="previewClick()">
-				Preview
+				<span v-if="!previewLoading">Preview</span>
+				<Spinner v-else />
 			</button>
 			<button class="btn-primary" :disabled="updatePageLoading" @click="updatePage(siteId, pageId)">
 				<span v-if="!updatePageLoading">Save Changes</span>
