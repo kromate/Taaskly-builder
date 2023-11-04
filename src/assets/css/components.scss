@@ -121,9 +121,9 @@
         @apply border-b;
     }
 
-    .mx-datepicker {
-        @apply !w-full;
-    }
+    // .mx-datepicker {
+    //     @apply !w-full;
+    // }
 
     .menu-btn {
         @apply flex items-center justify-center font-semibold border-2 border-primary text-primary hover:scale-105 duration-200 w-[190px] h-11 px-6 text-base rounded-md;

@@ -17,7 +17,6 @@
 import { useCoreModal } from '@/composables/core/modals'
 import { useCopyToClipboard } from '@/composables/utils/share'
 import Modal from '@/components/core/modal/Modal.vue'
-import share from '@/assets/animations/share.json'
 import { useUser } from '@/composables/auth/user'
 
 const { username } = useUser()
