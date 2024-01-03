@@ -2,8 +2,7 @@ import { serverTimestamp } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 import { setFirestoreSubDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
-import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
-import { useUser, isLoggedIn } from '@/composables/auth/user'
+import { useBuilderModal } from '@/composables/core/modals'
 
 const createComponentForm = {
   name: ref(''),
@@ -11,8 +10,6 @@ const createComponentForm = {
   created_at: ref(serverTimestamp()),
   updated_at: ref(serverTimestamp())
 }
-
-const { id: user_id, username, user } = useUser()
 
 const resetForm = () => {
   createComponentForm.name.value = ''
@@ -24,21 +21,15 @@ const resetForm = () => {
 export const useCreateComponent = () => {
   const loading = ref(false)
   const create = async (siteId:string) => {
-    if (!isLoggedIn.value) return useAuthModal().openLoginAlert()
     const component_id = uuidv4()
     const sentData = {
       id: component_id,
-      user_id: user_id.value,
+
       site_id: siteId,
       name: createComponentForm.name.value,
       desc: createComponentForm.desc.value,
       created_at: createComponentForm.created_at.value,
       updated_at: createComponentForm.updated_at.value
-    }
-
-    if (!user_id.value) {
-      useAlert().openAlert({ type: 'ERROR', msg: 'UserId is missing' })
-      return
     }
 
     try {

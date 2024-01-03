@@ -79,7 +79,7 @@
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useVerification } from '@/composables/auth/verification'
-import { toBase64 } from '@/composables/utils/index'
+
 const { verify, verificationFormState, loading, percentage, uploadFile } = useVerification()
 
 const name = ref('Choose a File')

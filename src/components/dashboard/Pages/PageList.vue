@@ -28,6 +28,7 @@ import { useFetchSitePages } from '@/composables/sites/pages/fetch'
 
 const { fetch, loading, page_list } = useFetchSitePages()
 const site_id = useRoute().params.id as string
+
 fetch(site_id)
 </script>
 

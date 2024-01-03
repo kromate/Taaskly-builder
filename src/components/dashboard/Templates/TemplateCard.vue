@@ -7,13 +7,22 @@
 			<span>{{ data.desc }}</span>
 		</div>
 
-		<nuxt-link :to="`/sites/${data.id}`" class="modal-btn">
+		<button class="modal-btn" @click="viewSite(data.id)">
 			Explore
-		</nuxt-link>
+		</button>
 	</article>
 </template>
 
 <script setup lang='ts'>
+
+import { useFetchSitePages } from '@/composables/sites/pages/fetch'
+
+const { fetch } = useFetchSitePages()
+
+const viewSite = (id) => {
+	fetch(id)
+	useRouter().push(`/sites/${id}`)
+}
 
 defineProps({
   data: {

@@ -38,6 +38,11 @@ export default {
 	],
 	modules: ['@nuxtjs/tailwindcss'],
 
+	build: {
+		postcss: {
+			postcssOptions: require('./postcss.config.js')
+		}
+	},
 	dir: {
 		layouts: './src/layouts',
 		pages: './src/pages',

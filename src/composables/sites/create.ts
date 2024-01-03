@@ -1,11 +1,8 @@
 import { serverTimestamp } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
-import { useStorage } from '@vueuse/core'
 import { setFirestoreDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
-import { useBuilderModal, useAuthModal } from '@/composables/core/modals'
-import { useUser, isLoggedIn } from '@/composables/auth/user'
-import { profileData } from '@/composables/auth/profile/create'
+import { useBuilderModal } from '@/composables/core/modals'
 
 const createSiteForm = {
   name: ref(''),
@@ -14,8 +11,6 @@ const createSiteForm = {
   created_at: ref(serverTimestamp()),
   updated_at: ref(serverTimestamp())
 }
-
-const { id: user_id, username, user } = useUser()
 
 const resetForm = () => {
   createSiteForm.name.value = ''
@@ -27,26 +22,14 @@ const resetForm = () => {
 export const useCreateSite = () => {
   const loading = ref(false)
   const create = async () => {
-    if (!isLoggedIn.value) return useAuthModal().openLoginAlert()
     const site_id = uuidv4()
     const sentData = {
       id: site_id,
       framework: createSiteForm.framework.value,
-      user_id: user_id.value,
       name: createSiteForm.name.value,
       desc: createSiteForm.desc.value,
       created_at: createSiteForm.created_at.value,
-      updated_at: createSiteForm.updated_at.value,
-      user: {
-        id: user_id.value,
-        username: username.value,
-        email: user?.email || profileData.value.email,
-        phone: profileData.value.phone || ''
-      }
-    }
-    if (!user_id.value) {
-      useAlert().openAlert({ type: 'ERROR', msg: 'UserId is missing' })
-      return
+      updated_at: createSiteForm.updated_at.value
     }
 
     try {

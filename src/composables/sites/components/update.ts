@@ -28,7 +28,7 @@ export const useUpdateComponent = () => {
         // console.log(canvas, height, width)
         const dataURL = canvas.toDataURL('image/png')
         const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
-
+        console.log(editorValue.value)
         const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.javascript, generateHash())
 
         console.log(hashedCode)

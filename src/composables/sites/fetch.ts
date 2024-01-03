@@ -1,10 +1,7 @@
-import { getFirestoreCollectionWithWhereQuery } from '@/firebase/firestore'
+import { getFirestoreCollection } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
-import { useUser, isLoggedIn } from '@/composables/auth/user'
 
 const site_list = ref([] as any)
-
-const { id: user_id } = useUser()
 
 export const useFetchUserSites = () => {
     const loading = ref(false)
@@ -12,7 +9,7 @@ export const useFetchUserSites = () => {
 		if (site_list.value.length > 0) return
 		loading.value = true
 		try {
-            await getFirestoreCollectionWithWhereQuery('sites', site_list, { name: 'user_id', operator: '==', value: user_id.value })
+            await getFirestoreCollection('sites', site_list)
 			loading.value = false
 		} catch (e: any) {
 			loading.value = false

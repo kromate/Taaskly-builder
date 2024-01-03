@@ -1,8 +1,12 @@
 <template>
-	<main class="p-4">
-		<h1 class="capitalize mb-6 font-bold text-2xl ">
-			welcome back, {{ username }}
+	<main class="p-4 flex flex-col gap-4">
+		<h1 class="capitalize font-bold text-2xl ">
+			Hello World.
 		</h1>
+
+		<p class="mb-5">
+			To be hinest, this is an experimental project on the concept of website builders
+		</p>
 
 		<DashboardTemplatesTemplateList />
 	</main>

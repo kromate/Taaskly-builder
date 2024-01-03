@@ -46,7 +46,7 @@ const generateIframeSrcdoc = (array) => {
   srcdoc += '</head><body>'
 
   array.forEach((item) => { srcdoc += item.hashed_code.html })
-  array.forEach((item) => { srcdoc += `<script>${item.hashed_code.javascript}</script>` })
+  array.forEach((item) => { srcdoc += `<script type="module">${item.hashed_code.javascript}</script>` })
 
   srcdoc += '</body></html>'
 

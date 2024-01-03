@@ -1,6 +1,7 @@
 <template>
 	<section v-if="!loading" class="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
 		<DashboardTemplatesTemplateCard v-for="site in site_list" :key="site.id" :data="site" />
+
 		<article class="border border-primary rounded-md w-full h-[200px] shadow-xl  p-4 flex flex-col justify-between relative">
 			<div class="flex flex-col gap-1">
 				<h3 class="font-bold text-xl md:pr-6 pr-12">

@@ -1,7 +1,6 @@
 import { editorValue } from './editor'
 import { getSingleFirestoreSubDocument } from '@/firebase/firestore'
 import { useAlert } from '@/composables/core/notification'
-import { ReplStore } from '@/editors/vue/store'
 
 const loading = ref(false)
 const componentData = ref({} as Record<string, any>)

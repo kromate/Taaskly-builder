@@ -24,7 +24,7 @@ const { copyData } = useCopyToClipboard()
 
 const copyUrl = () => {
 	copyData({ info: `${location.host}/auth/register/?refer=${username.value}`, msg: 'referral link copied to clipboard' })
-	useCoreModal().closeReferral()
+	// useCoreModal().closeReferral()
 }
 
 </script>
