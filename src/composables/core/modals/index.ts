@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { useModal } from '../modal'
 import Logout from '@/components/modals/logout.vue'
 import CreateSite from '@/components/modals/CreateSite.vue'
+import UpdateHash from '@/components/modals/UpdateHash.vue'
 import CreateComponent from '@/components/modals/CreateComponent.vue'
 import CreatePage from '@/components/modals/CreatePage.vue'
 import LoginAlert from '@/components/modals/loginAlert.vue'
@@ -12,13 +13,13 @@ import SocialShare from '@/components/modals/core/SocialShare.vue'
 
 type AuthTypes = 'Logout' | 'DefaultVerification' | 'LoginAlert'
 type SidebarTypes = 'MobileSidebar'
-type BuilderTypes = 'CreateSite' | 'CreateComponent' | 'CreatePage'
+type BuilderTypes = 'CreateSite' | 'CreateComponent' | 'CreatePage' | 'UpdateHash'
 type CoreTypes = 'Confirmation' | 'SocialShare'
 
 const AuthModals = { Logout, DefaultVerification, LoginAlert } as Record<AuthTypes, any>
 const SidebarModals = { MobileSidebar } as Record<SidebarTypes, any>
 const CoreModals = { Confirmation, SocialShare } as Record<CoreTypes, any>
-const BuilderModals = { CreateSite, CreateComponent, CreatePage } as Record<BuilderTypes, any>
+const BuilderModals = { CreateSite, CreateComponent, CreatePage, UpdateHash } as Record<BuilderTypes, any>
 
 export const modal = useModal(ref([] as any))
 const authModal = modal.register('Auth', AuthModals)

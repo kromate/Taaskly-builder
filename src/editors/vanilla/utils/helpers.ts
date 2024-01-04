@@ -8,7 +8,7 @@ export const generateHTML = (
         <head>
             <style id="_style">${payload.css}</style>
             <script type="module" id="_script">
-                ${payload.javascript}
+                ${payload.js}
 
                 window.addEventListener('message', function(event) {
                     console.log(event)
@@ -39,7 +39,7 @@ class="p-4 bg-[#4f1ded] text-white rounded-lg shadow-xl border-2 cursor-pointer"
 </div>
 </main>
 `,
-  javascript:
+  js:
     `    const card = document.getElementById('card');
     function changeCardColor() {
       const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);

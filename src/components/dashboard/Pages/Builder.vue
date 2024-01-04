@@ -12,7 +12,7 @@
 		</header>
 
 		<main class=" border-2 w-full h-full flex flex-col">
-			<!-- <DashboardPagesPreview :html="comp.hashed_code.html" :css="comp.hashed_code.css" :js="comp.hashed_code.javascript" v-for="comp in mountedComponent" :key="comp.id" /> -->
+			<!-- <DashboardPagesPreview :html="comp.hashed_code.html" :css="comp.hashed_code.css" :js="comp.hashed_code.js" v-for="comp in mountedComponent" :key="comp.id" /> -->
 			<iframe :srcdoc="iframe_srcdoc" />
 		</main>
 	</section>

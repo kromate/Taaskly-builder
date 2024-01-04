@@ -5,7 +5,7 @@
 		</h1>
 
 		<p class="mb-5">
-			To be hinest, this is an experimental project on the concept of website builders
+			To be honest, this is an experimental project on the concept of website builders
 		</p>
 
 		<DashboardTemplatesTemplateList />

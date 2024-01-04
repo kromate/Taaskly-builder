@@ -32,7 +32,7 @@ import { generateHTML, useDarkGlobal } from './utils/helpers'
 import { StorageName } from './utils/types'
 import MonacoEditor from './MonacoEditor.vue'
 import Tabs from './Tabs.vue'
-import { generateHash, hashedHTML_CSS_JS } from '@/composables/utils/index'
+import { generateTestIframeSrcdoc, listenToTestIframeMessages } from './utils/test'
 
 const iframe = ref<HTMLIFrameElement>()
 const iframe_test = ref<HTMLIFrameElement>()
@@ -56,11 +56,12 @@ watch(isDark, (value) => {
 
 const onChange = (payload: Record<string, any>) => {
   iframe.value!.srcdoc = generateHTML(payload, isDark.value)
-  iframe_test.value!.srcdoc = generateHTML(payload, isDark.value)
+  iframe_test.value!.srcdoc = generateTestIframeSrcdoc(payload)
 }
 
 onMounted(() => {
-  Split(['#split-0', '#taaskly_iframe', '#taaskly_iframe_test'])
+	Split(['#split-0', '#taaskly_iframe', '#taaskly_iframe_test'])
+  listenToTestIframeMessages()
 })
 
 </script>

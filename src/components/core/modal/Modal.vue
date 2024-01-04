@@ -8,7 +8,7 @@
 		@click.self="autoClose ? close($el) : null"
 	>
 		<transition name="modal" appear>
-			<div v-if="type == 'popup'" :class="[isFullHeight? 'isFullHeight':'isNotFullHeight','modal']">
+			<div v-if="type == 'popup'" :class="[isFullHeight? 'isFullHeight':'isNotFullHeight','modal']" :style="`width:${customWidth}`">
 				<header class="modal-title flex justify-between w-full items-center">
 					<span :class="[noClose?'text-center w-full':'text-start']">{{ title }}</span>
 					<icon
@@ -38,8 +38,14 @@ import { modal as Modal } from '@/composables/core/modals'
 watch(useRoute(), (from, to) => {
 	closeModal()
 })
+
 type modalTypes = 'popup' | 'sidebar';
 const props = defineProps({
+	customWidth: {
+		default: '470px',
+		type: String,
+		required: false
+	},
 	noClose: {
 		default: false,
 		type: Boolean,
