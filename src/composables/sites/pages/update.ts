@@ -17,7 +17,6 @@ export const useUpdatePage = () => {
         // canvas.width = width.value
         // canvas.height = height.value
 
-        // console.log(canvas, height, width)
         // const dataURL = canvas.toDataURL('image/png')
         // const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
 

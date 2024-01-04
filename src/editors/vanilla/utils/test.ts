@@ -7,14 +7,12 @@ import { useAlert } from '@/composables/core/notification'
 export const usedHashedHTML_CSS_JS = useStorage('usedHashedHTML_CSS_JS', `${hashedHTML_CSS_JS}`)
 
 export const generateTestIframeSrcdoc = (component) => {
-  console.log(usedHashedHTML_CSS_JS.value)
   const hash1 = generateHash()
   const hash2 = generateHash()
   let hashedFunction
   try {
     // eslint-disable-next-line no-new-func
     hashedFunction = new Function('return ' + usedHashedHTML_CSS_JS.value)()
-    console.log(hashedFunction)
   } catch (error) {
     console.error('Error creating function from string:', error)
     throw new Error('Failed to create hashed function from stored string.')
@@ -51,8 +49,10 @@ export const generateTestIframeSrcdoc = (component) => {
 export const listenToTestIframeMessages = () => {
   window.addEventListener('message', (event) => {
     if (event.data.action === 'test_iframe_error') {
+        useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Error:- ${event.data.error}` })
       console.error('Test Iframe Error:', event.data.error)
     } else if (event.data.action === 'test_iframe_unhandledrejection') {
+      useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Unhandled Rejection:- ${event.data.reason}` })
       console.error('Test Iframe Unhandled Rejection:', event.data.reason)
     }
   })

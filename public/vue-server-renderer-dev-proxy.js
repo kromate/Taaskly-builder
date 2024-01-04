@@ -7672,7 +7672,6 @@ function pipeToWebWritable(input, context = {}, writable) {
       }
     },
     destroy(err) {
-      console.log(err)
       writer.close()
     }
   })

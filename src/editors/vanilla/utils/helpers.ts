@@ -11,7 +11,6 @@ export const generateHTML = (
                 ${payload.js}
 
                 window.addEventListener('message', function(event) {
-                    console.log(event)
                     if (event.data === 'theme-dark') {
                         document.documentElement.classList.add('dark')
                     } else if (event.data === 'theme-light') {

@@ -25,13 +25,10 @@ export const useUpdateComponent = () => {
         // canvas.width = width.value
         // canvas.height = height.value
 
-        // console.log(canvas, height, width)
         const dataURL = canvas.toDataURL('image/png')
         const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
-        console.log(editorValue.value)
-        const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.js, generateHash())
 
-        console.log(hashedCode)
+        const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.js, generateHash())
 
         const data = {
             img_obj: {
