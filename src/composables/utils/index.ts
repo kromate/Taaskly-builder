@@ -106,9 +106,9 @@ export const hashedHTML_CSS_JS = (html, css, js, hash) => {
   })
 
     return {
-      newHtml: htmlWithNamespaces,
-      newCss: cssWithNamespaces,
-      newJs
+      html: htmlWithNamespaces,
+      css: cssWithNamespaces,
+      js: newJs
     }
   }
 

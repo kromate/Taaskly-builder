@@ -12,6 +12,13 @@
 				sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms allow-top-navigation-by-user-activation allow-pointer-lock allow-downloads"
 				frameBorder="0"
 			/>
+			<iframe
+				id="taaskly_iframe_test"
+				ref="iframe_test"
+				class="h-full w-full"
+				sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms allow-top-navigation-by-user-activation allow-pointer-lock allow-downloads"
+				frameBorder="0"
+			/>
 		</div>
 	</main>
 </template>
@@ -25,8 +32,10 @@ import { generateHTML, useDarkGlobal } from './utils/helpers'
 import { StorageName } from './utils/types'
 import MonacoEditor from './MonacoEditor.vue'
 import Tabs from './Tabs.vue'
+import { generateHash, hashedHTML_CSS_JS } from '@/composables/utils/index'
 
 const iframe = ref<HTMLIFrameElement>()
+const iframe_test = ref<HTMLIFrameElement>()
 
 const items = ref([
   { text: 'HTML', value: 'html' },
@@ -47,11 +56,13 @@ watch(isDark, (value) => {
 
 const onChange = (payload: Record<string, any>) => {
   iframe.value!.srcdoc = generateHTML(payload, isDark.value)
+  iframe_test.value!.srcdoc = generateHTML(payload, isDark.value)
 }
 
 onMounted(() => {
-  Split(['#split-0', 'iframe'])
+  Split(['#split-0', '#taaskly_iframe', '#taaskly_iframe_test'])
 })
+
 </script>
 
 <style>

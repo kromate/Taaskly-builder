@@ -40,9 +40,9 @@ export const useUpdateComponent = () => {
                 height: height.value
             },
             hashed_code: {
-                html: hashedCode.newHtml,
-                css: hashedCode.newCss,
-                javascript: hashedCode.newJs
+                html: hashedCode.html,
+                css: hashedCode.css,
+                javascript: hashedCode.js
             },
             code: editorValue.value
         }
