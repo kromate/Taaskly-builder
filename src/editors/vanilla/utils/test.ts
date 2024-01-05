@@ -49,10 +49,10 @@ export const generateTestIframeSrcdoc = (component) => {
 export const listenToTestIframeMessages = () => {
   window.addEventListener('message', (event) => {
     if (event.data.action === 'test_iframe_error') {
-        useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Error:- ${event.data.error}` })
+        useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Error:- ${event.data.error.message}` })
       console.error('Test Iframe Error:', event.data.error)
     } else if (event.data.action === 'test_iframe_unhandledrejection') {
-      useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Unhandled Rejection:- ${event.data.reason}` })
+      // useAlert().openAlert({ type: 'ERROR', msg: `Test Iframe Unhandled Rejection:- ${event.data.reason.message}` })
       console.error('Test Iframe Unhandled Rejection:', event.data.reason)
     }
   })
