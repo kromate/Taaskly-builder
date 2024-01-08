@@ -16,8 +16,7 @@
 import { useUser } from '@/composables/auth'
 
 definePageMeta({
-  layout: 'dashboard',
-  middleware: ['has-no-profile', 'is-authenticated']
+  layout: 'dashboard'
 })
 const { username } = useUser()
 </script>
