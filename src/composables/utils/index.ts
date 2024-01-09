@@ -11,40 +11,90 @@ export const generateHash = (): string => {
   return hash
 }
 
-export const hashedHTML_CSS_JS = (html, css, javascript, hash) => {
-  // Function to replace IDs and classes in the HTML and CSS with namespaced versions
-  function namespaceCode(code, hash) {
-    const replaceID = (id) => `${id.trim()}_${hash}`
-    const replaceClass = (classAttr) => classAttr.replace(/\.(?!.*_)/g, `.${hash}_`)
+type OptionalString = string | null;
 
-    const htmlWithNamespaces = code.html.replace(/id="([^"]+)"/g, (match, id) => `id="${replaceID(id)}"`)
-    const cssWithNamespaces = code.css.replace(/#([^,{}]+)/g, (match, id) => `#${replaceID(id)}`)
-    const jsVarFuncRegex = /(var|const|let)\s+([a-zA-Z_$][0-9a-zA-Z_$]*)/g
+const getHashedId = (id: string, hash: string): string => `${id.trim()}_${hash}`
 
-    const names = [] as string[]
-    console.log(code)
-    let newJs = code.javascript
-
-        newJs = newJs.replace(/#([^,{}]+)/g, (match, id) => `#${replaceID(id)}`)
-      .replace(/(\W)document\.getElementById\(['"]([^'"]+)['"]\)/g, `$1document.getElementById('${replaceID('$2')}')`)
-          .replace(/(\W)document\.querySelector\(['"]#([^'"]+)['"]\)/g, `$1document.querySelector('#${replaceID('$2')}')`)
-
-    newJs.replace(jsVarFuncRegex, (match, declarationType, name) => {
-      names.push(name)
-    })
-
-    for (const name of names) {
-      const regex = new RegExp(`\\b${name}\\b`, 'g')
-      if (!name.includes(hash)) {
-        newJs = newJs.replace(regex, `${name}_${hash}`)
+const replaceHTMLIds = (htmlCode: OptionalString, hash: string): string => {
+  // @ts-ignore
+  return htmlCode.replace(
+    /id="([^"']+)"|id='([^"']+)'/g,
+    (match: string, id: string): string => {
+      if (match.includes('\'')) {
+        return match.replace(/'(.*?)'/, (match, id) => {
+          return `"${getHashedId(id.trim(), hash)}"`
+        })
+      } else if (match.includes('"')) {
+        return match.replace(/"(.*?)"/, (match, id) => {
+          return `"${getHashedId(id.trim(), hash)}"`
+        })
+      } else {
+        return id.trim()
       }
     }
+  )
+}
 
-      const dotVarHashRegex = new RegExp(`(\\.[a-zA-Z_$][0-9a-zA-Z_$]*)_${hash}`, 'g')
+export const replaceCSSIds = (cssCode: OptionalString, hash: string) => {
+  // @ts-ignore
+  return cssCode.replace(/#([^,{}]+)/g, (match, id) => {
+    const splitId = id.split(';')
+
+    if (splitId[0].match(/^([0-9a-f]{3}|[0-9a-f]{6})$/i)) {
+      return `#${id}`
+    }
+
+    return `#${getHashedId(id, hash)}`
+  })
+}
+
+export const replaceJSIds = (jsCode: string, hash: string) => {
+  const jsVarFuncRegex = /(var|const|let)\s+([a-zA-Z_$][0-9a-zA-Z_$]*)/g
+
+  const names = [] as string[]
+  let newJs = jsCode
+
+  newJs = newJs
+    .replace(/#([a-zA-Z0-9_]+)/g, (match, id) => {
+      return `#${getHashedId(id, hash)}`
+    })
+    .replace(
+      /(\W)document\.getElementById\(['"]([^'"]+)['"]\)/g,
+      `$1document.getElementById('${getHashedId('$2', hash)}')`
+    )
+    .replace(
+      /(\W)document\.querySelector\(['"]#([^'"]+)['"]\)/g,
+      `$1document.querySelector('#${getHashedId('$2', hash)}')`
+    )
+
+  // @ts-ignore
+  newJs.replace(jsVarFuncRegex, (match, declarationType, name) => {
+    names.push(name)
+  })
+
+  for (const name of names) {
+    const regex = new RegExp(`\\b${name}\\b`, 'g')
+    if (!name.includes(hash)) {
+      newJs = newJs.replace(regex, `${name}_${hash}`)
+    }
+  }
+
+  const dotVarHashRegex = new RegExp(
+    `(\\.[a-zA-Z_$][0-9a-zA-Z_$]*)_${hash}`,
+    'g'
+  )
 
   newJs = newJs.replace(dotVarHashRegex, (match, nameWithDot) => {
-    return nameWithDot // remove the _hash part from instances like  "element.style.transform" that get
+    return nameWithDot
   })
+
+  return newJs
+}
+
+export const hashedHTML_CSS_JS = (html: OptionalString, css: OptionalString, js: string, hash: string) => {
+    const htmlWithNamespaces = replaceHTMLIds(html, hash)
+    const cssWithNamespaces = replaceCSSIds(css, hash)
+    const newJs = replaceJSIds(js, hash)
 
     return {
       html: htmlWithNamespaces,
@@ -52,6 +102,3 @@ export const hashedHTML_CSS_JS = (html, css, javascript, hash) => {
       javascript: newJs
     }
   }
-
-  return namespaceCode({ html, css, javascript }, hash)
-}

@@ -4,7 +4,7 @@ import { generateHash, hashedHTML_CSS_JS } from '@/composables/utils/index'
 import { useAlert } from '@/composables/core/notification'
 
 // Assuming import statements are already present
-export const usedHashedHTML_CSS_JS = useStorage('usedHashedHTML_CSS_JS', `${hashedHTML_CSS_JS}`)
+export const usedHashedHTML_CSS_JS = ref(`${hashedHTML_CSS_JS}`)
 
 export const generateTestIframeSrcdoc = (component) => {
   const hash1 = generateHash()
