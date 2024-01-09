@@ -28,21 +28,23 @@ export const useUpdateComponent = () => {
         const dataURL = canvas.toDataURL('image/png')
         const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
 
-        const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.js, generateHash())
+        const hashedCode = hashedHTML_CSS_JS(editorValue.value.html, editorValue.value.css, editorValue.value.javascript, generateHash())
 
         const data = {
-            img_obj: {
-                url,
-                width: width.value,
-                height: height.value
-            },
+            // img_obj: {
+            //     url,
+            //     width: width.value,
+            //     height: height.value
+            // },
             hashed_code: {
                 html: hashedCode.html,
                 css: hashedCode.css,
-                javascript: hashedCode.js
+                javascript: hashedCode.javascript
             },
             code: editorValue.value
         }
+
+        console.log(data)
         try {
             await updateFirestoreSubDocument('sites', siteId, 'components', compId, data)
             useAlert().openAlert({ type: 'Alert', msg: 'saved' })

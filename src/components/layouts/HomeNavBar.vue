@@ -16,7 +16,7 @@
 				</span>
 			</div> -->
 
-			<div v-if="!isLoggedIn" class=" items-center justify-between gap-3 pc">
+			<div v-if="false" class=" items-center justify-between gap-3 pc">
 				<nuxt-link to="/auth/login" class="btn">
 					Log In
 				</nuxt-link>
@@ -33,7 +33,7 @@
 			<component :is="show ? close : menu" class="cursor-pointer mobile" @click="toggleMenu" />
 		</header>
 		<transition v-if="show" name="slide" appear>
-			<div v-if="!isLoggedIn" class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden">
+			<div v-if="false" class="flex flex-col  absolute border-2 border-dark rounded top-20 py-7  w-11/12  px-7 bg-white md:hidden">
 				<nuxt-link to="/auth/login" class="btn-secondary mb-4 w-full">
 					Log In
 				</nuxt-link>

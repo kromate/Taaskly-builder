@@ -11,7 +11,7 @@ export const generateHash = (): string => {
   return hash
 }
 
-export const hashedHTML_CSS_JS = (html, css, js, hash) => {
+export const hashedHTML_CSS_JS = (html, css, javascript, hash) => {
   // Function to replace IDs and classes in the HTML and CSS with namespaced versions
   function namespaceCode(code, hash) {
     const replaceID = (id) => `${id.trim()}_${hash}`
@@ -22,7 +22,8 @@ export const hashedHTML_CSS_JS = (html, css, js, hash) => {
     const jsVarFuncRegex = /(var|const|let)\s+([a-zA-Z_$][0-9a-zA-Z_$]*)/g
 
     const names = [] as string[]
-    let newJs = code.js
+    console.log(code)
+    let newJs = code.javascript
 
         newJs = newJs.replace(/#([^,{}]+)/g, (match, id) => `#${replaceID(id)}`)
       .replace(/(\W)document\.getElementById\(['"]([^'"]+)['"]\)/g, `$1document.getElementById('${replaceID('$2')}')`)
@@ -48,9 +49,9 @@ export const hashedHTML_CSS_JS = (html, css, js, hash) => {
     return {
       html: htmlWithNamespaces,
       css: cssWithNamespaces,
-      js: newJs
+      javascript: newJs
     }
   }
 
-  return namespaceCode({ html, css, js }, hash)
+  return namespaceCode({ html, css, javascript }, hash)
 }

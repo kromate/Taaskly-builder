@@ -18,8 +18,8 @@ export const generateTestIframeSrcdoc = (component) => {
     throw new Error('Failed to create hashed function from stored string.')
   }
 
-  const hashedComponent1 = hashedFunction(component.html, component.css, component.js, hash1)
-  const hashedComponent2 = hashedFunction(component.html, component.css, component.js, hash2)
+  const hashedComponent1 = hashedFunction(component.html, component.css, component.javascript, hash1)
+  const hashedComponent2 = hashedFunction(component.html, component.css, component.javascript, hash2)
 
   const errorHandlingScript = `
     <script>
@@ -39,8 +39,8 @@ export const generateTestIframeSrcdoc = (component) => {
    </head><body>
    ${hashedComponent1.html}
    ${hashedComponent2.html}
-   <script type="module">${hashedComponent1.js}</script>
-   <script type="module">${hashedComponent2.js}</script>
+   <script type="module">${hashedComponent1.javascript}</script>
+   <script type="module">${hashedComponent2.javascript}</script>
    </body></html>`
 
   return srcdoc
