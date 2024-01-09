@@ -1,62 +1,52 @@
 <template>
-	<div ref="contentContainer" />
+	<div />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
 import { iframe_content } from '@/composables/sites/pages/builder'
 import { useFetchPagenentById } from '@/composables/sites/pages/id'
 
-const contentContainer = ref(null)
 const { fetchPageById, loading } = useFetchPagenentById()
-const route = useRoute()
 
-const siteId = route.params.id
-const pageId = route.params.pid
+const siteId = useRoute().params.id as string
+const pageId = useRoute().params.pid as string
 
 onMounted(async () => {
-    if (typeof siteId !== 'string' || typeof pageId !== 'string') {
-        console.error('Invalid site or page ID')
-        return
-    }
+    await fetchPageById(siteId, pageId)
+    const htmlElement = document.querySelector('html')
 
-    try {
-        await fetchPageById(siteId, pageId)
-        insertContent()
-    } catch (error) {
-        console.error('Error fetching page', error)
-    }
-})
+    if (htmlElement) {
+            htmlElement.innerHTML = iframe_content.value
 
-const insertContent = () => {
-    if (contentContainer.value) {
-        contentContainer.value.innerHTML = iframe_content.value
-
-        const scripts = contentContainer.value.querySelectorAll('script')
-        scripts.forEach((script) => {
-            executeScript(script.textContent)
+             const scripts = htmlElement.querySelectorAll('script')
+        scripts.forEach((oldScript) => {
+            const newScript = document.createElement('script')
+            Array.from(oldScript.attributes).forEach((attr) => newScript.setAttribute(attr.name, attr.value))
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML))
+            oldScript?.parentNode?.replaceChild(newScript, oldScript)
         })
 
-        addBadge()
+         const badge = document.createElement('div')
+        badge.textContent = 'made in Taaskly'
+        badge.classList.add(
+            'fixed',
+            'bottom-0',
+            'right-0',
+            'mb-4',
+            'mr-4',
+            'py-2', 'px-4',
+            'text-sm',
+            'text-white',
+            'bg-black',
+            'rounded'
+        )
+        htmlElement.appendChild(badge)
     } else {
-        console.error('Content container not found')
+        console.error('Could not find html element')
     }
-}
-
-const executeScript = (scriptText) => {
-    try {
-        // eslint-disable-next-line no-new-func
-        new Function(scriptText).call(window)
-    } catch (error) {
-        console.error('Error executing script', error)
-    }
-}
-
-const addBadge = () => {
-    const badge = document.createElement('div')
-    badge.textContent = 'made in Taaskly'
-    // badge.classList.add('fixed',
-}
-
+})
 </script>
+
+<style scoped>
+
+</style>
