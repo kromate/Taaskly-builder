@@ -17,9 +17,14 @@
 	<section v-else class="flex flex-col px-5 gap-3">
 		You have no components yet
 	</section>
+	<button class="btn-primary mx-auto mt-5" @click="useBuilderModal().openCreateComponent()">
+		<span v-if="true">Create Component</span>
+		<Spinner v-else />
+	</button>
 </template>
 
 <script setup lang="ts">
+import { useBuilderModal } from '@/composables/core/modals'
 import { useFetchSiteComponents } from '@/composables/sites/components/fetch'
 import { useMountComponent } from '@/composables/sites/pages/builder'
 

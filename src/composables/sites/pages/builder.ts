@@ -25,12 +25,32 @@ export const useMountComponent = () => {
     iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
   }
 
-  const unMountComponent = (comp_pos: number) => {
-    mountedComponent.value.splice(comp_pos, 1)
+  const reArrangeCompPosAfterDelete = () => {
+    for (let i = 0; i < mountedComponent.value.length; i++) {
+      const el = mountedComponent.value[i]
+      el.comp_pos = i
+    }
+  }
+
+  const reArrangeCompPosAfterDrag = (obj:Record<string, any>) => {
+    for (let i = 0; i < mountedComponent.value.length; i++) {
+      const el = mountedComponent.value[i]
+      if (el.id === obj.moved.element.id) {
+        el.comp_pos = obj.moved.newIndex
+      } else {
+        el.comp_pos = i
+      }
+    }
     iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
   }
 
-  return { mountedComponent, mountComponent, iframe_srcdoc, preview, loadCompArray, unMountComponent }
+  const unMountComponent = (comp_pos: number) => {
+    mountedComponent.value.splice(comp_pos, 1)
+    reArrangeCompPosAfterDelete()
+    iframe_srcdoc.value = generateIframeSrcdoc(mountedComponent.value)
+  }
+
+  return { mountedComponent, mountComponent, iframe_srcdoc, preview, loadCompArray, unMountComponent, reArrangeCompPosAfterDrag }
 }
 
 const generateIframeSrcdoc = (array) => {
