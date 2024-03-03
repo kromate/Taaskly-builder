@@ -1,10 +1,15 @@
 <template>
 	<section v-if="!loading" class="flex flex-col h-full">
 		<header class="flex gap-4 justify-between mb-6">
-			<button class="btn-primary" @click="previewClick()">
-				<span v-if="!previewLoading">Preview</span>
-				<Spinner v-else />
-			</button>
+			<div class="flex items-center gap-4">
+				<NuxtLink :to="`/sites/${$route.params.id}`" class="btn border border-dark font-medium text-dark">
+					Back Home
+				</NuxtLink>
+				<button class="btn-primary" @click="previewClick()">
+					<span v-if="!previewLoading">Preview</span>
+					<Spinner v-else />
+				</button>
+			</div>
 			<button class="btn-primary" :disabled="updatePageLoading" @click="updatePage(siteId, pageId)">
 				<span v-if="!updatePageLoading">Save Changes</span>
 				<Spinner v-else />
