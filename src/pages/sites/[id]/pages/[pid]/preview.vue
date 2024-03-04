@@ -36,7 +36,6 @@ function setIframeSrc(baseUrl) {
 }
 
 const BASE_URL = location.origin
-console.log(BASE_URL)
 // Example usage
 setIframeSrc(`${BASE_URL}/sites/${siteId}/pages/${pageId}/raw`)
 })
