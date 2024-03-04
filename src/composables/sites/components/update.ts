@@ -41,7 +41,6 @@ export const useUpdateComponent = () => {
             code: editorValue.value
         }
 
-        console.log(data)
         try {
             await updateFirestoreSubDocument('sites', siteId, 'components', compId, data)
             useAlert().openAlert({ type: 'Alert', msg: 'saved' })

@@ -56,8 +56,6 @@ export const useMountComponent = () => {
 const generateIframeSrcdoc = (array) => {
   array.sort((a, b) => a.comp_pos - b.comp_pos)
 
-  console.log(array)
-
   let srcdoc = `<!DOCTYPE html><html><head>
    <script  src="https://cdn.tailwindcss.com"></script>
              <script  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -74,7 +72,6 @@ const generateIframeSrcdoc = (array) => {
 
   srcdoc += '</body></html>'
 
-  console.log(srcdoc)
   return srcdoc
 }
 
